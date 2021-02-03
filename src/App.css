@@ -1,0 +1,40 @@
+*{
+  font-family: Lamoon ;
+}
+.nav-bg{
+  background-color: #00296B;
+}
+.nav-link a{
+  color : #fff;
+  font-size: 20px;
+}
+#btn-nav a{
+  background-color: #fff;
+  color: #00296B;
+  padding: 7.5px;
+  border-radius: 20px;
+}
+#btn-nav a:hover{
+  background-color:#00296B;
+  color: #fff;
+}
+.nav-link a:hover{
+  color : #fff;
+  text-decoration: none;
+}
+.logo-brand img{
+  height : 40px;
+}
+.home{
+  color: #00296B;
+}
+.home .row img {
+  width: 60%;
+  height: 150px;
+}
+.home .row p {
+  font-size: 20px;
+}
+.howto {
+  color: #00296B;
+}
