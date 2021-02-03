@@ -7,7 +7,7 @@ export default function Login() {
                     <h1 className="text-center">Sign in</h1>
                     <form>
                         <div className = "form-group">
-                            <label htmlfor="Inputusername">username</label>
+                            <label htmlfor="Inputusername">test</label>
                             <input type = "text" name = "username" className = "form-control"/>
                         </div>
                         <div>
