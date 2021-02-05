@@ -14,6 +14,11 @@ export class Service {
         if(!e.tel) return 'tel'
         if(!e.birthday) return 'birthday'
         if(!e.address) return 'address'
+        if(!e.province) return 'province'
+        if(!e.district) return 'district'
+        if(!e.tambon) return 'tambon'
+        if(!e.addresscode) return 'addresscode'
+        if(!e.gender) return 'gender'
         return ''
     }
 }

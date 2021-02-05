@@ -37,10 +37,15 @@
 }
 .howto {
   color: #00296B;
+  background-color: #222;
+  border-radius: 20px;
 }
 .login{
   color : #00296B;
 }
 .register{
   color: #00296B
+}
+.hiring {
+  background-color: #fff;
 }
