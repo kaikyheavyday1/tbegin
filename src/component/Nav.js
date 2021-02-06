@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import logo from "../images/Ver2.png"
+import logo from "../images/logo in navbar.png"
 import { Link } from 'react-router-dom'
 import {
   Collapse,

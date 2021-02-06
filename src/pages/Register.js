@@ -16,8 +16,8 @@ let initState = {
     address: null,
     confirmPassword: null,
     province : null,
-    district : null,
-    tambon : null,
+    amphure : null,
+    district: null,
     addresscode : null,
     gender : null
 }
@@ -26,11 +26,12 @@ export default function Register() {
     const [user, setUser] = useState(initState)
     const [error, setError] = useState()
     const [provinces, setProvinces] = useState([]) 
-
+    const [amphures, setAmphures] = useState([])
+    const [district, setDistrict] = useState([])
     const service = new Service()
     
     const fetchProvinces = async() =>{
-        const fetch = await axios.get("http://192.168.1.52:4000/address?type=provinces")
+        const fetch = await axios.get("http://localhost:4000/address?type=provinces")
         const data = await fetch.data
         setProvinces(data)
     } 
@@ -50,12 +51,25 @@ export default function Register() {
         const value = e.target.value
         setUser({ ...user, [id]: value })
         let codeProvince = value.split("&")[0]
-        const fetchAmphure = await axios.get(`http://192.168.1.52:4000/address?type=amphures&code=${codeProvince}`)
+        const fetchAmphure = await axios.get(`http://localhost:4000/address?type=amphures&code=${codeProvince}`)
         const data = await fetchAmphure.data
-        console.log(data)
+        setAmphures(data)
     }
     
-    const handleButtonSubmit = () => {
+    const handleAmpuresChange = async(e) =>{
+        const id = e.target.id
+        const value = e.target.value
+        setUser({...user, [id] : value})
+        setDistrict()
+    }
+
+    const handleDistrictChange = async(e) =>{
+        const id = e.target.id
+        const value = e.target.value
+        setUser({...user, [id] : value})
+    }
+
+    const handleButtonSubmit = async() => {
         if (!user) {
             console.log('เกิดข้อผิดพลาด ไม่มีข้อมูล')
             return
@@ -69,6 +83,10 @@ export default function Register() {
         }
         if (service.checkPassword(user)) {
             console.log(user)
+            //send user in state to /auth/register with post method
+            const fetch = await axios.post("http://localhost:4000/auth/register", user)
+            const data = await fetch.data
+            console.log(data)
             setError('')
             return
         }
@@ -126,20 +144,22 @@ export default function Register() {
                     <select class="form-control" onChange={handleProvinceChange} id = "province">
                         <option value ="">กรุณาใส่จังหวัด</option>
                         {provinces.length > 1 ? provinces.map((province, index) => {
-                            return <option key={index} value={`${province.code}&${province.name_th}`}>{province.name_th}</option>
+                            return <option key={index} value={`${province.id}&${province.name_th}`}>{province.name_th}</option>
                         }) : null}                
                     </select>
                 </div>
                 <div className="form-group">
-                    <select class="form-control" onChange={handleInputChange} id = "district">
+                    <select class="form-control" onChange={handleAmpuresChange} id = "amphure">
                         <option value ="">กรุณาใส่เขตหรืออำเภอ</option>
-                        <option value = "test">test</option>                  
+                        {amphures.length > 1 ? amphures.map((amphure, index) => {
+                            return <option key={index} value={`${amphure.id}&${amphure.name_th}`}>{amphure.name_th}</option>
+                        }) : null}                  
                     </select>
                 </div>
                 <div className="form-group">
-                    <select class="form-control" onChange={handleInputChange} id = "tambon">
+                    <select class="form-control" onChange={handleInputChange} id = "district">
                         <option value ="">กรุณาใส่แขวงหรือตำบล</option>
-                        <option value = "test">test</option>  
+                        <option value = "1">test</option>  
                     </select>
                 </div>
                 <div className="form-group">
