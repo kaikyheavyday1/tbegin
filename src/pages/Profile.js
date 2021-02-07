@@ -18,7 +18,7 @@ export default function Profile() {
                                 </Col>
                                 <Col lg="8">
                                     <div className="pt-3">
-                                        <h4>พงศ์พิพัฒน์ ธวัชชัยดำรงค์</h4>
+                                        <h4>พงศ์พิพัฒน์ ธวัชชัยดำรงค์ kuy</h4>
                                     </div>
                                 </Col>
                             </Row>
