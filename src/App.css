@@ -1,6 +1,9 @@
 *{
   font-family: Lamoon ;
 }
+#root{
+  background-color: #CDD4E2 ;
+}
 .nav-bg{
   background-color: #00296B;
 }
@@ -31,6 +34,19 @@
 .navbar-toggler {
   border: 1px solid rgba(255, 255, 255) !important;
 }
+
+.user-dropdown{
+  background-color: #fff !important;
+  border-radius: 20px !important;
+  padding: 5px !important;
+}
+
+
+
+ /* end nav  */
+
+
+
 .home{
   color: #00296B;
 }
@@ -41,6 +57,8 @@
 .home .row p {
   font-size: 20px;
 }
+ /* end home  */
+
 .howto {
   color: #00296B;
   background-color: #CDD4E2;
@@ -66,6 +84,9 @@
   border-radius: 20px;
   margin-top: 10px;
 }
+
+ /* end howto  */
+
 .login{
   color : #00296B;
 }
@@ -75,4 +96,24 @@
 .logo-center{
   text-align: center;
 }
+.aboutus1{
+  font-size: 50px;
+  font-weight: bold;
+  color: #00296B;
+}
+.aboutus h3{
+  color: #00296B;
+}
+.bgaboutus{
+  background-color: #fff;
+}
+.btn-aboutus .btn-lg{
+  background-color: #00296B;
+  color: #fff;
+  font-weight: bold;
+  font-size: 25px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
 

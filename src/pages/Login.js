@@ -25,6 +25,7 @@ export default function Login() {
         console.log(data)
         e.preventDefault()
         localStorage.setItem('access-token', data);
+        window.location.href = "http://localhost:3000/"
        } 
        
     }
