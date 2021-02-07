@@ -70,7 +70,7 @@ class Header extends Component {
               <img src = {user} alt = "user" height ="35px"/>
             </DropdownToggle>
             <DropdownMenu>
-              <DropdownItem>โปรไฟล์ของฉัน</DropdownItem>
+              <DropdownItem><Link to="/profile">โปรไฟล์ของฉัน</Link></DropdownItem>
               <DropdownItem>ข้อความ</DropdownItem>
               <DropdownItem><a href='' onClick={this.Logout}>ออกจากระบบ</a></DropdownItem>
             </DropdownMenu>

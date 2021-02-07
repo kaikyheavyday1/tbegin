@@ -8,6 +8,8 @@ import Howto from './pages/Howto.js'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Home from './component/Home'
+import Profile from './pages/Profile'
+
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
         <Route path = "/howto" component ={Howto}/>
         <Route path = "/login" component ={Login}/>
         <Route path = "/register" component ={Register}/>
+        <Route path = "/profile" component ={Profile}/>
     </div>
   );
 }
