@@ -1,6 +1,9 @@
 *{
   font-family: Lamoon ;
 }
+#root{
+  background-color: #CDD4E2 ;
+}
 .nav-bg{
   background-color: #00296B;
 }
@@ -93,4 +96,24 @@
 .logo-center{
   text-align: center;
 }
+.aboutus1{
+  font-size: 50px;
+  font-weight: bold;
+  color: #00296B;
+}
+.aboutus h3{
+  color: #00296B;
+}
+.bgaboutus{
+  background-color: #fff;
+}
+.btn-aboutus .btn-lg{
+  background-color: #00296B;
+  color: #fff;
+  font-weight: bold;
+  font-size: 25px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
 
