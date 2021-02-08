@@ -23,12 +23,8 @@ function App() {
         <Route path = "/howto" component ={Howto}/>
         <Route path = "/login" component ={Login}/>
         <Route path = "/register" component ={Register}/>
-<<<<<<< HEAD
-        <Route path = "/profile" component ={Profile}/>
-        <Route path = "/Aboutus" component ={Aboutus}/>
-=======
         <Route path = "/aboutus" component ={Aboutus}/>
->>>>>>> 989e423c00fea17a94e3cff7ef2338930797d04b
+        <Route path = "/profile" component ={Profile}/>
     </div>
   );
 }
