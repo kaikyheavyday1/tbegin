@@ -10,6 +10,7 @@ import Register from './pages/Register'
 import Home from './component/Home'
 import Profile from './pages/Profile'
 import Aboutus from './pages/Aboutus'
+import Registerfreelance from './pages/Registerfreelance'
 
 
 import Footer from './component/Footer'
@@ -26,6 +27,7 @@ function App() {
         <Route path = "/register" component ={Register}/>
         <Route path = "/aboutus" component ={Aboutus}/>
         <Route path = "/profile" component ={Profile}/>
+        <Route path = "/Registerfreelance" component ={Registerfreelance}/>
         <Footer />
     </div>
   );
