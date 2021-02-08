@@ -117,4 +117,34 @@
   border-radius: 10px;
 }
 
+/* end aboutus */
+
+.profile{
+  color : #00296B
+}
+
+.profile-info{
+  background-color: #fff;
+  border-radius: 20px;
+}
+.profile .btn-profile{
+  background-color: #00296B;
+  color: #fff;
+  font-size: 18px;
+  padding: 3px 20px;
+  border-radius: 10px;
+}
+.profile .profile-info .profess{
+  border : 1px solid #00296B;
+  padding: 2px 15px;
+}
+.profile .tester{
+  text-align: -webkit-center;
+}
+.profile .testing{
+  width: 80%;
+}
+
+
+
 
