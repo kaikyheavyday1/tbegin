@@ -147,4 +147,31 @@
 
 
 
+.Footer{
+  background-color: #00296B;
+  color: #fff;
+}
+.Footer h2{
+  font-size: 25px;
+}
+.Footer h3{
+  font-size: 20px;
+}
+.btn-Footer .btn-lg{
+  background-color: #fff;
+  color: #00296B;
+  font-weight: bold;
+  font-size: 25px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+.Footer p{
+  color: #fff;
+}
+.Footer a:hover{
+  text-decoration: none;
+}
+.textfooter p{
+  color: #fff;
+}
 
