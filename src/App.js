@@ -26,8 +26,6 @@ function App() {
         <Route path = "/register" component ={Register}/>
         <Route path = "/aboutus" component ={Aboutus}/>
         <Route path = "/profile" component ={Profile}/>
-       
-        <Route path = "/Aboutus" component ={Aboutus}/>
         <Footer />
     </div>
   );
