@@ -88,6 +88,7 @@
 }
 .bgaboutus{
   background-color: #fff;
+  border-radius: 10px;
 }
 .btn-aboutus .btn-lg{
   background-color: #00296B;

@@ -21,7 +21,7 @@ function App() {
         <Route path = "/howto" component ={Howto}/>
         <Route path = "/login" component ={Login}/>
         <Route path = "/register" component ={Register}/>
-        <Route path = "/Aboutus" component ={Aboutus}/>
+        <Route path = "/aboutus" component ={Aboutus}/>
     </div>
   );
 }
