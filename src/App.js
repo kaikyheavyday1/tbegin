@@ -9,8 +9,8 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Home from './component/Home'
 import Profile from './pages/Profile'
-
 import Aboutus from './pages/Aboutus'
+
 
 function App() {
   return (
@@ -23,8 +23,9 @@ function App() {
         <Route path = "/howto" component ={Howto}/>
         <Route path = "/login" component ={Login}/>
         <Route path = "/register" component ={Register}/>
+        <Route path = "/aboutus" component ={Aboutus}/>
         <Route path = "/profile" component ={Profile}/>
-        <Route path = "/Aboutus" component ={Aboutus}/>
+       
     </div>
   );
 }
