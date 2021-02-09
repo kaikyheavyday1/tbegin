@@ -140,5 +140,32 @@
   text-decoration: none;
 }
 .registerfreelance h2{
-  font-size: 80px;
+  font-size: 50px;
+  font-weight: bold;
+  color: #00296B;
+}
+.registerfreelance h3{
+  color: #00296B;
+}
+.picregisfl1{
+  width: 5%;
+}
+.btn-regisfl{
+  background-color: #00296B;
+  color: #fff;
+  font-weight: bold;
+  font-size: 25px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+.regisfl2{
+  background-color: #00296B;
+  color: #fff;
+  font-weight: bold;
+  font-size: 25px;
+  padding: 20px 200px;
+  border-radius: 10px;
+}
+.registerfreelance p{
+  color: red;
 }
