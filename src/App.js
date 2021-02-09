@@ -10,7 +10,7 @@ import Register from './pages/Register'
 import Home from './component/Home'
 import Profile from './pages/Profile'
 import Aboutus from './pages/Aboutus'
-
+import Editprofile from  './pages/Editprofile'
 
 import Footer from './component/Footer'
 function App() {
@@ -26,6 +26,7 @@ function App() {
         <Route path = "/register" component ={Register}/>
         <Route path = "/aboutus" component ={Aboutus}/>
         <Route path = "/profile" component ={Profile}/>
+        <Route path = "/editprofile" component ={Editprofile}/>
         <Footer />
     </div>
   );
