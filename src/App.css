@@ -145,6 +145,21 @@
   width: 80%;
 }
 
+/* end profle */
+
+.uploadwork{
+  color: #00296B;
+}
+.uploadwork .container{
+  background-color: #889cc4;
+  border-radius: 20px;
+}
+.uploadwork label{
+  font-size: 25px;
+}
+
+
+
 
 
 .Footer{
