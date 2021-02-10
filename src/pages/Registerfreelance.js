@@ -40,9 +40,9 @@ export default class Registerfreelance extends Component {
                             <h3>ที่อยู่</h3>
                             <textarea name="address" className="form-control" placeholder="ที่อยู่" />
                         </div>
-                        <div className = "text-center">
-                            <button type = "button" className = "col-3 btn-regisfl mt-3 btn-lg">แก้ไขข้อมูล</button>
-                            </div>
+                        <div className="text-center">
+                            <button type="button" className="col-3 btn-regisfl mt-3 btn-lg">แก้ไขข้อมูล</button>
+                        </div>
                     </div>
                     <div className="mt-5 text-center">
                         <h2>ข้อมูลเบื้อต้นสำหรับฟรีแลนซ์</h2>
@@ -123,12 +123,12 @@ export default class Registerfreelance extends Component {
                                 <h3 className="mt-5">ดูตัวอย่าง</h3>
                             </div>
                             <div className="mt-5">
-                                <button type="button" className="btn-regisfl col-8 btn-lg">อัพโหลดรูปบัตรประชาชน</button>
+                                <input className="uploderfl" type="file" id="" name=""></input>
                                 <img src={cp} className="col-2" alt="" width="50%" />
                                 <p className="rgfl">กรุณาอัพโหลดรูปภาพ</p>
                             </div>
                             <div className="mt-5">
-                                <button type="button" className="btn-regisfl col-8 btn-lg">อัพโหลดรูปคู่กับบัตรประชาชน</button>
+                                <input className="uploderfl" type="file" id="" name=""></input>
                                 <img src={cp} className="col-2" alt="" width="50%" />
                                 <p className="rgfl">กรุณาอัพโหลดรูปภาพ</p>
                             </div>
@@ -150,12 +150,14 @@ export default class Registerfreelance extends Component {
                             </div>
                             <div className="mt-3">
                                 <h3>รูปสมุดบัญชี</h3>
-                                <button type="button" className="btn-regisfl col-8 btn-lg">อัพโหลดรูปสมึดบัญชี</button>
-                                <img src={cp} className="col-2" alt="" width="50%" />
+                                <div className="">
+                                    <input className="uploderfl" type="file" id="" name=""></input>
+                                    <img src={cp} className="col-2" alt="" width="50%" />
+                                </div>
                                 <p className="rgfl">กรุณาอัพโหลดรูปภาพ</p>
-                            </div> 
-                            <div className = "text-center">
-                            <button type = "button" className = "col-3 regisfl2 mt-3 btn-lg">บันทึก</button>
+                            </div>
+                            <div className="text-center">
+                                <button type="button" className="col-3 regisfl2 mt-3 btn-lg">บันทึก</button>
                             </div>
                         </div>
                     </div>
