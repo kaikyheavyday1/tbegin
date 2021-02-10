@@ -115,6 +115,9 @@
   padding: 5px 10px;
   border-radius: 10px;
 }
+
+/* end aboutus */
+
 .registerfreelance h2{
   font-size: 50px;
   font-weight: bold;
@@ -145,6 +148,53 @@
 .registerfreelance p{
   color: red;
 }
+
+/* end profle */
+
+.uploadwork{
+  color: #00296B;
+}
+.uploadwork .container{
+  background-color: #889cc4;
+  border-radius: 20px;
+}
+.uploadwork label{
+  font-size: 25px;
+}
+
+/* end uploadwork */
+
+.editprofile{
+  color: #00296B ;
+}
+.editprofile .container .row{
+  background-color: #fff;
+  border-radius: 20px;
+}
+.editprofile input{
+  border-radius: 20px;
+}
+.editprofile select{
+  border-radius: 20px;
+}
+.editprofile textarea{
+  border-radius: 20px;
+}
+.editprofile .formright{
+  border-left: #CDD4E2 1px solid;
+}
+.editprofile .formright label{
+  font-size: 25px;
+}
+.editprofile .btn-editprofile button{
+  background-color: #00296B;
+  color: #fff;
+  font-size: 20px;
+  padding: 5px 5px;
+  border-radius: 10px;
+}
+
+/* end editprofile */
 
 .Footer{
   background-color: #00296B;

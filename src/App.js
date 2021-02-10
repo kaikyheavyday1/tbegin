@@ -12,6 +12,7 @@ import Profile from './pages/Profile'
 import Aboutus from './pages/Aboutus'
 import Registerfreelance from './pages/Registerfreelance'
 
+import Editprofile from  './pages/Editprofile'
 
 import Footer from './component/Footer'
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path = "/aboutus" component ={Aboutus}/>
         <Route path = "/profile" component ={Profile}/>
         <Route path = "/Registerfreelance" component ={Registerfreelance}/>
+        <Route path = "/editprofile" component ={Editprofile}/>
         <Footer />
     </div>
   );
