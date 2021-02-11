@@ -64,7 +64,7 @@ class Header extends Component {
           <NavLink><Link to="/uploadwork">ลงผลงาน</Link></NavLink>
           <NavLink><Link to="/aboutus">เกี่ยวกับเรา</Link></NavLink>
           <NavLink><Link to="/howto">วิธีการใช้งาน</Link></NavLink>
-          <NavLink><Link to="/">สมัครเป็นฟรีแลนซ์</Link></NavLink>
+          <NavLink><Link to="/registerfreelance">สมัครเป็นฟรีแลนซ์</Link></NavLink>
           <Dropdown className ="ml-2" isOpen={this.state.dropdownOpen} toggle={this.dropdowntoggle}>
             <DropdownToggle className="user-dropdown">
               <img src = {user} alt = "user" height ="35px"/>

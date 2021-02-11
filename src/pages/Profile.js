@@ -10,12 +10,12 @@ import letter from "../images/profile/envelope.svg"
 import phone from "../images/profile/phone-call.svg"
 import web from "../images/profile/web.jpeg"
 import web2 from "../images/profile/web2.png"
-
+import like from "../images/profile/heart.svg"
 
 
 export default function Profile() {
     return (
-        <div className="profile">
+        <div className="profile mb-5">
             <div className="container">
                 <Row className="mt-5">
                     <Col lg="4" md="12" sm="12" xs="12" className="profile-info">
@@ -88,51 +88,89 @@ export default function Profile() {
                         </div>
                     </Col>
                     <Col lg="8" md="12" sm="12" xs="12" className="mt-5">
-                        <h1 className="text-center">โปรไฟล์ของคุณ</h1>
-                        <h4 className="text-center mt-3">ผลงาน</h4>
-                        <div className="tester">
-                            <Row className="testing">
-                                <Col lg="6" md="6" sm="12" xs="12" className="mt-3">
-                                    <Card>
-                                        <CardImg top width="80%" src={web2} alt="Card image cap" />
-                                        <CardBody>
-                                            <CardTitle tag="h3">ออกแบบเว็บไซต์ tbegin</CardTitle>
-                                            <CardSubtitle tag="h5" className="text-right mb-2 text-muted">Freelance : kaikyheavyday</CardSubtitle>
-                                            <CardText className="text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                                        </CardBody>
-                                    </Card>
-                                </Col>
-                                <Col lg="6" md="6" sm="12" xs="12" className="mt-3">
-                                    <Card>
-                                        <CardImg top width="80%" src={web} alt="Card image cap" />
-                                        <CardBody>
-                                            <CardTitle tag="h3">ออกแบบเว็บไซต์ tbegin</CardTitle>
-                                            <CardSubtitle tag="h5" className="text-right mb-2 text-muted">ฺFreelance : kaikyheavyday</CardSubtitle>
-                                            <CardText className="text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                                        </CardBody>
-                                    </Card>
-                                </Col>
-                                <Col lg="6" md="6" sm="12" xs="12" className="mt-3">
-                                    <Card>
-                                        <CardImg top width="80%" src={web} alt="Card image cap" />
-                                        <CardBody>
-                                            <CardTitle tag="h3">ออกแบบเว็บไซต์ tbegin</CardTitle>
-                                            <CardSubtitle tag="h5" className="text-right mb-2 text-muted">ฺFreelance : kaikyheavyday</CardSubtitle>
-                                            <CardText className="text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                                        </CardBody>
-                                    </Card>
-                                </Col>
-                                <Col lg="6" md="6" sm="12" xs="12" className="mt-3">
-                                    <Card>
-                                        <CardImg top width="80%" src={web2} alt="Card image cap" />
-                                        <CardBody>
-                                            <CardTitle tag="h3">ออกแบบเว็บไซต์ tbegin</CardTitle>
-                                            <CardSubtitle tag="h5" className="text-right mb-2 text-muted">Freelance : kaikyheavyday</CardSubtitle>
-                                            <CardText className="text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                                        </CardBody>
-                                    </Card>
-                                </Col>
-                            </Row>
+                        <div className="col-10 mx-auto">
+                            <h1 className="text-center">โปรไฟล์ของคุณ</h1>
+                            <h4 className="text-center mt-3">ผลงาน</h4>
+                            <div className="allwork">
+                                <Row className="testing">
+                                    <Col lg="6" md="6" sm="12" xs="12" className="mt-3">
+                                        <Card>
+                                            <CardImg top src={web2} alt="Card image cap" />
+                                            <CardBody>
+                                                <CardTitle tag="h3">ออกแบบเว็บไซต์ tbegin</CardTitle>
+                                                <CardSubtitle tag="h5" className="text-right mb-2 text-muted">Freelance : kaikyheavyday</CardSubtitle>
+                                                <CardText className="text-left ">Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+                                                <div className="like-price d-flex justify-content-between">
+                                                    <div className="d-flex">
+                                                        <img src={like} alt="like" height="18px" />
+                                                        <CardText><h5 className="ml-1">300</h5></CardText>
+                                                    </div>
+                                                    <div>
+                                                        <CardText><h5>1000 ฿</h5></CardText>
+                                                    </div>
+                                                </div>
+                                            </CardBody>
+                                        </Card>
+                                    </Col>
+                                    <Col lg="6" md="6" sm="12" xs="12" className="mt-3">
+                                        <Card>
+                                            <CardImg top width="80%" src={web} alt="Card image cap" />
+                                            <CardBody>
+                                                <CardTitle tag="h3">ออกแบบเว็บไซต์ tbegin</CardTitle>
+                                                <CardSubtitle tag="h5" className="text-right mb-2 text-muted">ฺFreelance : kaikyheavyday</CardSubtitle>
+                                                <CardText className="text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+                                                <div className="like-price d-flex justify-content-between">
+                                                    <div className="d-flex">
+                                                        <img src={like} alt="like" height="18px" />
+                                                        <CardText><h5 className="ml-1">300</h5></CardText>
+                                                    </div>
+                                                    <div>
+                                                        <CardText><h5>1000 ฿</h5></CardText>
+                                                    </div>
+                                                </div>
+                                            </CardBody>
+                                        </Card>
+                                    </Col>
+                                    <Col lg="6" md="6" sm="12" xs="12" className="mt-3">
+                                        <Card>
+                                            <CardImg top width="80%" src={web} alt="Card image cap" />
+                                            <CardBody>
+                                                <CardTitle tag="h3">ออกแบบเว็บไซต์ tbegin</CardTitle>
+                                                <CardSubtitle tag="h5" className="text-right mb-2 text-muted">ฺFreelance : kaikyheavyday</CardSubtitle>
+                                                <CardText className="text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+                                                <div className="like-price d-flex justify-content-between">
+                                                    <div className="d-flex">
+                                                        <img src={like} alt="like" height="18px" />
+                                                        <CardText><h5 className="ml-1">300</h5></CardText>
+                                                    </div>
+                                                    <div>
+                                                        <CardText><h5>1000 ฿</h5></CardText>
+                                                    </div>
+                                                </div>
+                                            </CardBody>
+                                        </Card>
+                                    </Col>
+                                    <Col lg="6" md="6" sm="12" xs="12" className="mt-3">
+                                        <Card>
+                                            <CardImg top width="80%" src={web2} alt="Card image cap" />
+                                            <CardBody>
+                                                <CardTitle tag="h3">ออกแบบเว็บไซต์ tbegin</CardTitle>
+                                                <CardSubtitle tag="h5" className="text-right mb-2 text-muted">Freelance : kaikyheavyday</CardSubtitle>
+                                                <CardText className="text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+                                                <div className="like-price d-flex justify-content-between">
+                                                    <div className="d-flex">
+                                                        <img src={like} alt="like" height="18px" />
+                                                        <CardText><h5 className="ml-1">300</h5></CardText>
+                                                    </div>
+                                                    <div>
+                                                        <CardText><h5>1000 ฿</h5></CardText>
+                                                    </div>
+                                                </div>
+                                            </CardBody>
+                                        </Card>
+                                    </Col>
+                                </Row>
+                            </div>
                         </div>
                     </Col>
                 </Row>
