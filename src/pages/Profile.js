@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
     Row, Col,
     Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle
 } from 'reactstrap';
-import user from "../images/user.svg"
+import { Link } from 'react-router-dom'
+import axios from "axios"
+
+
+import userpic from "../images/user.svg"
 import graduate from "../images/profile/graduation-hat.svg"
 import letter from "../images/profile/envelope.svg"
 import phone from "../images/profile/phone-call.svg"
@@ -12,8 +16,23 @@ import web from "../images/profile/web.jpeg"
 import web2 from "../images/profile/web2.png"
 import like from "../images/profile/heart.svg"
 
+let initState = {
+    name : null,
+    surname : null,
+    tel : null,
+    email : null
+}
 
 export default function Profile() {
+    
+    const [user, setUser] = useState(initState)
+
+    const inProfile = async(e) =>{
+        const fetch = await axios.get("http://localhost:4000/profile", user)
+        const data = await fetch.data
+        console.log(data)
+    }
+
     return (
         <div className="profile mb-5">
             <div className="container">
@@ -22,7 +41,7 @@ export default function Profile() {
                         <div>
                             <Row className="mt-5">
                                 <Col lg="4">
-                                    <img src={user} alt="user" height="70px" width="100%" />
+                                    <img src={userpic} alt="user" height="70px" width="100%" />
                                 </Col>
                                 <Col lg="8">
                                     <div className="pt-3">
@@ -33,7 +52,7 @@ export default function Profile() {
                         </div>
                         <div>
                             <div className="d-flex justify-content-around mt-3">
-                                <button type="button" className="btn-profile">ตั้งค่าโปรไฟล์</button>
+                                <Link to = '/editprofile'><button type="button" className="btn-profile">ตั้งค่าโปรไฟล์</button></Link>
                                 <button type="button" className="btn-profile">ส่งข่้อความ</button>
                             </div>
                             <div className="mt-3">

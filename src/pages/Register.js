@@ -34,6 +34,7 @@ export default function Register() {
         const fetch = await axios.get("http://localhost:4000/address?type=provinces")
         const data = await fetch.data
         setProvinces(data)
+        console.log(data)
     } 
 
     useEffect(()=>{
