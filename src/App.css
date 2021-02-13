@@ -59,6 +59,48 @@
 }
  /* end home  */
 
+.login .in-login{
+  background-color: #fff;
+  border-radius: 20px;
+  color: #00296B;
+}
+.login .in-login h1{
+  font-weight: bold;
+  font-size: 50px;
+}
+.login input{
+  border-radius: 10px ;
+}
+.login button{
+  background-color: #00296B;
+  color: #fff;
+  font-size: 25px;
+  padding: 5px 15px;
+  border-radius: 10px;
+}
+.login button:hover{
+  background-color: #fff;
+  color: #00296B;
+}
+.login a{
+  color: #00296B;
+}
+
+/* end login */
+
+.register .in-register{
+  background-color: #fff;
+  border-radius: 20px;
+}
+.register button{
+  background-color: #00296B;
+  color: #fff;
+  font-size: 25px;
+  padding: 5px 15px;
+  border-radius: 10px;
+}
+
+
 .howto {
   color: #00296B;
   background-color: #CDD4E2;

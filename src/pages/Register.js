@@ -99,8 +99,8 @@ export default function Register() {
 
 
     return (
-        <div className="register container">
-            <div className="col-6 mx-auto">
+        <div className="register container mt-5 mb-5">
+            <div className="in-register col-6 mx-auto">
                 <div className="text-center">
                     <img src={logo} alt="img4" height="70px" className="justify-content-center" />
                     <h1>สร้างบัญชีกับ Tbegin</h1>
@@ -167,7 +167,7 @@ export default function Register() {
                 <input type="text" onChange={handleInputChange} id="addresscode" name="addresscode" className="form-control" placeholder ="รหัสไปรษณีย์"/>
                 </div>
                 <div className="mt-3 text-center">
-                    <button onClick={handleButtonSubmit} type="button" className="btn-lg btn-primary">สร้างบัญชี</button>
+                    <button onClick={handleButtonSubmit} type="button">สร้างบัญชี</button>
                 </div>
                 <span style={{ color: "red" }}>{error ? error : ''}</span>
                 <h3 className="text-center mt-3">มีบัญชีอยู่แล้ว <Link to="./Login">เข้าสู่ระบบ</Link></h3>

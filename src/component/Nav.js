@@ -64,13 +64,13 @@ class Header extends Component {
           <NavLink><Link to="/uploadwork">ลงผลงาน</Link></NavLink>
           <NavLink><Link to="/aboutus">เกี่ยวกับเรา</Link></NavLink>
           <NavLink><Link to="/howto">วิธีการใช้งาน</Link></NavLink>
-          <NavLink><Link to="/registerfreelance">สมัครเป็นฟรีแลนซ์</Link></NavLink>
           <Dropdown className ="ml-2" isOpen={this.state.dropdownOpen} toggle={this.dropdowntoggle}>
             <DropdownToggle className="user-dropdown">
               <img src = {user} alt = "user" height ="35px"/>
             </DropdownToggle>
             <DropdownMenu>
               <DropdownItem><Link to="/profile">โปรไฟล์ของฉัน</Link></DropdownItem>
+              <DropdownItem><Link to="/registerfreelance">สมัครเป็นฟรีแลนซ์</Link></DropdownItem>
               <DropdownItem>ข้อความ</DropdownItem>
               <DropdownItem><a href='' onClick={this.Logout}>ออกจากระบบ</a></DropdownItem>
             </DropdownMenu>
@@ -85,7 +85,7 @@ class Header extends Component {
           <NavLink><Link to="/aboutus">เกี่ยวกับเรา</Link></NavLink>
           <NavLink><Link to="/howto">วิธีการใช้งาน</Link></NavLink>
           <NavLink><Link to="/login">เข้าสู่ระบบ</Link></NavLink>
-          <NavLink id="btn-nav"><Link to="/register">สมัครเป็นฟรีแลนซ์</Link></NavLink>
+          <NavLink id="btn-nav"><Link to="/register">สมัครสมาชิก</Link></NavLink>
         </Nav>
       )
     }
