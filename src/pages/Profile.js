@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
     Row, Col,
     Card, CardImg, CardText, CardBody,
@@ -17,20 +17,34 @@ import web2 from "../images/profile/web2.png"
 import like from "../images/profile/heart.svg"
 
 let initState = {
-    name : null,
-    surname : null,
-    tel : null,
-    email : null
+    name: "",
+    surname: "",
+    tel: "",
+    email: ""
 }
 
 export default function Profile() {
-    
-    const [user, setUser] = useState(initState)
 
-    const inProfile = async(e) =>{
-        const fetch = await axios.get("http://localhost:4000/profile", user)
-        const data = await fetch.data
-        console.log(data)
+    const [user, setUser] = useState(initState)
+    useEffect(() => {
+        inProfile();
+    },[])
+
+    const inProfile = async (e) => {
+        const fetch = await axios.get('http://localhost:4000/profile', {
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem("access-token") //the token is a variable which holds the token
+            }
+        })
+        let data = await fetch.data
+        data = data[0]
+        const insertUser = {
+            name : data.name,
+            surname : data.surname,
+            tel : data.phone,
+            email : data.email
+        }
+        setUser(insertUser)
     }
 
     return (
@@ -45,14 +59,14 @@ export default function Profile() {
                                 </Col>
                                 <Col lg="8">
                                     <div className="pt-3">
-                                        <h4>พงศ์พิพัฒน์ ธวัชชัยดำรงค์</h4>
+                                        <h4>{user.name} {user.surname}</h4>
                                     </div>
                                 </Col>
                             </Row>
                         </div>
                         <div>
                             <div className="d-flex justify-content-around mt-3">
-                                <Link to = '/editprofile'><button type="button" className="btn-profile">ตั้งค่าโปรไฟล์</button></Link>
+                                <Link to='/editprofile'><button type="button" className="btn-profile">ตั้งค่าโปรไฟล์</button></Link>
                                 <button type="button" className="btn-profile">ส่งข่้อความ</button>
                             </div>
                             <div className="mt-3">
@@ -79,11 +93,11 @@ export default function Profile() {
                                 <h3>Contact</h3>
                                 <div className="d-flex justify-content-start">
                                     <div><img src={phone} alt="user" height="20px" /></div>
-                                    <div className="ml-2"><h5>0807854451</h5></div>
+                                    <div className="ml-2"><h5>{user.tel}</h5></div>
                                 </div>
                                 <div className="d-flex justify-content-start">
                                     <div><img src={letter} alt="user" height="20px" /></div>
-                                    <div className="ml-2"><h5>rabite02013@hotmail.com</h5></div>
+                                    <div className="ml-2"><h5>{user.email}</h5></div>
                                 </div>
                                 <div className="d-flex justify-content-start">
                                     <div><img src={graduate} alt="user" height="20px" /></div>

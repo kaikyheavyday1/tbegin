@@ -5,16 +5,54 @@ import axios from "axios"
 import userpic from "../images/user.svg"
 
 let initState = {
+    username : "",
+    name: "",
+    surname: "",
+    tel: "",
+    email: "",
+    birthday: "",
+    address: "",
     province: null,
-    amphure: null
+    amphure: null,
+    district: null
 }
 
 
 export default function Editprofile() {
+    
     const [user, setUser] = useState(initState)
     const [error, setError] = useState()
     const [provinces, setProvinces] = useState([])
     const [amphures, setAmphures] = useState([])
+
+    useEffect(() => {
+        inProfile();
+    },[])
+
+    const inProfile = async (e) => {
+        const fetch = await axios.get('http://localhost:4000/profile', {
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem("access-token") //the token is a variable which holds the token
+            }
+        })
+        let data = await fetch.data
+        data = data[0]
+       console.log(data)
+       const insertUser = {
+        username : data.username,
+        name : data.name,
+        surname : data.surname,
+        tel : data.phone,
+        email : data.email,
+        birthday : data.birthday,
+        address : data.address,
+        province : data.province_id,
+        amphures : data.amphure_id,
+        district : data.district_id
+    }
+        setUser(insertUser)
+    }
+
 
     const fetchProvinces = async () => {
         const fetch = await axios.get("http://localhost:4000/address?type=provinces")
@@ -51,7 +89,7 @@ export default function Editprofile() {
                     <Col lg="4" md="4" sm="12" xs="12" className="text-center formleft">
                         <h3>Profile</h3>
                         <img src={userpic} alt="user" height="70px" width="100%" />
-                        <h4 className="mt-3">Username</h4>
+                        <h4 className="mt-3">{user.username}</h4>
                         <h5>Member</h5>
                         <div className="d-flex justify-content-around mt-5">
                             <div>
@@ -74,32 +112,32 @@ export default function Editprofile() {
                             <div class="form-row">
                                 <div className="form-group col-md-6">
                                     <label class="form-label">ชื่อจริง</label>
-                                    <input type="text" id="name" name="name" className="form-control" placeholder="ชื่อจริง" />
+                                    <input type="text" id="name" name="name" className="form-control" placeholder={user.name} />
                                 </div>
                                 <div className="form-group col-md-6">
                                     <label class="form-label">นามสกุล</label>
-                                    <input type="text" id="surname" name="surname" className="form-control" placeholder="นามสกุล" />
+                                    <input type="text" id="surname" name="surname" className="form-control" placeholder={user.surname} />
                                 </div>
                             </div>
                             <div className="form-group">
                                 <label class="form-label">อีเมล</label>
-                                <input type="email" id="email" name="email" className="form-control" placeholder="อีเมล" />
+                                <input type="email" id="email" name="email" className="form-control" placeholder={user.email} />
                             </div>
                             <div class="form-row">
                                 <div className="form-group col-md-6">
                                     <label class="form-label">เบอร์โทร</label>
-                                    <input type="tel" id="tel" name="tel" className="form-control" placeholder="0807854451" />
+                                    <input type="tel" id="tel" name="tel" className="form-control" placeholder={user.tel} />
                                 </div>
                                 <div className="form-group col-md-6">
                                     <label class="form-label">วันเดือนปีเกิด</label>
-                                    <input type="date" id="birthday" name="birthday" className="form-control" />
+                                    <input type="date" id="birthday" name="birthday" className="form-control" placeholder={user.birthday}/>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div className="form-group col-md-4">
                                     <label for="inputaddress" class="form-label">จังหวัด</label>
                                     <select class="form-control" onChange={handleProvinceChange} id="province">
-                                        <option value="">กรุณาใส่จังหวัด</option>
+                                        <option value="">asd</option>
                                         {provinces.length > 1 ? provinces.map((province, index) => {
                                             return <option key={index} value={`${province.id}&${province.name_th}`}>{province.name_th}</option>
                                         }) : null}
@@ -124,7 +162,7 @@ export default function Editprofile() {
                             </div>
                             <div className="form-group">
                                 <label for="inputaddress" class="form-label">ที่อยู่</label>
-                                <textarea name="address" id="address" className="form-control" placeholder="ที่อยู่" rows="2" />
+                                <textarea name="address" id="address" className="form-control" placeholder={user.address} rows="2" />
                             </div>
                             <div className="btn-editprofile mt-3 text-right">
                                 <button type="button">แก้ไขโปรไฟล์</button>
