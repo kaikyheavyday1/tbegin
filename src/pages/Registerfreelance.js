@@ -50,8 +50,49 @@ export default class Registerfreelance extends Component {
                         </div>
                         <div className="col-10 mt-3 mx-auto">
                             <div className="">
-                                <h3>ความถนัด (กรุณากรอกอย่างน้อย 1 อย่าง)</h3>
-                                <textarea name="address" className="form-control" placeholder="กรุณากรอกความถนัด" />
+                                <h3>ความถนัด (กรุณาเลือกอย่างน้อย 1 อย่าง)</h3>
+                                <div className="form-check">
+                                    <input type="radio" className="form-check-input" value=""/>
+                                    <label className="form-check-label" for="exampleRadios2">
+                                        ออกแบบกราฟฟิก
+                                     </label>
+                                </div>
+                                <div className="form-check">
+                                    <input type="radio" className="form-check-input" value="" />
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        ผลิตสื่อมัลติมีเดีย
+                                 </label>
+                                </div>
+                                <div className="form-check">
+                                    <input type="radio" className="form-check-input" value="" />
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        ถ่ายภาพ
+                                 </label>
+                                </div>
+                                <div className="form-check">
+                                    <input type="radio" className="form-check-input" value="" />
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        เขียนและแปลภาษา
+                                 </label>
+                                </div>
+                                <div className="form-check">
+                                    <input type="radio" className="form-check-input" value="" />
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        เว็บไซต์และโปรแกรม
+                                 </label>
+                                </div>
+                                <div className="form-check">
+                                    <input type="radio" className="form-check-input" value="" />
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        สอนพิเศษ
+                                 </label>
+                                </div>
+                                <div className="form-check">
+                                    <input type="radio" className="form-check-input" value="" />
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        จัดการร้านค้าออนไลน์
+                                 </label>
+                                </div>
                             </div>
                             <div className="mt-3">
                                 <h3>บอกความเป็นตัวคุณสั้นๆ</h3>

@@ -75,19 +75,8 @@ export default function Profile() {
                             <div className="mt-3">
                                 <h5>สมัครสมาชิกเมื่อ 18/02/2564</h5>
                             </div>
-                            <div className="d-flex justify-content-around mt-3">
-                                <div className="text-center">
-                                    <h3>0</h3>
-                                    <h5>ผลงาน</h5>
-                                </div>
-                                <div className="text-center">
-                                    <h3>0</h3>
-                                    <h5>เรทติ้ง</h5>
-                                </div>
-                                <div className="text-center">
-                                    <h3>0</h3>
-                                    <h5>สำเร็จ</h5>
-                                </div>
+                            <div className="mt-3">
+                                <h5>เรทติ้ง 4.5/5</h5>
                             </div>
                             <div className="mt-3">
                                 <h3>Contact</h3>
@@ -133,11 +122,7 @@ export default function Profile() {
                                                 <CardTitle tag="h3">ออกแบบเว็บไซต์ tbegin</CardTitle>
                                                 <CardSubtitle tag="h5" className="text-right mb-2 text-muted">Freelance : kaikyheavyday</CardSubtitle>
                                                 <CardText className="text-left ">Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                                                <div className="like-price d-flex justify-content-between">
-                                                    <div className="d-flex">
-                                                        <img src={like} alt="like" height="18px" />
-                                                        <CardText><h5 className="ml-1">300</h5></CardText>
-                                                    </div>
+                                                <div className="like-price text-right">
                                                     <div>
                                                         <CardText><h5>1000 ฿</h5></CardText>
                                                     </div>
@@ -152,11 +137,7 @@ export default function Profile() {
                                                 <CardTitle tag="h3">ออกแบบเว็บไซต์ tbegin</CardTitle>
                                                 <CardSubtitle tag="h5" className="text-right mb-2 text-muted">ฺFreelance : kaikyheavyday</CardSubtitle>
                                                 <CardText className="text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                                                <div className="like-price d-flex justify-content-between">
-                                                    <div className="d-flex">
-                                                        <img src={like} alt="like" height="18px" />
-                                                        <CardText><h5 className="ml-1">300</h5></CardText>
-                                                    </div>
+                                                <div className="like-price text-right">
                                                     <div>
                                                         <CardText><h5>1000 ฿</h5></CardText>
                                                     </div>
@@ -171,11 +152,7 @@ export default function Profile() {
                                                 <CardTitle tag="h3">ออกแบบเว็บไซต์ tbegin</CardTitle>
                                                 <CardSubtitle tag="h5" className="text-right mb-2 text-muted">ฺFreelance : kaikyheavyday</CardSubtitle>
                                                 <CardText className="text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                                                <div className="like-price d-flex justify-content-between">
-                                                    <div className="d-flex">
-                                                        <img src={like} alt="like" height="18px" />
-                                                        <CardText><h5 className="ml-1">300</h5></CardText>
-                                                    </div>
+                                                <div className="like-price text-right">
                                                     <div>
                                                         <CardText><h5>1000 ฿</h5></CardText>
                                                     </div>
@@ -190,11 +167,7 @@ export default function Profile() {
                                                 <CardTitle tag="h3">ออกแบบเว็บไซต์ tbegin</CardTitle>
                                                 <CardSubtitle tag="h5" className="text-right mb-2 text-muted">Freelance : kaikyheavyday</CardSubtitle>
                                                 <CardText className="text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                                                <div className="like-price d-flex justify-content-between">
-                                                    <div className="d-flex">
-                                                        <img src={like} alt="like" height="18px" />
-                                                        <CardText><h5 className="ml-1">300</h5></CardText>
-                                                    </div>
+                                                <div className="like-price text-right">
                                                     <div>
                                                         <CardText><h5>1000 ฿</h5></CardText>
                                                     </div>

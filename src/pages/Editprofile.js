@@ -5,7 +5,7 @@ import axios from "axios"
 import userpic from "../images/user.svg"
 
 let initState = {
-    username : "",
+    username: "",
     name: "",
     surname: "",
     tel: "",
@@ -19,7 +19,7 @@ let initState = {
 
 
 export default function Editprofile() {
-    
+
     const [user, setUser] = useState(initState)
     const [error, setError] = useState()
     const [provinces, setProvinces] = useState([])
@@ -27,7 +27,7 @@ export default function Editprofile() {
 
     useEffect(() => {
         inProfile();
-    },[])
+    }, [])
 
     const inProfile = async (e) => {
         const fetch = await axios.get('http://localhost:4000/profile', {
@@ -37,19 +37,19 @@ export default function Editprofile() {
         })
         let data = await fetch.data
         data = data[0]
-       console.log(data)
-       const insertUser = {
-        username : data.username,
-        name : data.name,
-        surname : data.surname,
-        tel : data.phone,
-        email : data.email,
-        birthday : data.birthday,
-        address : data.address,
-        province : data.province_id,
-        amphures : data.amphure_id,
-        district : data.district_id
-    }
+        console.log(data)
+        const insertUser = {
+            username: data.username,
+            name: data.name,
+            surname: data.surname,
+            tel: data.phone,
+            email: data.email,
+            birthday: data.birthday,
+            address: data.address,
+            province: data.province_id,
+            amphures: data.amphure_id,
+            district: data.district_id
+        }
         setUser(insertUser)
     }
 
@@ -91,19 +91,8 @@ export default function Editprofile() {
                         <img src={userpic} alt="user" height="70px" width="100%" />
                         <h4 className="mt-3">{user.username}</h4>
                         <h5>Member</h5>
-                        <div className="d-flex justify-content-around mt-5">
-                            <div>
-                                <h4>100</h4>
-                                <h5>Post</h5>
-                            </div>
-                            <div>
-                                <h4>4.5/5</h4>
-                                <h5>Rating</h5>
-                            </div>
-                            <div>
-                                <h4>100</h4>
-                                <h5>Liked</h5>
-                            </div>
+                        <div className="text-center mt-3">
+                            <h4>Rating 4.5/5</h4>
                         </div>
                     </Col>
                     <Col lg="8" md="8" sm="12" xs="12" className="formright mb-5">
@@ -130,7 +119,7 @@ export default function Editprofile() {
                                 </div>
                                 <div className="form-group col-md-6">
                                     <label class="form-label">วันเดือนปีเกิด</label>
-                                    <input type="date" id="birthday" name="birthday" className="form-control" placeholder={user.birthday}/>
+                                    <input type="date" id="birthday" name="birthday" className="form-control" placeholder={user.birthday} />
                                 </div>
                             </div>
                             <div class="form-row">
