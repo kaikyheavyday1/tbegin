@@ -5,7 +5,9 @@ import {
     CarouselControl,
     CarouselIndicators,
     CarouselCaption, Row, Col,
-    Modal, ModalHeader, ModalBody, ModalFooter
+    Modal, ModalHeader, ModalBody, ModalFooter,
+    Card, CardImg, CardText, CardBody,
+    CardTitle, CardSubtitle
 } from 'reactstrap';
 import { Link } from 'react-router-dom'
 
@@ -77,6 +79,7 @@ export default function Working() {
             <div className="container">
                 <Row>
                     <Col lg="8" className="working-left pt-3">
+                        <h2>รับออกแบบเว็บไซต์ Adobe XD</h2>
                         <Carousel activeIndex={activeIndex} next={next} previous={previous}>
                             <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
                             {slides}
@@ -137,6 +140,29 @@ export default function Working() {
                                 </Col>
                             </Row>
                         </div>
+                        <div className="mt-5">
+                            <h3>รีวิวจากผู้ว่าจ้าง</h3>
+                            <div className="comment">
+                                <div className="d-flex pl-2 pt-2">
+                                    <img src={userpic} alt="userpic"></img>
+                                    <div className="mt-2 ml-3">
+                                        <strong>Paphawinya oconer</strong>
+                                        <div>12/02/21</div>
+                                    </div>
+                                </div>
+                                <p className="mt-2 col-11">ทำงานดี ออกแบบสวย โดนใจมากค่ะ บรีฟงานให้และออกแบบงานได้ถูกใจ งานดี งานสวย ทำงานมืออาชีพมากค่ะ พูดจาดี บริการรวดเร็ว ตอบไว และให้คำปรึกษาดีค่ะ เต็ม 100 ให้ 100 เต็ม 1,000 ให้ 1,000 ค่า แนะนำ มืออาชีพที่แท้ทรู</p>
+                            </div>
+                            <div className="comment">
+                                <div className="d-flex">
+                                    <img src={userpic} alt="userpic"></img>
+                                    <div className="mt-2 ml-3">
+                                        <strong>Paphawinya oconer</strong>
+                                        <div>12/02/21</div>
+                                    </div>
+                                </div>
+                                <p className="mt-2 col-11">ทำงานดี ออกแบบสวย โดนใจมากค่ะ บรีฟงานให้และออกแบบงานได้ถูกใจ งานดี งานสวย ทำงานมืออาชีพมากค่ะ พูดจาดี บริการรวดเร็ว ตอบไว และให้คำปรึกษาดีค่ะ เต็ม 100 ให้ 100 เต็ม 1,000 ให้ 1,000 ค่า แนะนำ มืออาชีพที่แท้ทรู</p>
+                            </div>
+                        </div>
                     </Col>
                     <Col lg="4" className="mt-2">
                         <div className="working-right col-10 mx-auto">
@@ -182,6 +208,22 @@ export default function Working() {
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div className="other-work mt-5 col-10 mx-auto">
+                            <h3>งานอื่นๆที่รับทำ</h3>
+                            <Card>
+                                <CardImg top src={web2} alt="Card image cap" />
+                                <CardBody>
+                                    <CardTitle tag="h3">ออกแบบเว็บไซต์ tbegin</CardTitle>
+                                    <CardSubtitle tag="h5" className="text-right mb-2 text-muted">Freelance : kaikyheavyday</CardSubtitle>
+                                    <CardText className="text-left ">Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+                                    <div className="like-price text-right">
+                                        <div>
+                                            <CardText><h5>1000 ฿</h5></CardText>
+                                        </div>
+                                    </div>
+                                </CardBody>
+                            </Card>
                         </div>
                     </Col>
                 </Row>
