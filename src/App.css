@@ -57,6 +57,27 @@
 .home .row p {
   font-size: 20px;
 }
+.home .section2 img{
+  width: 100%;
+  height: 70%;
+}
+.home .section2 .logo-second{
+  width: 30%;
+}
+.home .section2-right{
+  background-color: #fff;
+  border-radius: 10px;
+}
+.home .section2-right h2{
+  font-weight: bold;
+  font-size: 40px;
+}
+.home .section2-right img{
+  width: 5%;
+}
+.home .section2-right .correct h3{
+  font-size: 20px;
+}
  /* end home  */
 
 .login .in-login{
