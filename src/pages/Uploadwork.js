@@ -1,45 +1,20 @@
 import React, { Component } from 'react'
 import { Row, Col } from 'reactstrap';
+import ImageUploader from 'react-images-upload';
 export default class Uploadwork extends Component {
+
     constructor(props) {
         super(props);
-        this.state = {
-            file: '',
-            imagePreviewUrl: ''
-        };
-        this._handleImageChange = this._handleImageChange.bind(this);
-        this._handleSubmit = this._handleSubmit.bind(this);
+        this.state = { pictures: [] };
+        this.onDrop = this.onDrop.bind(this);
     }
 
-    _handleSubmit(e) {
-        e.preventDefault();
-        // TODO: do something with -> this.state.file
+    onDrop(pictureFiles, pictureDataURLs) {
+        this.setState({
+            pictures: pictureFiles
+        });
     }
-
-    _handleImageChange(e) {
-        e.preventDefault();
-
-        let reader = new FileReader();
-        let file = e.target.files[0];
-
-        reader.onloadend = () => {
-            this.setState({
-                file: file,
-                imagePreviewUrl: reader.result
-            });
-        }
-
-        reader.readAsDataURL(file)
-    }
-
     render() {
-
-        let { imagePreviewUrl } = this.state;
-        let $imagePreview = null;
-        if (imagePreviewUrl) {
-            $imagePreview = (<img src={imagePreviewUrl} />);
-        }
-
         return (
             <div className="uploadwork">
                 <div className="container pb-5">
@@ -77,48 +52,27 @@ export default class Uploadwork extends Component {
                                 <textarea name="address" className="form-control" rows="2" placeholder="อธิบายเกี่ยวกับงานเพิ่มเติม ใส่รายละเอียดให้ได้มากที่สุด" />
                             </div>
                             <h2>รูปผลงานของคุณ</h2>
-                            <Row>
-                                <Col lg="4">
-                                    <div>
-                                        <input type="file" onChange={this._handleImageChange} />
-                                        <button type="submit" onClick={this._handleSubmit}>Upload Image</button>
-                                        {$imagePreview}
-                                    </div>
-                                </Col>
-                                <Col lg="4">
-                                    <div>
-                                        <input type="file" onChange={this._handleImageChange} />
-                                        <button type="submit" onClick={this._handleSubmit}>Upload Image</button>
-                                        {$imagePreview}
-                                    </div>
-                                </Col>
-                                <Col lg="4">
-                                    <div>
-                                        <input type="file" onChange={this._handleImageChange} />
-                                        <button type="submit" onClick={this._handleSubmit}>Upload Image</button>
-                                        {$imagePreview}
-                                    </div>
-                                </Col>
-                            </Row>
+                            <div className="form-group">
+                                <p>อัพโหลดรูปภาพของคุณ (จำกัดสูงสุดไม่เกิน 6 รูป)</p>
+                                <ImageUploader
+                                    singleImage={false}
+                                    onChange={this.onDrop}
+                                    withPreview={true}
+                                />
+                            </div>
                             <h2 className="mt-5">กำหนดราคาและเวลาส่งงาน</h2>
                             <div className="form-group">
                                 <label for="inputaddress" class="form-label">สิ่งที่ลูกค้าจะได้รับจากงานของคุณ</label>
                                 <textarea name="address" className="form-control" rows="2" placeholder="ระยะเวลาการทำงานของคุณ คุณภาพระดับงานของคุณ ลูกค้าสามารถแก้งานของคุณได้กี่ครั้ง" />
                             </div>
                             <Row>
-                                <Col lg="4">
+                                <Col lg="6">
                                     <div className="form-group">
                                         <label for="inputwork" class="form-label">ราคางานของคุณ</label>
                                         <input type="text" className="form-control" />
                                     </div>
                                 </Col>
-                                <Col lg="4">
-                                    <div className="form-group">
-                                        <label for="inputwork" class="form-label">หลังหักค่าบริการงาน</label>
-                                        <input type="text" className="form-control" />
-                                    </div>
-                                </Col>
-                                <Col lg="4">
+                                <Col lg="6">
                                     <div className="form-group">
                                         <label for="inputwork" class="form-label">ใช้เวลาทำ</label>
                                         <input type="text" className="form-control" />

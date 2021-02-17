@@ -180,7 +180,13 @@
 }
 
 /* end aboutus */
-
+.registerfreelance{
+  color: #00296B;
+}
+.registerfreelance .profile{
+  background-color: #CDD4E2;
+  border-radius: 20px;
+}
 .registerfreelance h2{
   font-size: 50px;
   font-weight: bold;
@@ -212,13 +218,13 @@
   color: #fff;
   font-weight: bold;
   font-size: 25px;
-  padding: 20px 200px;
+  padding: 5px 10px;
   border-radius: 10px;
 }
-.registerfreelance p{
-  color: red;
-}
 
+ .fileContainer p{
+  display: none;
+}
 /* end registerfreelance */
 
 .profile{
