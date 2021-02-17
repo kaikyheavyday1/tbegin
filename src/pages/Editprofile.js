@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Row, Col } from 'reactstrap';
 import axios from "axios"
-
+import ImageUploader from 'react-images-upload';
 import userpic from "../images/user.svg"
 
 let initState = {
@@ -24,6 +24,11 @@ export default function Editprofile() {
     const [error, setError] = useState()
     const [provinces, setProvinces] = useState([])
     const [amphures, setAmphures] = useState([])
+    const [pictures, setPictures] = useState([]);
+
+    const onDrop = picture => {
+      setPictures([...pictures, picture]);
+    };
 
     useEffect(() => {
         inProfile();
@@ -94,6 +99,14 @@ export default function Editprofile() {
                         <div className="text-center mt-3">
                             <h4>Rating 4.5/5</h4>
                         </div>
+                      <div className="upload-profile-pic mt-5">
+                          <h4>อัพโหลดรูปโปรไฟล์ของคุณ</h4>
+                          <ImageUploader
+                                singleImage={true}
+                                onChange={onDrop}
+                                withPreview={true}
+                            />
+                      </div>
                     </Col>
                     <Col lg="8" md="8" sm="12" xs="12" className="formright mb-5">
                         <div className="col-10 mx-auto">

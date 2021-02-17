@@ -289,6 +289,13 @@
 .editprofile .formright{
   border-left: #CDD4E2 1px solid;
 }
+.editprofile .upload-profile-pic {
+  background-color: #CDD4E2;
+  border-radius: 20px;
+}
+.editprofile .upload-profile-pic .fileContainer{
+  background-color: #CDD4E2;
+}
 .editprofile .formright label{
   font-size: 25px;
 }
