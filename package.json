@@ -13,7 +13,7 @@
     "@testing-library/user-event": "^12.6.2",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
-    "firebase": "^8.2.8",
+    "firebase": "^8.2.9",
     "node-sass": "^5.0.0",
     "react": "^17.0.1",
     "react-card-carousel": "^1.1.3",
