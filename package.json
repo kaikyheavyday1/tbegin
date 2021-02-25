@@ -27,11 +27,7 @@
     "react-scripts": "4.0.1",
     "react-slick": "^0.28.0",
     "reactstrap": "^8.9.0",
-<<<<<<< HEAD
-    "sweetalert": "^2.1.2",
-=======
     "slick-carousel": "^1.8.1",
->>>>>>> mp/hiring
     "web-vitals": "^0.2.4"
   },
   "scripts": {

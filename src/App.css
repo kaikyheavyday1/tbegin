@@ -7,13 +7,6 @@
 .nav-bg {
   background-color: #00296b;
 }
-<<<<<<< HEAD
-.nav-link-img {
-  padding-right: 1rem !important;
-  padding-left: 1rem !important;
-}
-=======
->>>>>>> mp/hiring
 .nav-link a {
   color: #fff;
   font-size: 20px;
@@ -43,12 +36,8 @@
 }
 
 .user-dropdown {
-<<<<<<< HEAD
-  background-color: transparent !important;
-=======
   background-color: #fff !important;
   border-radius: 20px !important;
->>>>>>> mp/hiring
   padding: 5px !important;
   border-radius: 20px !important;
   border: 1px solid #fff !important;
@@ -90,10 +79,6 @@
 .home .section2-right .correct h3 {
   font-size: 20px;
 }
-<<<<<<< HEAD
-/* end home  */
-
-=======
 .home .section3 .avatar {
   width: 8rem;
   height: 8rem;
@@ -117,7 +102,6 @@
 
 /* end home  */
 
->>>>>>> mp/hiring
 .login .in-login {
   background-color: #fff;
   border-radius: 20px;
@@ -217,17 +201,6 @@
 }
 
 /* end aboutus */
-<<<<<<< HEAD
-.registerfreelance {
-  color: #00296b;
-}
-.registerfreelance .profile {
-  background-color: #cdd4e2;
-  border-radius: 20px;
-}
-=======
-
->>>>>>> mp/hiring
 .registerfreelance h2 {
   font-size: 50px;
   font-weight: bold;
@@ -262,12 +235,9 @@
   padding: 5px 10px;
   border-radius: 10px;
 }
-<<<<<<< HEAD
-=======
 .registerfreelance p {
   color: red;
 }
->>>>>>> mp/hiring
 
 .fileContainer p {
   display: none;
@@ -324,7 +294,6 @@
   border-radius: 20px;
 }
 .editprofile input {
-<<<<<<< HEAD
   border-radius: 20px;
 }
 .editprofile select {
@@ -335,25 +304,6 @@
 }
 .editprofile .formright {
   border-left: #cdd4e2 1px solid;
-}
-.editprofile .upload-profile-pic {
-  background-color: #cdd4e2;
-  border-radius: 20px;
-}
-.editprofile .upload-profile-pic .fileContainer {
-  background-color: #cdd4e2;
-=======
-  border-radius: 20px;
-}
-.editprofile select {
-  border-radius: 20px;
-}
-.editprofile textarea {
-  border-radius: 20px;
-}
-.editprofile .formright {
-  border-left: #cdd4e2 1px solid;
->>>>>>> mp/hiring
 }
 .editprofile .formright label {
   font-size: 25px;
@@ -399,19 +349,11 @@
   font-size: 35px;
 }
 .working p {
-<<<<<<< HEAD
   font-size: 20px;
 }
 .working .working-left strong {
   font-size: 20px;
 }
-=======
-  font-size: 20px;
-}
-.working .working-left strong {
-  font-size: 20px;
-}
->>>>>>> mp/hiring
 .working .working-left .comment {
   background-color: #cdd4e2;
   border-radius: 20px;
@@ -446,27 +388,6 @@
 .Footer a:hover {
   text-decoration: none;
 }
-<<<<<<< HEAD
-
-.Sidebar {
-  width: 250px;
-  height: 100%;
-  background: #fff;
-}
-
-.Sidebar .text {
-  color: #00296b;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 65px;
-  text-align: center;
-  background: #fff;
-  letter-spacing: 1px;
-}
-
-.Sidebar ul {
-  background: #fff;
-=======
 .allpagesidebar {
   width: 100%;
   height: 100%;
@@ -474,24 +395,11 @@
 }
 .sidesideside {
   width: 300px;
->>>>>>> mp/hiring
   height: 100%;
   background-color: #fff;
   padding: 15px;
   text-decoration: none;
 }
-<<<<<<< HEAD
-.Sidebar ul li {
-  line-height: 30px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-.Sidebar ul li:last-child {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-.Sidebar ul li a {
-  position: relative;
-  color: #00296b;
-=======
 .sidedata {
   margin-left: 50px;
 }
@@ -519,18 +427,11 @@
 }
 .sidesideside a:hover {
   background-color: #cdd4e2;
->>>>>>> mp/hiring
   text-decoration: none;
 }
-<<<<<<< HEAD
-.Sidebar ul li a:hover {
-  background: #cdd4e2;
-  border-left-color: #00296b;
-=======
 .sidesideside a {
   color: #000;
 }
 .sidesideside p {
   font-size: 18px;
->>>>>>> mp/hiring
 }
