@@ -20,8 +20,7 @@ let initState = {
 };
 let freelanceState = {
   status: null,
-  edu_type: null,
-  edu_name: null,
+  edu_id: null,
   card_id: null,
   card_nametitle: null,
   card_name: null,
@@ -30,9 +29,9 @@ let freelanceState = {
   card_address: null,
   card_img1: null,
   card_img2: null,
-  bank_type: null,
-  bank_id: null,
-  bank_img: null,
+  bank_name: null,
+  bank_number: null,
+  bank_pic: null,
 };
 export default function Registerfreelance() {
   const [user, setUser] = useState(initState);
@@ -108,10 +107,7 @@ export default function Registerfreelance() {
     if (freelance.status === "" || freelance.status === null) {
       setError("คุณยังไม่ได้กรอกบอกความเป็นตัวคุณ");
       return false;
-    } else if (freelance.edu_type === "" || freelance.edu_type === null) {
-      setError("คุณยังไม่ได้เลือกสถานศึกษาชองคุณ");
-      return false;
-    } else if (freelance.edu_name === "" || freelance.edu_name === null) {
+    } else if (freelance.edu_id === "" || freelance.edu_id === null) {
       setError("คุณยังไม่ได้เลือกสถานศึกษาชองคุณ");
       return false;
     } else if (freelance.card_id === "" || freelance.card_id === null) {
@@ -157,11 +153,10 @@ export default function Registerfreelance() {
   };
 
   const handleEducationTypeChange = async (e) => {
-    const id = e.target.id;
     const value = e.target.value;
-    setFreelance({ ...freelance, [id]: value });
+
     const fetch = await axios.get(
-      "http://localhost:4000/education?type=" + value
+      "http://localhost:4000/education/type?type=" + value
     );
     const data = await fetch.data;
     setEducation(data);
@@ -198,15 +193,20 @@ export default function Registerfreelance() {
       ...freelance,
       card_img1: URL1,
       card_img2: URL2,
-      bank_img: URL3,
+      bank_pic: URL3,
     });
     const fetch = await axios.post(
-      "http://localhost:4000/freelance/register",
-      freelance
+      "http://localhost:4000/freelance/regisfreelance",
+      freelance,
+      {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("access-token"), //the token is a variable which holds the token
+        },
+      }
     );
     const data = await fetch.data;
     console.log(data);
-    if (data.canRegisfreelance) {
+    if (data.status) {
       swal("Good job!", "You clicked the button!", "success");
     } else {
     }
@@ -273,16 +273,13 @@ export default function Registerfreelance() {
               <select
                 class="form-control"
                 onChange={handleEducationChange}
-                id="edu_name"
+                id="edu_id"
               >
                 <option value="">สถานศึกษา</option>
-                {education.length > 1
+                {education.length > 0
                   ? education.map((education, index) => {
                       return (
-                        <option
-                          key={index}
-                          value={`${education.id}&${education.name}`}
-                        >
+                        <option key={index} value={`${education.id}`}>
                           {education.name}
                         </option>
                       );
@@ -401,7 +398,7 @@ export default function Registerfreelance() {
               <h3>บัญชีธนาคาร</h3>
               <select
                 class="form-control"
-                id="bank_type"
+                id="bank_name"
                 onChange={handleInputChange}
               >
                 <option value="">บัญชีธนาคาร</option>
@@ -415,7 +412,7 @@ export default function Registerfreelance() {
                   className="form-control"
                   placeholder="กรุณากรอกเลขบัญชี"
                   onChange={handleInputChange}
-                  id="bank_id"
+                  id="bank_number"
                 />
               </div>
               <div className="mt-3">
