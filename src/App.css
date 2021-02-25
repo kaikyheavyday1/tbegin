@@ -7,10 +7,13 @@
 .nav-bg {
   background-color: #00296b;
 }
+<<<<<<< HEAD
 .nav-link-img {
   padding-right: 1rem !important;
   padding-left: 1rem !important;
 }
+=======
+>>>>>>> mp/hiring
 .nav-link a {
   color: #fff;
   font-size: 20px;
@@ -40,7 +43,12 @@
 }
 
 .user-dropdown {
+<<<<<<< HEAD
   background-color: transparent !important;
+=======
+  background-color: #fff !important;
+  border-radius: 20px !important;
+>>>>>>> mp/hiring
   padding: 5px !important;
   border-radius: 20px !important;
   border: 1px solid #fff !important;
@@ -82,8 +90,34 @@
 .home .section2-right .correct h3 {
   font-size: 20px;
 }
+<<<<<<< HEAD
 /* end home  */
 
+=======
+.home .section3 .avatar {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+}
+.home .section3 .workpic {
+  width: 18rem;
+}
+.carousel-control-prev-icon {
+  color: #000;
+}
+.carousel-control-next-icon {
+  color: #000;
+}
+
+.home .section3 h3 {
+  font-size: 45px;
+  font-weight: bold;
+  text-align: left;
+}
+
+/* end home  */
+
+>>>>>>> mp/hiring
 .login .in-login {
   background-color: #fff;
   border-radius: 20px;
@@ -183,6 +217,7 @@
 }
 
 /* end aboutus */
+<<<<<<< HEAD
 .registerfreelance {
   color: #00296b;
 }
@@ -190,6 +225,9 @@
   background-color: #cdd4e2;
   border-radius: 20px;
 }
+=======
+
+>>>>>>> mp/hiring
 .registerfreelance h2 {
   font-size: 50px;
   font-weight: bold;
@@ -224,6 +262,12 @@
   padding: 5px 10px;
   border-radius: 10px;
 }
+<<<<<<< HEAD
+=======
+.registerfreelance p {
+  color: red;
+}
+>>>>>>> mp/hiring
 
 .fileContainer p {
   display: none;
@@ -280,6 +324,7 @@
   border-radius: 20px;
 }
 .editprofile input {
+<<<<<<< HEAD
   border-radius: 20px;
 }
 .editprofile select {
@@ -297,6 +342,18 @@
 }
 .editprofile .upload-profile-pic .fileContainer {
   background-color: #cdd4e2;
+=======
+  border-radius: 20px;
+}
+.editprofile select {
+  border-radius: 20px;
+}
+.editprofile textarea {
+  border-radius: 20px;
+}
+.editprofile .formright {
+  border-left: #cdd4e2 1px solid;
+>>>>>>> mp/hiring
 }
 .editprofile .formright label {
   font-size: 25px;
@@ -342,11 +399,19 @@
   font-size: 35px;
 }
 .working p {
+<<<<<<< HEAD
   font-size: 20px;
 }
 .working .working-left strong {
   font-size: 20px;
 }
+=======
+  font-size: 20px;
+}
+.working .working-left strong {
+  font-size: 20px;
+}
+>>>>>>> mp/hiring
 .working .working-left .comment {
   background-color: #cdd4e2;
   border-radius: 20px;
@@ -381,6 +446,7 @@
 .Footer a:hover {
   text-decoration: none;
 }
+<<<<<<< HEAD
 
 .Sidebar {
   width: 250px;
@@ -400,10 +466,21 @@
 
 .Sidebar ul {
   background: #fff;
-  height: 100%;
+=======
+.allpagesidebar {
   width: 100%;
-  list-style: none;
+  height: 100%;
+  background-color: #cdd4e2;
 }
+.sidesideside {
+  width: 300px;
+>>>>>>> mp/hiring
+  height: 100%;
+  background-color: #fff;
+  padding: 15px;
+  text-decoration: none;
+}
+<<<<<<< HEAD
 .Sidebar ul li {
   line-height: 30px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -414,15 +491,46 @@
 .Sidebar ul li a {
   position: relative;
   color: #00296b;
-  text-decoration: none;
-  font-size: 18px;
-  padding-left: 5px;
-  font-weight: 500;
-  display: block;
-  width: 100%;
-  border-left: 3px solid transparent;
+=======
+.sidedata {
+  margin-left: 50px;
 }
+.sidesideside h1 {
+  font-size: 38px;
+  font-weight: bold;
+}
+.sidesideside h2 {
+  font-weight: bold;
+}
+.sidesideside h3 {
+  font-weight: bold;
+}
+.sidesideside p:hover {
+  background-color: #cdd4e2;
+  padding-left: 10px;
+  color: #000;
+  border-radius: 5px;
+}
+.sidesideside h3:hover {
+  background-color: #cdd4e2;
+  padding-left: 10px;
+  color: #000;
+  border-radius: 10px;
+}
+.sidesideside a:hover {
+  background-color: #cdd4e2;
+>>>>>>> mp/hiring
+  text-decoration: none;
+}
+<<<<<<< HEAD
 .Sidebar ul li a:hover {
   background: #cdd4e2;
   border-left-color: #00296b;
+=======
+.sidesideside a {
+  color: #000;
+}
+.sidesideside p {
+  font-size: 18px;
+>>>>>>> mp/hiring
 }
