@@ -16,6 +16,7 @@ import Sidebar from './component/Sidebar'
 import WorkingList from './pages/WorkingList'
 import WorkingListgarphic from './pages/WorkingListgarphic'
 import Footer from './component/Footer'
+import Hiring from './pages/Hiring'
 function App() {
   return (
     <div className="App">
@@ -32,6 +33,7 @@ function App() {
       <Route path="/working" component={Working} />
       <Route path="/working-list" component={WorkingList} />
       <Route path="/working-list-graphic" component={WorkingListgarphic} />
+      <Route path="/hiring" component={Hiring} />
       <Route path="/Sidebar" component={Sidebar} />
       <Footer />
     </div>

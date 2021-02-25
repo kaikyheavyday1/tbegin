@@ -5,7 +5,7 @@ import polygon from '../images/sidebar/polygon.svg'
 
 function Sidebar() {
   return (
-    <Col className="" md={2} sm={1}>
+    <Col className="ml-0" md={2} sm={1}>
       <div className="sidesideside">
         <h1>ตัวกรองรายการฟรีแลนซ์</h1>
         <h2>หมวดหมู่งาน</h2>
