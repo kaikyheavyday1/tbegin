@@ -113,7 +113,7 @@ export default function Uploadwork() {
         work[keyPic] = url
       }
     }
-
+    console.log(work)
     const upload = await axios.post(
       'http://localhost:4000/work/addwork',
       work,
