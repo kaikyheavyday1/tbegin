@@ -12,12 +12,11 @@ import Aboutus from './pages/Aboutus'
 import Registerfreelance from './pages/Registerfreelance'
 import Working from './pages/Working'
 import Editprofile from './pages/Editprofile'
-import Sidebar from './component/Sidebar'
 import WorkingList from './pages/WorkingList'
-import WorkingListgarphic from './pages/WorkingListgarphic'
 import Footer from './component/Footer'
-import Hiring from './pages/Hiring'
 import Test from './pages/Test'
+import Cardworking from './component/Cardworking'
+import Cardhiring from './component/Cardhiring'
 function App() {
   return (
     <div className="App">
@@ -33,11 +32,9 @@ function App() {
       <Route path="/editprofile" component={Editprofile} />
       <Route path="/working" component={Working} />
       <Route path="/working-list" component={WorkingList} />
-      <Route path="/working-list-graphic" component={WorkingListgarphic} />
-      <Route path="/hiring" component={Hiring} />
-      <Route path="/Sidebar" component={Sidebar} />
       <Route path="/test" component={Test} />
-
+      <Route path="/Cardworking" component={Cardworking} />
+      <Route path="/Cardhiring" component={Cardhiring} />
       <Footer />
     </div>
   )

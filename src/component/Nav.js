@@ -66,7 +66,7 @@ class Header extends Component {
       return (
         <Nav className="allnav-item ml-auto" navbar>
           <NavLink>
-            <Link to="/hiring">จ้างงาน</Link>
+            <Link to="/working-list">จ้างงาน</Link>
           </NavLink>
           <NavLink>
             <Link to="/aboutus">เกี่ยวกับเรา</Link>
@@ -114,7 +114,7 @@ class Header extends Component {
       return (
         <Nav className="allnav-item ml-auto" navbar>
           <NavLink>
-            <Link to="/hiring">จ้างงาน</Link>
+            <Link to="/working-list">จ้างงาน</Link>
           </NavLink>
           <NavLink>
             <Link to="/uploadwork">ลงผลงาน</Link>

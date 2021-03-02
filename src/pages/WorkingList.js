@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { Row, Col } from 'reactstrap'
 import Sidebar from '../component/Sidebar'
 import { useLocation } from 'react-router-dom'
-
+import Cardhiring from '../component/Cardhiring'
+import Sidebar2 from '../component/Sidebar2'
 function useQuery() {
   return new URLSearchParams(useLocation().search)
 }
@@ -12,14 +13,17 @@ export default function WorkingList() {
   let type = query.get('type')
   let subtype = query.get('subtype')
   console.log(type, subtype)
+
   return (
     <Row>
-      <Col md={12} className="allpagesidebar">
+      <Col lg={12} className="allpagesidebar">
         <Row>
-          <Sidebar />
-          <Col md={10}>
-            <h1>{type}</h1>
-            <h1>{subtype}</h1>
+          <Col className="ml-0" lg={2} md={3} xs={12}>
+            <Sidebar />
+            <Sidebar2 />
+          </Col>
+          <Col lg={10} md={9} xs={12}>
+            <Cardhiring />
           </Col>
         </Row>
       </Col>
