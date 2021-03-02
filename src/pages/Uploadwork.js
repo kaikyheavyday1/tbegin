@@ -17,6 +17,7 @@ let workstate = {
   main_description: null,
   price: null,
   work_time: null,
+  mainwork_type: null,
 }
 
 export default function Uploadwork() {
@@ -79,8 +80,9 @@ export default function Uploadwork() {
     return data
   }
   const handleMainworktypeChange = async (e) => {
+    const id = e.target.id
     const value = e.target.value
-    console.log(value)
+    setWork({ ...work, [id]: value })
     const fetchSubtype = await axios.get(
       `http://localhost:4000/worktype/getwork?type=${value}`
     )
@@ -171,6 +173,7 @@ export default function Uploadwork() {
                   <select
                     class="form-control"
                     onChange={handleMainworktypeChange}
+                    id="mainwork_type"
                   >
                     <option value="">หมวดหมู่ของงานหลัก</option>
                     {mainwork.length > 0 &&

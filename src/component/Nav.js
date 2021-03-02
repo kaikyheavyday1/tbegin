@@ -75,10 +75,12 @@ class Header extends Component {
             <Link to="/howto">วิธีการใช้งาน</Link>
           </NavLink>
           <NavLink className="nav-link-img">
-            <img src={chat} alt="noti" height="25px" />
+            <Link to="/test">
+              <img src={chat} alt="noti" height="25px" />
+            </Link>
           </NavLink>
           <NavLink className="nav-link-img">
-            <img src={noti} alt="noti" height="25px" />
+            <img src={noti} alt="noti" height="25px" className="mt-1" />
           </NavLink>
           <Dropdown
             className="ml-2"
