@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter, Link } from 'react-router-dom'
 
 
 export default function Hiring() {
@@ -11,6 +12,7 @@ export default function Hiring() {
 <li><a href='#'><h2>ออกแบบกราฟิก</h2>
         </a>
     <ul className='feat-show'>
+        <li><Link to = "/uploadwork">ออกแบบโลโก้</Link></li>
         <li><a href='#'>ออกแบบโลโก้</a></li>
         <li><a href='#'>ออกแบบแบนเนอร์</a></li>
         <li><a href='#'>พอร์ตฟอลิโอ</a></li>

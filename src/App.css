@@ -427,3 +427,23 @@
   border-left-color: #00296b;
 }
 
+.editwork-bg{
+  background: white;
+  border-radius: 20px;
+}
+
+.editwork-bold{
+  font-weight: bolder;
+  color: #00296b;
+}
+.editwork-color{
+  color: #00296b;
+}
+.vl {
+  border-left: 1px solid #00296b;
+  height: 250px;
+  position: absolute;
+  left: 50%;
+  top: 20px;
+}
+

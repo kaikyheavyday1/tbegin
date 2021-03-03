@@ -13,6 +13,7 @@ import Aboutus from './pages/Aboutus'
 import Registerfreelance from './pages/Registerfreelance'
 import Working from './pages/Working'
 import Editprofile from  './pages/Editprofile'
+import Editwork from './pages/Editwork'
 
 import Footer from './component/Footer'
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path = "/Registerfreelance" component ={Registerfreelance}/>
         <Route path = "/editprofile" component ={Editprofile}/>
         <Route path = "/working" component ={Working}/>
+        <Route path = "/editwork" component = {Editwork}/>
         <Footer />
     </div>
   );
