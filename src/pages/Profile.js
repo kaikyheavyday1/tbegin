@@ -21,7 +21,6 @@ import web2 from '../images/profile/web2.png'
 import like from '../images/profile/heart.svg'
 import StarRatings from 'react-star-ratings'
 
-
 let initState = {
   name: '',
   surname: '',
@@ -31,9 +30,21 @@ let initState = {
 
 export default function Profile() {
   const [user, setUser] = useState(initState)
+  const [userWork, setUserWork] = useState([])
   useEffect(() => {
     inProfile()
+    getWorks()
   }, [])
+  const getWorks = async () => {
+    const fetch = await axios.get('http://localhost:4000/work/getuserid', {
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem('access-token'), //the token is a variable which holds the token
+      },
+    })
+    const data = await fetch.data
+    console.log(data)
+    setUserWork(data)
+  }
 
   const inProfile = async (e) => {
     const fetch = await axios.get('http://localhost:4000/profile', {
@@ -64,7 +75,7 @@ export default function Profile() {
                 </Col>
                 <Col lg="8">
                   <div className="pt-3">
-                    <h3 className = "editwork-bold">
+                    <h3 className="editwork-bold">
                       {user.name} {user.surname}
                     </h3>
                   </div>
@@ -89,16 +100,16 @@ export default function Profile() {
                 <h5>สมัครสมาชิกเมื่อ 18/02/2564</h5>
               </div>
               <div className="star d-flex">
-                <h3 className = "mr-2">เรทติ้ง : </h3>
-             <div className ="mt-1">
-             <StarRatings
-                rating={2.5}
-                starDimension="25px"
-                starSpacing="2px"
-                starRatedColor="#FFBF00"
-              />
-             </div>
-            </div>
+                <h3 className="mr-2">เรทติ้ง : </h3>
+                <div className="mt-1">
+                  <StarRatings
+                    rating={2.5}
+                    starDimension="25px"
+                    starSpacing="2px"
+                    starRatedColor="#FFBF00"
+                  />
+                </div>
+              </div>
               <div className="mt-3">
                 <h3>Contact</h3>
                 <div className="d-flex justify-content-start">
@@ -117,9 +128,7 @@ export default function Profile() {
                     <h5>{user.email}</h5>
                   </div>
                 </div>
-                
               </div>
-              
             </div>
           </Col>
           <Col lg="8" md="12" sm="12" xs="12" className="mt-5">
@@ -128,111 +137,47 @@ export default function Profile() {
               <h4 className="text-center mt-3">ผลงาน</h4>
               <div className="allwork">
                 <Row className="testing">
-                  <Col lg="6" md="6" sm="12" xs="12" className="mt-3">
-                    <Card>
-                      <CardImg top src={web2} alt="Card image cap" />
-                      <CardBody>
-                        <CardTitle tag="h3">ออกแบบเว็บไซต์ tbegin</CardTitle>
-                        <CardSubtitle
-                          tag="h5"
-                          className="text-right mb-2 text-muted"
+                  {userWork.length > 0 &&
+                    userWork.map((work, index) => {
+                      console.log(work)
+                      return (
+                        <Col
+                          lg="6"
+                          md="6"
+                          sm="12"
+                          xs="12"
+                          className="mt-3"
+                          key={index}
                         >
-                          Freelance : kaikyheavyday
-                        </CardSubtitle>
-                        <CardText className="text-left ">
-                          Some quick example text to build on the card title and
-                          make up the bulk of the card's content.
-                        </CardText>
-                        <div className="like-price text-right">
-                          <div>
-                            <CardText>
-                              <h5>1000 ฿</h5>
-                            </CardText>
-                          </div>
-                        </div>
-                      </CardBody>
-                    </Card>
-                  </Col>
-                  <Col lg="6" md="6" sm="12" xs="12" className="mt-3">
-                    <Card>
-                      <CardImg top width="80%" src={web} alt="Card image cap" />
-                      <CardBody>
-                        <CardTitle tag="h3">ออกแบบเว็บไซต์ tbegin</CardTitle>
-                        <CardSubtitle
-                          tag="h5"
-                          className="text-right mb-2 text-muted"
-                        >
-                          ฺFreelance : kaikyheavyday
-                        </CardSubtitle>
-                        <CardText className="text-left">
-                          Some quick example text to build on the card title and
-                          make up the bulk of the card's content.
-                        </CardText>
-                        <div className="like-price text-right">
-                          <div>
-                            <CardText>
-                              <h5>1000 ฿</h5>
-                            </CardText>
-                          </div>
-                        </div>
-                      </CardBody>
-                    </Card>
-                  </Col>
-                  <Col lg="6" md="6" sm="12" xs="12" className="mt-3">
-                    <Card>
-                      <CardImg top width="80%" src={web} alt="Card image cap" />
-                      <CardBody>
-                        <CardTitle tag="h3">ออกแบบเว็บไซต์ tbegin</CardTitle>
-                        <CardSubtitle
-                          tag="h5"
-                          className="text-right mb-2 text-muted"
-                        >
-                          ฺFreelance : kaikyheavyday
-                        </CardSubtitle>
-                        <CardText className="text-left">
-                          Some quick example text to build on the card title and
-                          make up the bulk of the card's content.
-                        </CardText>
-                        <div className="like-price text-right">
-                          <div>
-                            <CardText>
-                              <h5>1000 ฿</h5>
-                            </CardText>
-                          </div>
-                        </div>
-                      </CardBody>
-                    </Card>
-                  </Col>
-                  <Col lg="6" md="6" sm="12" xs="12" className="mt-3">
-                    <Card>
-                      <CardImg
-                        top
-                        width="80%"
-                        src={web2}
-                        alt="Card image cap"
-                      />
-                      <CardBody>
-                        <CardTitle tag="h3">ออกแบบเว็บไซต์ tbegin</CardTitle>
-                        <CardSubtitle
-                          tag="h5"
-                          className="text-right mb-2 text-muted"
-                        >
-                          Freelance : kaikyheavyday
-                        </CardSubtitle>
-                        <CardText className="text-left">
-                          Some quick example text to build on the card title and
-                          make up the bulk of the card's content.
-                        </CardText>
-                        <div className="like-price text-right">
-                          <div>
-                            <CardText>
-                              <h5>1000 ฿</h5>
-                            </CardText>
-                          </div>
-                        </div>
-                      </CardBody>
-                    </Card>
-                  </Col>
+                          <Card className="cardprofilework">
+                            <h1 className="ml-3 mt-3">ชื่อผลงาน {work.name}</h1>
+
+                            <CardBody>
+                              <CardImg
+                                className="imgwork"
+                                src={work.pic1}
+                              ></CardImg>
+                              <CardSubtitle className="carddescription mt-3">
+                                {work.main_description}
+                              </CardSubtitle>
+                              <div className="d-flex mt-5">
+                                <h3>Freelance: {work.username}</h3>
+                              </div>
+                              <div className="d-flex">
+                                <h3>ราคา {work.price} ฿</h3>
+                              </div>
+                              <StarRatings
+                                className="star"
+                                rating={2.5}
+                                starDimension="25px"
+                                starSpacing="2px"
+                                starRatedColor="#FFBF00"
+                              />
+                            </CardBody>
+                          </Card>
+                        </Col>
+                      )
+                    })}
                 </Row>
               </div>
             </div>
