@@ -19,6 +19,8 @@ import phone from '../images/profile/phone-call.svg'
 import web from '../images/profile/web.jpeg'
 import web2 from '../images/profile/web2.png'
 import like from '../images/profile/heart.svg'
+import StarRatings from 'react-star-ratings'
+
 
 let initState = {
   name: '',
@@ -62,9 +64,9 @@ export default function Profile() {
                 </Col>
                 <Col lg="8">
                   <div className="pt-3">
-                    <h4>
+                    <h3 className = "editwork-bold">
                       {user.name} {user.surname}
-                    </h4>
+                    </h3>
                   </div>
                 </Col>
               </Row>
@@ -72,11 +74,11 @@ export default function Profile() {
             <div>
               <div className="d-flex justify-content-around mt-3">
                 <Link to="/editprofile">
-                  <button type="button" className="btn-profile">
+                  <button type="button" className="btn">
                     ตั้งค่าโปรไฟล์
                   </button>
                 </Link>
-                <button type="button" className="btn-profile">
+                <button type="button" className="btn">
                   ส่งข่้อความ
                 </button>
               </div>
@@ -86,9 +88,17 @@ export default function Profile() {
               <div className="mt-3">
                 <h5>สมัครสมาชิกเมื่อ 18/02/2564</h5>
               </div>
-              <div className="mt-3">
-                <h5>เรทติ้ง 4.5/5</h5>
-              </div>
+              <div className="star d-flex">
+                <h3 className = "mr-2">เรทติ้ง : </h3>
+             <div className ="mt-1">
+             <StarRatings
+                rating={2.5}
+                starDimension="25px"
+                starSpacing="2px"
+                starRatedColor="#FFBF00"
+              />
+             </div>
+            </div>
               <div className="mt-3">
                 <h3>Contact</h3>
                 <div className="d-flex justify-content-start">
@@ -107,29 +117,9 @@ export default function Profile() {
                     <h5>{user.email}</h5>
                   </div>
                 </div>
-                <div className="d-flex justify-content-start">
-                  <div>
-                    <img src={graduate} alt="user" height="20px" />
-                  </div>
-                  <div className="ml-2">
-                    <h5>โรงเรียนบางปะกอกวิทยาคม</h5>
-                  </div>
-                </div>
+                
               </div>
-              <div>
-                <h3>ความถนัด</h3>
-                <div className="d-flex justify-content-around mt-3">
-                  <div className="profess">
-                    <h5>สอนพิเศษ</h5>
-                  </div>
-                  <div className="profess">
-                    <h5>การคลาด</h5>
-                  </div>
-                  <div className="profess">
-                    <h5>ถ่ายภาพ</h5>
-                  </div>
-                </div>
-              </div>
+              
             </div>
           </Col>
           <Col lg="8" md="12" sm="12" xs="12" className="mt-5">

@@ -13,10 +13,14 @@ import Registerfreelance from './pages/Registerfreelance'
 import Working from './pages/Working'
 import Editprofile from './pages/Editprofile'
 import WorkingList from './pages/WorkingList'
+import Editwork from './pages/Editwork'
+
+
 import Footer from './component/Footer'
 import Test from './pages/Test'
 import Cardworking from './component/Cardworking'
 import Cardhiring from './component/Cardhiring'
+
 function App() {
   return (
     <div className="App">
@@ -35,6 +39,7 @@ function App() {
       <Route path="/test" component={Test} />
       <Route path="/Cardworking" component={Cardworking} />
       <Route path="/Cardhiring" component={Cardhiring} />
+      <Route path ="/editwork" component = {Editwork} />
       <Footer />
     </div>
   )

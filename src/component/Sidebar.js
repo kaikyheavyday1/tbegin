@@ -6,175 +6,130 @@ import polygon from '../images/sidebar/polygon.svg'
 function Sidebar() {
   return (
     <div className="sidesideside">
-      <h1>ตัวกรองรายการฟรีแลนซ์</h1>
-      <h2>หมวดหมู่งาน</h2>
+      
+      <h1 className = "text editwork-color">หมวดหมู่งาน</h1>
+      <hr color = "#00296B"></hr>
+
       <div className="">
+        <ul>
         <Link to="working-list?type=graphic">
-          <h3>ออกแบบกราฟฟิค</h3>
+        <li><h3 className = "editwork-color">ออกแบบกราฟิก</h3></li>
         </Link>
-        <Link to="working-list?type=graphic&subtype=logo">
-          <p>ออกแบบโลโก้</p>
-        </Link>
-        <Link to="working-list?type=graphic&subtype=port">
-          <p>Portfolio</p>
-        </Link>
-        <Link to="working-list?type=graphic&subtype=banner">
-          <p>ออกแบบแบนเนอร์</p>
-        </Link>
-        <Link to="working-list?type=graphic&subtype=drawing">
-          <p>วาดภาพ</p>
-        </Link>
-        <Link to="working-list?type=graphic&subtype=drafting">
-          <p>ดราฟรูป</p>
-        </Link>
-        <Link to="working-list?type=graphic&subtype=info">
-          <p>อินโฟรกราฟิก</p>
-        </Link>
-        <Link to="working-list?type=graphic&subtype=Present">
-          <p>Slide Presentation</p>
-        </Link>
-        <Link to="working-list?type=graphic&subtype=uxui">
-          <p>UX/UI</p>
-        </Link>
+        <ul className='feat-show editwork-color'>
+        <li><Link to = "working-list?type=graphic&subtype=logo">ออกแบบโลโก้</Link></li>
+        <li><Link to="working-list?type=graphic&subtype=banner">ออกแบบแบนเนอร์</Link></li>
+        <li><Link to="working-list?type=graphic&subtype=port">พอร์ตฟอลิโอ</Link></li>
+        <li><Link to="working-list?type=graphic&subtype=drawing">วาดภาพ</Link></li>
+        <li><Link to="working-list?type=graphic&subtype=drafting">ดราฟรูป</Link></li>
+        <li><Link to="working-list?type=graphic&subtype=info">อินโฟกราฟิก</Link></li>
+        <li><Link to="working-list?type=graphic&subtype=Present">สไลด์พรีเซนต์</Link></li>
+        <li><Link to="working-list?type=graphic&subtype=uxui">ออกแบบ UX/UI</Link></li>
+        </ul>
+        </ul>
       </div>
+
       <div className="">
+      <ul>
         <Link to="working-list?type=media">
-          <h3>ผลิตสื่อมัลติมีเดีย</h3>
+        <li><h3 className="editwork-color">ผลิตสื่อมัลติมีเดีย</h3></li>
         </Link>
-        <Link to="working-list?type=media&subtype=subtitle">
-          <p>Subtitle</p>
-        </Link>
-        <Link to="working-list?type=media&subtype=videoedit">
-          <p>Video Editor</p>
-        </Link>
-        <Link to="working-list?type=media&subtype=anime">
-          <p>Animation</p>
-        </Link>
-        <Link to="working-list?type=media&subtype=motiongraphic">
-          <p>Motion Graphic</p>
-        </Link>
-        <Link to="working-list?type=media&subtype=videopresent">
-          <p>Video Presentation</p>
-        </Link>
-        <Link to="working-list?type=media&subtype=3d">
-          <p>3D Model</p>
-        </Link>
-        <Link to="working-list?type=media&subtype=fx">
-          <p>Sound FX</p>
-        </Link>
+        <ul className='feat-show editwork-color'>
+        <li><Link to="working-list?type=media&subtype=subtitle">ซับไตเติล</Link></li>
+        <li><Link to="working-list?type=media&subtype=videoedit">ตัดต่อวีดีโอ</Link></li>
+        <li><Link to="working-list?type=media&subtype=anime">อนิเมชั่น</Link></li>
+        <li><Link to="working-list?type=media&subtype=motiongraphic">โมชั่นกราฟิก</Link></li>
+        <li><Link to="working-list?type=media&subtype=videopresent">วีดีโอนำเสนอ</Link></li>
+        <li><Link to="working-list?type=media&subtype=3d">โมเดล 3มิติ</Link></li>
+        <li><Link to="working-list?type=media&subtype=fx">เสียงเอฟเฟค</Link></li>
+        </ul>
+        </ul>
       </div>
+
       <div className="">
+      <ul>
         <Link to="working-list?type=photo">
-          <h3>ถ่ายภาพ</h3>
+        <li><h3 className="editwork-color">ถ่ายภาพ</h3></li>
         </Link>
-        <Link to="working-list?type=photo&subtype=education">
-          <p>ถ่ายภาพรับปริญญา</p>
-        </Link>
-        <Link to="working-list?type=photo&subtype=portarait">
-          <p>ถ่ายภาพ Portarait</p>
-        </Link>
-        <Link to="working-list?type=photo&subtype=ad">
-          <p>ถ่ายโฆษณา</p>
-        </Link>
-        <Link to="working-list?type=photo&subtype=product">
-          <p>ถ่าย Product</p>
-        </Link>
+        <ul className='feat-show editwork-color'>
+        <li><Link to="working-list?type=photo&subtype=education">ถ่ายภาพรับปริญญา</Link></li>
+        <li><Link to="working-list?type=photo&subtype=portarait">ถ่ายภาพ Portarait</Link></li>
+        <li><Link to="working-list?type=photo&subtype=ad">ถ่ายโฆษณา</Link></li>
+        <li><Link to="working-list?type=photo&subtype=product">ถ่ายสินค้าเพื่อการโฆษณา</Link></li>
+        </ul>
+        </ul>
       </div>
+
       <div className="">
+      <ul>
         <Link to="working-list?type=writingtranslate">
-          <h3>เขียนแปลภาษา</h3>
+        <li><h3 className="editwork-color">งานเขียนและแปลภาษา</h3></li>
         </Link>
-        <Link to="working-list?type=writingtranslate&subtype=report">
-          <p>เขียนรายงาน</p>
-        </Link>
-        <Link to="working-list?type=writingtranslate&subtype=translate">
-          <p>แปลภาษา</p>
-        </Link>
-        <Link to="working-list?type=writingtranslate&subtype=poet">
-          <p>แต่งกลอน</p>
-        </Link>
-        <Link to="working-list?type=writingtranslate&subtype=writing">
-          <p>พิมพ์เอกสาร</p>
-        </Link>
-        <Link to="working-list?type=writingtranslate&subtype=proofread">
-          <p>พิสูจน์อักษร</p>
-        </Link>
-        <Link to="working-list?type=writingtranslate&subtype=fiction">
-          <p>เขียนนิยาย</p>
-        </Link>
+        <ul className='feat-show editwork-color'>
+        <li><Link to="working-list?type=writingtranslate&subtype=report">เขียนรายงาน</Link></li>
+        <li><Link to="working-list?type=writingtranslate&subtype=translate">แปลภาษา</Link></li>
+        <li><Link to="working-list?type=writingtranslate&subtype=poet">แต่งกลอน</Link></li>
+        <li><Link to="working-list?type=writingtranslate&subtype=writing">พิมพ์เอกสาร</Link></li>
+        <li><Link to="working-list?type=writingtranslate&subtype=proofread">พิสูจน์อักษร</Link></li>
+        <li><Link to="working-list?type=writingtranslate&subtype=fiction">เขียนนิยาย</Link></li>
+        </ul>
+        </ul>
       </div>
+
       <div className="">
+      <ul>
         <Link to="working-list?type=programmer">
-          <h3>เว็บไซต์และโปรแกรม</h3>
+        <li><h3 className="editwork-color">เว็บไซต์และโปรแกรม</h3></li>
         </Link>
-        <Link to="working-list?type=programmer&subtype=web">
-          <p>Web Developer</p>
-        </Link>
-        <Link to="working-list?type=programmer&subtype=mobile">
-          <p>Mobile Developer</p>
-        </Link>
-        <Link to="working-list?type=programmer&subtype=back-end">
-          <p>ออกแบบฐานข้อมูล</p>
-        </Link>
-        <Link to="working-list?type=programmer&subtype=game">
-          <p>Game Developer</p>
-        </Link>
-        <Link to="working-list?type=programmer&subtype=bug">
-          <p>แก้บัคต่างๆ</p>
-        </Link>
-        <Link to="working-list?type=programmer&subtype=uxui">
-          <p>UX/UI</p>
-        </Link>
-        <Link to="working-list?type=programmer&subtype=hardware">
-          <p>Hardware</p>
-        </Link>
-        <Link to="working-list?type=programmer&subtype=application">
-          <p>Desktop Application</p>
-        </Link>
+        <ul className='feat-show editwork-color'>
+        <li><Link to="working-list?type=programmer&subtype=web">พัฒนาเว็บไซต์</Link></li>
+        <li><Link to="working-list?type=programmer&subtype=mobile">พัฒนาแอพลิเคชั่นมือถือ</Link></li>
+        <li><Link to="working-list?type=programmer&subtype=back-end">ออกแบบฐานข้อมูล</Link></li>
+        <li><Link to="working-list?type=programmer&subtype=game">พัฒนาเกม</Link></li>
+        <li><Link to="working-list?type=programmer&subtype=bug">แก้บัคต่างๆ</Link></li>
+        <li><Link to="working-list?type=programmer&subtype=uxui">ออกแบบ UX/UI</Link></li>
+        <li><Link to="working-list?type=programmer&subtype=hardware">ฮาร์ดแวร์</Link></li>
+        <li><Link to="working-list?type=programmer&subtype=application">Desktop Application</Link></li>
+        </ul>
+        </ul>
       </div>
+
       <div className="">
+      <ul>
         <Link to="working-list?type=tutor">
-          <h3>สอนพิเศษ</h3>
+        <li><h3 className="editwork-color">สอนพิเศษ</h3></li>
         </Link>
-        <Link to="working-list?type=tutor&subtype=math">
-          <p>สอนวิชาคำนวณ</p>
-        </Link>
-        <Link to="working-list?type=tutor&subtype=language">
-          <p>สอนภาษา</p>
-        </Link>
-        <Link to="working-list?type=tutor&subtype=science">
-          <p>สอนวิทยาศาสตร์</p>
-        </Link>
-        <Link to="working-list?type=tutor&subtype=tutoring">
-          <p>สอนเก็งข้อสอบ</p>
-        </Link>
-        <Link to="working-list?type=tutor&subtype=teachchildren">
-          <p>สอนเด็กเล็ก</p>
-        </Link>
-        <Link to="working-list?type=tutor&subtype=law">
-          <p>สอนสังคมและกฏหมาย</p>
-        </Link>
+        <ul className='feat-show editwork-color'>
+        <li><Link to="working-list?type=tutor&subtype=math">วิชาคณิตศาสตร์</Link></li>
+        <li><Link to="working-list?type=tutor&subtype=language">ภาษา</Link></li>
+        <li><Link to="working-list?type=tutor&subtype=science">วิชาวิทยาศาสตร์</Link></li>
+        <li><Link to="working-list?type=tutor&subtype=tutoring">เก็งข้อสอบระดับมัธยม</Link></li>
+        <li><Link to="working-list?type=tutor&subtype=teachchildren">เก็งข้อสอบระดับประถม</Link></li>
+        <li><Link to="working-list?type=tutor&subtype=law">วิชาสังคม กฎหมาย</Link></li>
+        <li><Link to="working-list?type=programmer&subtype=hardware">ฮาร์ดแวร์</Link></li>
+        <li><Link to="working-list?type=programmer&subtype=application">Desktop Application</Link></li>
+        </ul>
+        </ul>
       </div>
+
       <div className="">
+      <ul>
         <Link to="working-list?type=manage">
-          <h3>การจัดการร้านค้าออนไลน์</h3>
+        <li><h3 className="editwork-color">การจัดการร้านค้าออนไลน์</h3></li>
         </Link>
-        <Link to="working-list?type=manage&subtype=admin">
-          <p>Admin</p>
-        </Link>
-        <Link to="working-list?type=manage&subtype=review">
-          <p>Review สินค้า</p>
-        </Link>
-        <Link to="working-list?type=manage&subtype=ad">
-          <p>โฆษณา</p>
-        </Link>
-        <Link to="working-list?type=manage&subtype=supplier">
-          <p>Supplier</p>
-        </Link>
+        <ul className='feat-show editwork-color'>
+        <li><Link to="working-list?type=manage&subtype=admin">แอดมิน</Link></li>
+        <li><Link to="working-list?type=manage&subtype=review">รีวิวสินค้า</Link></li>
+        <li><Link to="working-list?type=manage&subtype=ad">โฆษณา</Link></li>
+        <li><Link to="working-list?type=manage&subtype=supplier">Supplier</Link></li>
+        </ul>
+        </ul>
       </div>
-      <Link to="working-list?type=other">
-        <h3>อื่นๆ</h3>
-      </Link>
+
+      <ul>
+        <Link to="working-list?type=other">
+        <li><h3 className="editwork-color">อื่นๆ</h3></li>
+        </Link>
+      </ul>
     </div>
   )
 }

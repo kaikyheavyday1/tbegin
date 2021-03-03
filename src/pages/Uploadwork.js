@@ -161,21 +161,22 @@ export default function Uploadwork() {
     <div className="uploadwork">
       <div className="container pb-5">
         <div className="in-uploadwork col-10 pb-3 mx-auto">
-          <h1 className="text-center mt-5">ลงผลงาน</h1>
+          <h1 className="text-center mt-5 editwork-bold">ลงผลงาน</h1>
           <div>
-            <h2>เลือกหมวดหมู่ของงาน</h2>
+            <h2 className = "editwork-bold">เลือกหมวดหมู่งาน</h2>
+            <hr color = "#00296b"></hr>
             <Row>
               <Col lg="6">
                 <div className="form-group">
                   <label for="inputwork" class="form-label">
-                    หมวดหมู่ของงานหลัก
+                    หมวดหมู่งานหลัก
                   </label>
                   <select
                     class="form-control"
                     onChange={handleMainworktypeChange}
                     id="mainwork_type"
                   >
-                    <option value="">หมวดหมู่ของงานหลัก</option>
+                    <option value="">หมวดหมู่งานหลัก</option>
                     {mainwork.length > 0 &&
                       mainwork.map((value, index) => {
                         return (
@@ -190,14 +191,14 @@ export default function Uploadwork() {
               <Col lg="6">
                 <div className="form-group">
                   <label for="inputwork" class="form-label">
-                    หมวดหมู่ของงานรอง
+                    ประเภทงาน
                   </label>
                   <select
                     class="form-control"
                     id="work_type"
                     onChange={handleInputChange}
                   >
-                    <option value="">หมวดหมู่ของงานรอง</option>
+                    <option value="">ประเภทงาน</option>
                     {subwork.length > 0 &&
                       subwork.map((value, index) => {
                         return (
@@ -210,7 +211,8 @@ export default function Uploadwork() {
                 </div>
               </Col>
             </Row>
-            <h2>รายละเอียดของงาน</h2>
+            <h2 className = "editwork-bold">รายละเอียดของงาน</h2>
+            <hr color = "#00296b"></hr>
             <div className="form-group">
               <label for="inputwork" class="form-label">
                 ชื่องาน
@@ -236,7 +238,8 @@ export default function Uploadwork() {
                 onChange={handleInputChange}
               />
             </div>
-            <h2>รูปผลงานของคุณ</h2>
+            <h2 className = "editwork-bold">รูปผลงานของคุณ</h2>
+            <hr color = "#00296b"></hr>
             <div className="form-group">
               <p>อัพโหลดรูปภาพของคุณ (จำกัดสูงสุดไม่เกิน 6 รูป)</p>
               <ImageUploader
@@ -245,7 +248,8 @@ export default function Uploadwork() {
                 withPreview={true}
               />
             </div>
-            <h2 className="mt-5">กำหนดราคาและเวลาส่งงาน</h2>
+            <h2 className="mt-5 editwork-bold">กำหนดราคาและเวลาส่งงาน</h2>
+            <hr color = "#00296b"></hr>
             <div className="form-group">
               <label for="inputmain-des" class="form-label">
                 สิ่งที่ลูกค้าจะได้รับจากงานของคุณ
