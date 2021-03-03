@@ -3,6 +3,7 @@ import logo from '../images/logo.png'
 import axios from "axios"
 import {Link} from 'react-router-dom'
 
+
 let initState = {
     email: null,
     password: null
@@ -48,8 +49,7 @@ export default function Login() {
                     <button type="button" onClick={ButtonOnclick} className="mb-3">เข้าสู่ระบบ</button>
                 </div>
                 <div className="text-center pb-3">
-                    <h3>ยังไม่ได้เป็นสมาชิก ?</h3>
-                    <h5><Link to ='/register'>สมัครสมาชิก</Link></h5>
+                    <h3><Link to ='/register'>สมัครสมาชิก</Link></h3>
                 </div>
             </div>
         </div>

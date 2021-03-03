@@ -74,11 +74,11 @@ export default function Profile() {
             <div>
               <div className="d-flex justify-content-around mt-3">
                 <Link to="/editprofile">
-                  <button type="button" className="btn-profile">
+                  <button type="button" className="btn">
                     ตั้งค่าโปรไฟล์
                   </button>
                 </Link>
-                <button type="button" className="btn-profile">
+                <button type="button" className="btn">
                   ส่งข่้อความ
                 </button>
               </div>

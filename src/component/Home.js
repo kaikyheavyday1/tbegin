@@ -74,7 +74,7 @@ export default function Home() {
           </Col>
         </Row>
         <Row className="section2 mt-5 mb-5">
-          <Col className="text-left" ig="6" md="6" sm="12" xs="12">
+          <Col className="text-left" lg="6" md="12" sm="12" xs="12">
             <div className="logo-second">
               <img src={logo} alt="logo-second" />
             </div>
@@ -84,8 +84,8 @@ export default function Home() {
           </Col>
           <Col
             className="section2-right text-left mt-5"
-            ig="6"
-            md="6"
+            lg="6"
+            md="12"
             sm="12"
             xs="12"
           >

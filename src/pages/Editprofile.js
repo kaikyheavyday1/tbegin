@@ -9,7 +9,7 @@ let initState = {
     username: "",
     name: "",
     surname: "",
-    tel: "",
+    phone: "",
     email: "",
     birthday: "",
     address: "",
@@ -30,9 +30,10 @@ export default function Editprofile() {
     const onDrop = picture => {
       setPictures([...pictures, picture]);
     };
-
-    useEffect(() => {
+ 
+    useEffect(() => { // จะทำ f(x) อย่างแรก
         inProfile();
+        fetchProvinces();
     }, [])
 
     const inProfile = async (e) => {
@@ -44,19 +45,8 @@ export default function Editprofile() {
         let data = await fetch.data
         data = data[0]
         console.log(data)
-        const insertUser = {
-            username: data.username,
-            name: data.name,
-            surname: data.surname,
-            tel: data.phone,
-            email: data.email,
-            birthday: data.birthday,
-            address: data.address,
-            province: data.province_id,
-            amphures: data.amphure_id,
-            district: data.district_id
-        }
-        setUser(insertUser)
+      
+        setUser(data)
     }
 
 
@@ -66,9 +56,11 @@ export default function Editprofile() {
         setProvinces(data)
     }
 
-    useEffect(() => {
-        fetchProvinces()
-    }, [])
+    const handleInputChange = (e) =>{
+        const id = e.target.id
+        const value = e.target.value
+        setUser({ ...user, [id]: value })
+    }
 
     const handleProvinceChange = async (e) => {
         const id = e.target.id
@@ -84,6 +76,7 @@ export default function Editprofile() {
         const id = e.target.id
         const value = e.target.value
         setUser({ ...user, [id]: value })
+        console.log(user)
     }
 
 
@@ -127,25 +120,26 @@ export default function Editprofile() {
                             <div class="form-row">
                                 <div className="form-group col-md-6">
                                     <label class="form-label">ชื่อจริง</label>
-                                    <input type="text" id="name" name="name" className="form-control" placeholder={user.name} />
+                                    <input type="text" id="name" name="name" className="form-control" placeholder={user.name} onChange = {handleInputChange} />
                                 </div>
                                 <div className="form-group col-md-6">
                                     <label class="form-label">นามสกุล</label>
-                                    <input type="text" id="surname" name="surname" className="form-control" placeholder={user.surname} />
+                                    <input type="text" id="surname" name="surname" className="form-control" placeholder={user.surname} onChange = {handleInputChange} />
                                 </div>
                             </div>
+                            {console.log(user)}
                             <div className="form-group">
                                 <label class="form-label">อีเมล</label>
-                                <input type="email" id="email" name="email" className="form-control" placeholder={user.email} />
+                                <input type="email" id="email" name="email" className="form-control" placeholder={user.email} onChange = {handleInputChange}/>
                             </div>
                             <div class="form-row">
                                 <div className="form-group col-md-6">
                                     <label class="form-label">เบอร์โทร</label>
-                                    <input type="tel" id="tel" name="tel" className="form-control" placeholder={user.tel} />
+                                    <input type="tel" id="tel" name="tel" className="form-control" placeholder={user.phone} onChange = {handleInputChange} />
                                 </div>
                                 <div className="form-group col-md-6">
                                     <label class="form-label">วันเดือนปีเกิด</label>
-                                    <input type="date" id="birthday" name="birthday" className="form-control" placeholder={user.birthday} />
+                                    <input type="date" id="birthday" name="birthday" className="form-control" placeholder={user.birthday} onChange = {handleInputChange} />
                                 </div>
                             </div>
                             <div class="form-row">
@@ -169,15 +163,15 @@ export default function Editprofile() {
                                 </div>
                                 <div className="form-group col-md-4">
                                     <label for="inputaddress" class="form-label">แขวง/ตำบล</label>
-                                    <select class="form-control">
-                                        <option value="">เขต</option>
-                                        <option value="1">test</option>
+                                    <select id = "district" class="form-control" onChange = {handleInputChange}>
+                                        <option value="1">เขต</option>
+                                        <option value="2">test</option>
                                     </select>
                                 </div>
                             </div>
                             <div className="form-group">
                                 <label for="inputaddress" class="form-label">ที่อยู่</label>
-                                <textarea name="address" id="address" className="form-control" placeholder={user.address} rows="2" />
+                                <textarea name="address" id="address" className="form-control" placeholder={user.address} rows="2" onChange = {handleInputChange} />
                             </div>
                             <div className="btn-editprofile mt-3 text-right">
                                 <button type="button" className="btn">แก้ไขโปรไฟล์</button>

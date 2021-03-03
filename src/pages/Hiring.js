@@ -9,8 +9,8 @@ export default function Hiring() {
         <div className='Sidebar'>
             <h1 className='text'>หมวดหมู่</h1>
 <ul>
-<li><a href='#'><h2>ออกแบบกราฟิก</h2>
-        </a>
+<li><h2>ออกแบบกราฟิก</h2>
+        
     <ul className='feat-show'>
         <li><Link to = "/uploadwork">ออกแบบโลโก้</Link></li>
         <li><a href='#'>ออกแบบโลโก้</a></li>
