@@ -164,7 +164,7 @@ export default function Profile() {
                           key={index}
                         >
                           <Card className="cardprofilework">
-                            <h1 className="ml-3 mt-3">{work.name}</h1>
+                            <h1 className="ml-3 mt-3">ชื่อผลงาน {work.name}</h1>
 
                             <CardBody>
                               <CardImg
