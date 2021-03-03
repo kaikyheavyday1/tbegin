@@ -1,6 +1,6 @@
 import React from 'react'
 import { Row, Col } from 'reactstrap';
-
+import ImageUploader from 'react-images-upload'
 export default function Editwork() {
     return (
         <div className = "container pb-5">
@@ -48,6 +48,17 @@ export default function Editwork() {
             <input type="text" className="form-control" placeholder="Ex.โลโก้สไตล์มินิมอล" />
             <h3 className = "editwork-color">อธิบายเพิ่มเติมเกี่ยวกับงาน</h3>
             <textarea name="editwork" className="form-control" rows="3" placeholder="Ex. โลโก้สไตล์มินิมิลสวยหรู เรียบง่ายดูสบายตา ราคาถูก สามารถแก้ผลงานได้ 2 รอบ" />
+            <h3 className = "editwork-color">สื่งที่ลูกค้าจะได้รับจากงาน</h3>
+            <textarea name="editwork" className="form-control" rows="3" placeholder="Ex. โลโก้จำนวน 2 ชิ้นงาน แก้ไขได้ทั้งหมด 2 รอบ ตามบรีฟงานลูกค้า" />
+            <div className="form-group">
+            <h2 className = "editwork-color editwork-bold mt-3">อัพโหลดรูปผลงาน</h2>
+            <hr className = "" color = "#00296B"></hr>
+              <p>อัพโหลดรูปภาพของคุณ (จำกัดสูงสุดไม่เกิน 6 รูป)</p>
+              <ImageUploader
+                singleImage={false}
+                withPreview={true}
+              />
+            </div>
             <div className="btn-aboutus mt-3 text-right">
                         <button type="button" className="btn-lg">บันทึกการแก้ไข</button>
                     </div>

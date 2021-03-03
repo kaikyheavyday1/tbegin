@@ -3,6 +3,7 @@ import { Row, Col } from 'reactstrap';
 import axios from "axios"
 import ImageUploader from 'react-images-upload';
 import userpic from "../images/user.svg"
+import StarRatings from 'react-star-ratings'
 
 let initState = {
     username: "",
@@ -96,8 +97,19 @@ export default function Editprofile() {
                         <img src={userpic} alt="user" height="70px" width="100%" />
                         <h4 className="mt-3">{user.username}</h4>
                         <h5>Member</h5>
-                        <div className="text-center mt-3">
-                            <h4>Rating 4.5/5</h4>
+                        <hr color ="#00296b"></hr>
+                        <div className="text-center ">
+                            <h2>เรทติ้ง</h2>
+                        <div className="">
+             <div className ="">
+             <StarRatings
+                rating={2.5}
+                starDimension="25px"
+                starSpacing="2px"
+                starRatedColor="#FFBF00"
+              />
+             </div>
+            </div>
                         </div>
                       <div className="upload-profile-pic mt-5">
                           <h4>อัพโหลดรูปโปรไฟล์ของคุณ</h4>
@@ -110,7 +122,8 @@ export default function Editprofile() {
                     </Col>
                     <Col lg="8" md="8" sm="12" xs="12" className="formright mb-5">
                         <div className="col-10 mx-auto">
-                            <h3>แก้ไขโปรไฟล์</h3>
+                            <h3 className = "editwork-bold">แก้ไขโปรไฟล์</h3>
+                            <hr color = "#00296b"></hr>
                             <div class="form-row">
                                 <div className="form-group col-md-6">
                                     <label class="form-label">ชื่อจริง</label>
@@ -167,26 +180,28 @@ export default function Editprofile() {
                                 <textarea name="address" id="address" className="form-control" placeholder={user.address} rows="2" />
                             </div>
                             <div className="btn-editprofile mt-3 text-right">
-                                <button type="button">แก้ไขโปรไฟล์</button>
+                                <button type="button" className="btn">แก้ไขโปรไฟล์</button>
                             </div>
-                            <h3 className="mt-5">แก้ไขรหัสผ่าน</h3>
+                            <h3 className="mt-4 editwork-bold">แก้ไขรหัสผ่าน</h3>
+                            <hr color ="#00296b"></hr>
                             <div className="col-8">
                                 <div className="form-group">
                                     <label class="form-label">รหัสผ่านปัจจุบัน</label>
-                                    <input type="password" id="password" name="password" className="form-control" placeholder="รหัสผ่าน" />
+                                    <input type="password" id="password" name="password" className="form-control" placeholder="รหัสผ่านปัจจุบัน" />
                                 </div>
                                 <div className="form-group">
-                                    <label class="form-label">รหัสผ่านปัจจุบัน</label>
-                                    <input type="password" id="password" name="password" className="form-control" placeholder="รหัสผ่าน" />
+                                    <label class="form-label">รหัสผ่านใหม่</label>
+                                    <input type="password" id="password" name="password" className="form-control" placeholder="รหัสผ่านใหม่" />
                                 </div>
                                 <div className="form-group">
-                                    <label class="form-label">รหัสผ่านปัจจุบัน</label>
-                                    <input type="password" id="confirmPassword" name="password" className="form-control" placeholder="ยืนยันรหัสผ่าน" />
+                                    <label class="form-label">ยืนยันรหัสผ่านใหม่</label>
+                                    <input type="password" id="confirmPassword" name="password" className="form-control" placeholder="ยืนยันรหัสผ่านใหม่" />
                                 </div>
-                                <div className="btn-editprofile mt-3 text-left">
+                                
+                            </div>
+                            <div className="btn-editprofile mt-3 text-right">
                                     <button type="button" className="btn">เปลี่ยนรหัสผ่าน</button>
                                 </div>
-                            </div>
                         </div>
                     </Col>
                 </Row>
