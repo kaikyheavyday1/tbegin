@@ -21,7 +21,15 @@ export default function WorkingList() {
     getwork()
   }, [])
   const getwork = async () => {
-    const fetch = await axios.get('http://localhost:4000/work/getallwork')
+    console.log('hello')
+    const fetch = await axios.get(
+      'http://localhost:4000/work/get-work?allwork=true',
+      {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('access-token'), //the token is a variable which holds the token
+        },
+      }
+    )
     const data = await fetch.data
     console.log(data)
     setWorks(data)

@@ -36,11 +36,14 @@ export default function Profile() {
     getWorks()
   }, [])
   const getWorks = async () => {
-    const fetch = await axios.get('http://localhost:4000/work/getuserid', {
-      headers: {
-        Authorization: 'Bearer ' + localStorage.getItem('access-token'), //the token is a variable which holds the token
-      },
-    })
+    const fetch = await axios.get(
+      'http://localhost:4000/work/get-work?userid=true',
+      {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('access-token'), //the token is a variable which holds the token
+        },
+      }
+    )
     const data = await fetch.data
     console.log(data)
     setUserWork(data)
@@ -150,7 +153,7 @@ export default function Profile() {
                           key={index}
                         >
                           <Card className="cardprofilework">
-                            <h1 className="ml-3 mt-3">ชื่อผลงาน {work.name}</h1>
+                            <h1 className="ml-3 mt-3">{work.name}</h1>
 
                             <CardBody>
                               <CardImg
