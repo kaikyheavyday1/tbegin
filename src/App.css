@@ -538,6 +538,19 @@
   height: auto;
   transform: translate(-50%, -50%);
 }
+
+/*end of loading*/
+
+.error {
+  margin-bottom: 300px;
+  margin-top: 50px;
+}
+.error h1 {
+  font-size: 50px;
+}
+.error p {
+  font-size: 30px;
+}
 .editwork-bg {
   background: white;
   border-radius: 20px;

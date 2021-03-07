@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import logo from '../images/logo.png'
+import Loading from '../component/Loading'
 import images1 from '../images/home/1.svg'
 import images2 from '../images/home/2.svg'
 import images3 from '../images/home/3.svg'
@@ -10,6 +11,7 @@ import images7 from '../images/home/7.jpg'
 import images8 from '../images/home/8.png'
 import images9 from '../images/home/9.jpg'
 import images10 from '../images/home/10.png'
+
 import {
   Carousel,
   CarouselItem,
