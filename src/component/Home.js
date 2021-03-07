@@ -330,7 +330,7 @@ export default function Home() {
             </div>
           </Col>
           <div className="buttonhome mt-5">
-            <Link to="/sidebar">
+            <Link to="/working-list">
               <button type="button">ดูผลงานเพิ่มเติม</button>
             </Link>
           </div>

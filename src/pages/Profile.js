@@ -20,6 +20,7 @@ import web from '../images/profile/web.jpeg'
 import web2 from '../images/profile/web2.png'
 import like from '../images/profile/heart.svg'
 import StarRatings from 'react-star-ratings'
+import Loading from '../component/Loading'
 
 let initState = {
   name: '',
@@ -31,6 +32,7 @@ let initState = {
 export default function Profile() {
   const [user, setUser] = useState(initState)
   const [userWork, setUserWork] = useState([])
+  const [loading, setLoading] = useState(false)
   useEffect(() => {
     inProfile()
     getWorks()
@@ -47,6 +49,7 @@ export default function Profile() {
   }
 
   const inProfile = async (e) => {
+    setLoading(true)
     const fetch = await axios.get('http://localhost:4000/profile', {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('access-token'), //the token is a variable which holds the token
@@ -61,10 +64,12 @@ export default function Profile() {
       email: data.email,
     }
     setUser(insertUser)
+    setLoading(false)
   }
 
   return (
     <div className="profile mb-5">
+      {loading ? <Loading /> : null}
       <div className="container">
         <Row className="mt-5">
           <Col lg="4" md="12" sm="12" xs="12" className="profile-info">

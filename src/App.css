@@ -435,77 +435,16 @@
 .sidesideside h3 {
   font-weight: bold;
 }
-.sidesideside p:hover {
-  background-color: #cdd4e2;
-  padding-left: 10px;
-  color: #000;
-  border-radius: 5px;
-}
-.sidesideside h3:hover {
-  background-color: #cdd4e2;
-  padding-left: 10px;
-  color: #000;
-  border-radius: 10px;
-}
-.sidesideside a:hover {
-  background-color: #cdd4e2;
-  text-decoration: none;
-}
 .sidesideside a {
   color: #000;
 }
 .sidesideside p {
   font-size: 18px;
 }
-
-/* end sidebar */
-
-.cardhiring .profile img {
-  border-radius: 50%;
-  height: 75px;
-  width: 75px;
-}
-.cardhiring .workpic {
-  width: 100%;
-  height: 12rem;
-  border-radius: 10px;
-  object-fit: cover;
-}
-.cardhiring strong {
-  font-size: 30px;
-  font-weight: bold;
-  text-align: left;
-}
-.cardhiring p {
-  font-size: 20px;
-}
-.cardhiring .star {
-  padding: 0 !important;
-}
-.cardhiring .card {
-  width: 100%;
-  border-radius: 10px;
-}
 .sidesidesideside {
   width: 100%;
   display: none;
   background-color: white;
-}
-.sidesidesideside p:hover {
-  background-color: #cdd4e2;
-  padding-left: 10px;
-  color: #000;
-  border-radius: 5px;
-}
-.sidesidesideside h3:hover {
-  background-color: #cdd4e2;
-  padding-left: 10px;
-  color: #000;
-  border-radius: 10px;
-}
-.sidesidesideside a:hover {
-  background-color: #cdd4e2;
-  text-decoration: none;
 }
 .sidesidesideside a {
   color: #000;
@@ -551,16 +490,64 @@
   }
 }
 
-.editwork-bg{
+/* end sidebar */
+
+.cardhiring .profile img {
+  border-radius: 50%;
+  height: 75px;
+  width: 75px;
+}
+.cardhiring .workpic {
+  width: 100%;
+  height: 12rem;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.cardhiring strong {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: left;
+}
+.cardhiring p {
+  font-size: 20px;
+}
+.cardhiring .star {
+  padding: 0 !important;
+}
+.cardhiring .card {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/*end of cardhiring*/
+
+.loading {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.377);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+.loadinglayout {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+}
+.editwork-bg {
   background: white;
   border-radius: 20px;
 }
 
-.editwork-bold{
+.editwork-bold {
   font-weight: bolder;
   color: #00296b;
 }
-.editwork-color{
+.editwork-color {
   color: #00296b;
 }
 .vl {
@@ -570,4 +557,3 @@
   left: 50%;
   top: 20px;
 }
-
