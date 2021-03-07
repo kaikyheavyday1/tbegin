@@ -25,7 +25,6 @@ export default function WorkingList() {
   }, [])
 
   const getwork = async () => {
-<<<<<<< HEAD
     console.log('hello')
     const fetch = await axios.get(
       'http://localhost:4000/work/get-work?allwork=true',
@@ -35,10 +34,6 @@ export default function WorkingList() {
         },
       }
     )
-=======
-    setLoading(true)
-    const fetch = await axios.get('http://localhost:4000/work/getallwork')
->>>>>>> loading
     const data = await fetch.data
     console.log(data)
     setWorks(data)
