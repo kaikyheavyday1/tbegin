@@ -6,6 +6,7 @@ import Cardhiring from '../component/Cardhiring'
 import Sidebar2 from '../component/Sidebar2'
 import axios from 'axios'
 import Cardworking from '../component/Cardworking'
+import Loading from '../component/Loading'
 
 function useQuery() {
   return new URLSearchParams(useLocation().search)
@@ -15,12 +16,16 @@ export default function WorkingList() {
   let query = useQuery()
   let type = query.get('type')
   let subtype = query.get('subtype')
-  console.log(type, subtype)
+
   const [works, setWorks] = useState([])
+  const [loading, setLoading] = useState(false)
+
   useEffect(() => {
     getwork()
   }, [])
+
   const getwork = async () => {
+<<<<<<< HEAD
     console.log('hello')
     const fetch = await axios.get(
       'http://localhost:4000/work/get-work?allwork=true',
@@ -30,13 +35,19 @@ export default function WorkingList() {
         },
       }
     )
+=======
+    setLoading(true)
+    const fetch = await axios.get('http://localhost:4000/work/getallwork')
+>>>>>>> loading
     const data = await fetch.data
     console.log(data)
     setWorks(data)
+    setLoading(false)
   }
   return (
     <Row>
       <Col lg={12} className="allpagesidebar">
+        {loading ? <Loading /> : null}
         <Row>
           <Col className="ml-0" lg={2} md={3} xs={12}>
             <Sidebar />

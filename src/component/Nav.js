@@ -24,7 +24,7 @@ class Header extends Component {
 
     this.state = {
       isOpen: false,
-      dropdownOpen: true,
+      dropdownOpen: false,
     }
 
     this.toggle = this.toggle.bind(this)
