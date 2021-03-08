@@ -56,10 +56,6 @@ export default function WorkingList() {
     setWorks(data)
   }
   const getallwork = async () => {
-
-  const getwork = async () => {
-
-
     setLoading(true)
     const fetch = await axios.get(
       'http://localhost:4000/work/get-work?allwork=true',
@@ -135,4 +131,4 @@ export default function WorkingList() {
       </Col>
     </Row>
   )
-}}
+}
