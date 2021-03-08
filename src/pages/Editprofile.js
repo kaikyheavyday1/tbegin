@@ -44,7 +44,6 @@ export default function Editprofile() {
     let data = await fetch.data
     data = data[0]
     console.log(data)
-
     setUser(data)
   }
 
@@ -79,6 +78,19 @@ export default function Editprofile() {
     const value = e.target.value
     setUser({ ...user, [id]: value })
     console.log(user)
+  }
+
+  const handleButtonEditprofileSubmit = async (e) =>{
+    const fetch =  await axios.post(
+      `http://localhost:4000/auth/editprofile`, user,
+      {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("access-token"), //the token is a variable which holds the token
+        },
+      }
+    )
+    const data = await fetch.data
+    console.log(data)
   }
 
   return (
@@ -159,7 +171,7 @@ export default function Editprofile() {
                   <label class="form-label">เบอร์โทร</label>
                   <input
                     type="tel"
-                    id="tel"
+                    id="phone"
                     name="tel"
                     className="form-control"
                     placeholder={user.phone}
@@ -188,8 +200,8 @@ export default function Editprofile() {
                     onChange={handleProvinceChange}
                     id="province"
                   >
-                    <option value="">asd</option>
-                    {provinces.length > 1
+                    <option value="">กรุณาใส่จังหวัด</option>
+                    {provinces.length > 0
                       ? provinces.map((province, index) => {
                           return (
                             <option
@@ -213,7 +225,7 @@ export default function Editprofile() {
                     id="amphure"
                   >
                     <option value="">กรุณาใส่เขตหรืออำเภอ</option>
-                    {amphures.length > 1
+                    {amphures.length > 0
                       ? amphures.map((amphure, index) => {
                           return (
                             <option
@@ -236,8 +248,8 @@ export default function Editprofile() {
                     class="form-control"
                     onChange={handleInputChange}
                   >
-                    <option value="1">เขต</option>
-                    <option value="2">test</option>
+                    <option value="">เขต</option>
+                    <option value="1">test</option>
                   </select>
                 </div>
               </div>
@@ -255,7 +267,7 @@ export default function Editprofile() {
                 />
               </div>
               <div className="btn-editprofile mt-3 text-right">
-                <button type="button" className="btn">
+                <button type="button" className="btn" onClick = {handleButtonEditprofileSubmit}>
                   แก้ไขโปรไฟล์
                 </button>
               </div>
