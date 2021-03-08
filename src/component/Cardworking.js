@@ -20,15 +20,19 @@ export default function Cardworking(props) {
     <div className="cardhiring mt-3 mb-3 justify-content-center">
       <div className="d-flex mb-2">
         <Card className="card">
-          <div className="d-flex profile">
-            <img className="avatar mt-3 ml-3" src={images9} alt="avatar" />
-            <div className="ml-3 mt-3">
-              <strong>{props.data.username}</strong>
-              <p>{props.data.subwork_name}</p>
+          <Link to="/">
+            <div className="d-flex profile">
+              <img className="avatar mt-3 ml-3" src={images9} alt="avatar" />
+              <div className="ml-3 mt-3">
+                <strong>{props.data.username}</strong>
+                <p>{props.data.subwork_name}</p>
+              </div>
             </div>
-          </div>
+          </Link>
           <CardBody>
-            <CardImg className="workpic" src={props.data.pic1}></CardImg>
+            <Link to="/">
+              <CardImg className="workpic" src={props.data.pic1}></CardImg>
+            </Link>
             <CardText className="text-left mt-3">
               <h2>{props.data.name}</h2>
               {props.data.description}

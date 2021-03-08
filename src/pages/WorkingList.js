@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Row, Col, Container } from 'reactstrap'
+import {
+  Row,
+  Col,
+  Container,
+  Pagination,
+  PaginationItem,
+  PaginationLink,
+} from 'reactstrap'
 import Sidebar from '../component/Sidebar'
 import { useLocation } from 'react-router-dom'
 import Cardhiring from '../component/Cardhiring'
@@ -14,17 +21,41 @@ function useQuery() {
 
 export default function WorkingList() {
   let query = useQuery()
-  let type = query.get('type')
-  let subtype = query.get('subtype')
-
   const [works, setWorks] = useState([])
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    getwork()
+    const maintype = query.get('maintype')
+    if (maintype === null) {
+      getallwork()
+    }
   }, [])
-
-  const getwork = async () => {
+  useEffect(() => {
+    const maintype = query.get('maintype')
+    const subtype = query.get('subtype')
+    if (maintype !== null) {
+      getworkByMainType(maintype)
+    } else if (subtype !== null) {
+      const work = getworkBySubType(subtype)
+    } else {
+      getallwork()
+    }
+  }, [query.get('maintype'), query.get('subtype')])
+  const getworkBySubType = async (subtype) => {
+    const fetch = await axios.get(
+      `http://localhost:4000/work/get-work?subtype=${subtype}`
+    )
+    const data = await fetch.data
+    setWorks(data)
+  }
+  const getworkByMainType = async (maintype) => {
+    const fetch = await axios.get(
+      `http://localhost:4000/work/get-work?maintype=${maintype}`
+    )
+    const data = await fetch.data
+    setWorks(data)
+  }
+  const getallwork = async () => {
     setLoading(true)
     const fetch = await axios.get(
       'http://localhost:4000/work/get-work?allwork=true',
@@ -55,11 +86,45 @@ export default function WorkingList() {
                   works.map((work, index) => {
                     return (
                       <Col md={6} lg={4} xs={12}>
+                        <h1>{work.subwork_name}</h1>
                         <Cardworking data={work} />
                       </Col>
                     )
                   })}
               </Row>
+              <div className="navi mt-5">
+                <div>
+                  <Pagination aria-label="Page navigation example">
+                    <PaginationItem>
+                      <PaginationLink first href="#" />
+                    </PaginationItem>
+                    <PaginationItem>
+                      <PaginationLink previous href="#" />
+                    </PaginationItem>
+                    <PaginationItem>
+                      <PaginationLink href="#">1</PaginationLink>
+                    </PaginationItem>
+                    <PaginationItem>
+                      <PaginationLink href="#">2</PaginationLink>
+                    </PaginationItem>
+                    <PaginationItem>
+                      <PaginationLink href="#">3</PaginationLink>
+                    </PaginationItem>
+                    <PaginationItem>
+                      <PaginationLink href="#">4</PaginationLink>
+                    </PaginationItem>
+                    <PaginationItem>
+                      <PaginationLink href="#">5</PaginationLink>
+                    </PaginationItem>
+                    <PaginationItem>
+                      <PaginationLink next href="#" />
+                    </PaginationItem>
+                    <PaginationItem>
+                      <PaginationLink last href="#" />
+                    </PaginationItem>
+                  </Pagination>
+                </div>
+              </div>
             </Container>
           </Col>
         </Row>
