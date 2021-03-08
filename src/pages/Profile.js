@@ -105,10 +105,7 @@ export default function Profile() {
                 </button>
               </div>
               <div className="mt-3">
-                <p>ป๋าใจดีสปอร์ต กทม</p>
-              </div>
-              <div className="mt-3">
-                <h5>สมัครสมาชิกเมื่อ 18/02/2564</h5>
+                <h5>สมัครสมาชิกเมื่อ {user.create_date}</h5>
               </div>
               <div className="star d-flex">
                 <h3 className="mr-2">เรทติ้ง : </h3>
