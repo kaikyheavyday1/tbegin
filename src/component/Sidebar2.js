@@ -19,8 +19,8 @@ const Sidebar2 = (props) => {
     <div className="sidesidesideside">
       <Navbar color="faded" light>
         <NavbarBrand href="/" className="mr-auto">
-          <h1>ตัวกรองรายการฟรีแลนซ์</h1>
-          <h2>หมวดหมู่งาน</h2>
+          <h1>หมวดหมู่งาน</h1>
+          <hr color="#00296B"></hr>
         </NavbarBrand>
         <button className="button1" onClick={toggleNavbar}>
           แสดง

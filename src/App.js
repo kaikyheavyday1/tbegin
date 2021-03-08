@@ -20,6 +20,7 @@ import Test from './pages/Test'
 import Cardworking from './component/Cardworking'
 import Cardhiring from './component/Cardhiring'
 import Error from './component/Error'
+import Chat from './pages/Chat'
 function App() {
   return (
     <div className="App">
@@ -41,6 +42,7 @@ function App() {
         <Route path="/Cardhiring" component={Cardhiring} />
         <Route path="/editwork" component={Editwork} />
         <Route path="/Loading" component={Loading} />
+        <Route path="/Chat" component={Chat} />
         <Route component={Error} />
       </Switch>
       <Footer />
