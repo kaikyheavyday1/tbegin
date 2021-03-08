@@ -104,8 +104,13 @@ export default function Register() {
       setError("");
       return;
     }
+    swal({
+      title: "Sorry!",
+      text: "รหัสผ่านไม่ตรงกัน",
+      icon: "warning",
+      button: "OK",
+    });
     setError("รหัสผ่านไม่ตรงกัน");
-    console.log("รหัสผ่านไม่ตรงกัน");
     return;
   };
 
