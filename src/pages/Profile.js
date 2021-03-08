@@ -62,14 +62,8 @@ export default function Profile() {
     })
     let data = await fetch.data
     data = data[0]
-    const insertUser = {
-      name: data.name,
-      surname: data.surname,
-      tel: data.phone,
-      email: data.email,
-    }
-    setUser(insertUser)
-    console.log(data)
+
+    setUser(data)
     setLoading(false)
   }
 
@@ -108,7 +102,7 @@ export default function Profile() {
                 <p>ป๋าใจดีสปอร์ต กทม</p>
               </div>
               <div className="mt-3">
-                <h5>สมัครสมาชิกเมื่อ 18/02/2564</h5>
+                <h5>สมัครสมาชิกเมื่อ {user.create_date.toString().split("T")[0]}</h5>
               </div>
               <div className="star d-flex">
                 <h3 className="mr-2">เรทติ้ง : </h3>
