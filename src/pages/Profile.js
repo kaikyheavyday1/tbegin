@@ -38,6 +38,7 @@ export default function Profile() {
     getWorks()
   }, [])
   const getWorks = async () => {
+    setLoading(true)
     const fetch = await axios.get(
       'http://localhost:4000/work/get-work?userid=true',
       {
@@ -49,6 +50,7 @@ export default function Profile() {
     const data = await fetch.data
     console.log(data)
     setUserWork(data)
+    setLoading(false)
   }
 
   const inProfile = async (e) => {
