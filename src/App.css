@@ -1,32 +1,36 @@
-*{
-  font-family: Lamoon ;
+* {
+  font-family: Lamoon;
 }
-#root{
-  background-color: #CDD4E2 ;
+#root {
+  background-color: #cdd4e2;
 }
-.nav-bg{
-  background-color: #00296B;
+.nav-bg {
+  background-color: #00296b;
 }
-.nav-link a{
-  color : #fff;
+.nav-link a {
+  color: #fff;
   font-size: 20px;
 }
-#btn-nav a{
+.nav-link-img {
+  padding-left: 0.8rem !important;
+  padding-right: 0.8rem !important;
+}
+#btn-nav a {
   background-color: #fff;
-  color: #00296B;
+  color: #00296b;
   padding: 7.5px;
   border-radius: 20px;
 }
-#btn-nav a:hover{
-  background-color:#00296B;
+#btn-nav a:hover {
+  background-color: #00296b;
   color: #fff;
 }
-.nav-link a:hover{
-  color : #fff;
+.nav-link a:hover {
+  color: #fff;
   text-decoration: none;
 }
-.logo-brand img{
-  height : 50px;
+.logo-brand img {
+  height: 50px;
 }
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
@@ -35,20 +39,21 @@
   border: 1px solid rgba(255, 255, 255) !important;
 }
 
-.user-dropdown{
-  background-color: #fff !important;
+.user-dropdown {
+  background-color: transparent !important;
   border-radius: 20px !important;
   padding: 5px !important;
+  border-radius: 20px !important;
+  border: 1px solid #fff !important;
+}
+.user-dropdown img {
+  padding: 3px !important;
 }
 
+/* end nav  */
 
-
- /* end nav  */
-
-
-
-.home{
-  color: #00296B;
+.home {
+  color: #00296b;
 }
 .home .row img {
   width: 60%;
@@ -57,58 +62,142 @@
 .home .row p {
   font-size: 20px;
 }
- /* end home  */
+.home .section2 img {
+  width: 100%;
+  height: 70%;
+}
+.home .section2 .logo-second {
+  width: 30%;
+}
+.home .section2-right {
+  background-color: #fff;
+  border-radius: 10px;
+}
+.home .section2-right h2 {
+  font-weight: bold;
+  font-size: 40px;
+}
+.home .section2-right img {
+  width: 5%;
+}
+.home .section2-right .correct h3 {
+  font-size: 20px;
+}
+.home .section3 .avatar {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+}
+.home .section3 .workpic {
+  width: 18rem;
+}
+.carousel-control-prev-icon {
+  color: #000;
+}
+.carousel-control-next-icon {
+  color: #000;
+}
+
+.home .section3 h3 {
+  font-size: 45px;
+  font-weight: bold;
+  text-align: left;
+}
+
+/* end home  */
+
+.login .in-login {
+  background-color: #fff;
+  border-radius: 20px;
+  color: #00296b;
+}
+.login .in-login h1 {
+  font-weight: bold;
+  font-size: 50px;
+}
+.login input {
+  border-radius: 10px;
+}
+.login button {
+  background-color: #00296b;
+  color: #fff;
+  font-size: 25px;
+  padding: 5px 15px;
+  border-radius: 10px;
+}
+.login button:hover {
+  background-color: #fff;
+  color: #00296b;
+}
+.login a {
+  color: #00296b;
+}
+
+/* end login */
+
+.register .in-register {
+  background-color: #fff;
+  border-radius: 20px;
+}
+.register button {
+  background-color: #00296b;
+  color: #fff;
+  font-size: 25px;
+  padding: 5px 15px;
+  border-radius: 10px;
+}
 
 .howto {
-  color: #00296B;
-  background-color: #CDD4E2;
+  color: #00296b;
+  background-color: #cdd4e2;
   border-radius: 20px;
 }
-.howto1{
+.howto1 {
   background-color: #fff;
   border-radius: 20px;
   margin-bottom: 10px;
 }
-.howto2{
+.howto2 {
   background-color: lightgray;
   border-radius: 20px;
   margin-top: 10px;
 }
-.howto3{
+.howto3 {
   background-color: #fff;
   border-radius: 20px;
   margin-bottom: 10px;
 }
-.howto4{
+.howto4 {
   background-color: lightgray;
   border-radius: 20px;
   margin-top: 10px;
 }
 
- /* end howto  */
+/* end howto  */
 
-.login{
-  color : #00296B;
+.login {
+  color: #00296b;
 }
-.register{
-  color: #00296B
+.register {
+  color: #00296b;
 }
-.logo-center{
+.logo-center {
   text-align: center;
 }
-.aboutus1{
+.aboutus1 {
   font-size: 50px;
   font-weight: bold;
-  color: #00296B;
+  color: #00296b;
 }
-.aboutus h3{
-  color: #00296B;
+.aboutus h3 {
+  color: #00296b;
 }
-.bgaboutus{
+.bgaboutus {
   background-color: #fff;
+  border-radius: 20px;
 }
-.btn-aboutus .btn-lg{
-  background-color: #00296B;
+.btn-aboutus .btn-lg {
+  background-color: #00296b;
   color: #fff;
   font-weight: bold;
   font-size: 25px;
@@ -116,4 +205,385 @@
   border-radius: 10px;
 }
 
+/* end aboutus */
+.registerfreelance h2 {
+  font-size: 50px;
+  font-weight: bold;
+  color: #00296b;
+}
+.registerfreelance .in-registerfreelance {
+  background-color: #fff;
+  border-radius: 20px;
+}
+.registerfreelance h3 {
+  color: #00296b;
+}
+.registerfreelance .id-card {
+  background-color: #cdd4e2;
+}
+.picregisfl1 {
+  width: 5%;
+}
+.btn-regisfl {
+  background-color: #00296b;
+  color: #fff;
+  font-weight: bold;
+  font-size: 25px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+.regisfl2 {
+  background-color: #00296b;
+  color: #fff;
+  font-weight: bold;
+  font-size: 25px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+.registerfreelance p {
+  color: red;
+}
 
+.fileContainer p {
+  display: none;
+}
+/* end registerfreelance */
+
+.profile {
+  color: #00296b;
+}
+.profile .profile-info {
+  background-color: #fff;
+  border-radius: 20px;
+}
+.profile .profile-info button {
+  background-color: #00296b;
+  color: #fff;
+  font-size: 15px;
+  padding: 5px 30px;
+  border-radius: 10px;
+}
+.profile .profile-info .profess {
+  border: 1px solid #00296b;
+  padding: 3px 20px;
+}
+.profile .cardprofilework {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.profile .cardprofilework .imgwork {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.profile .cardprofilework h3 {
+  font-size: 18px;
+}
+.profile .cardprofilework .carddescription {
+  font-size: 23px;
+}
+
+.profile .allwork .like-price {
+  padding: 0;
+}
+
+/* end profile */
+
+.uploadwork {
+  color: #00296b;
+}
+.uploadwork .in-uploadwork {
+  background-color: #fff;
+  border-radius: 20px;
+}
+.uploadwork label {
+  font-size: 25px;
+}
+
+/* end uploadwork */
+
+.editprofile {
+  color: #00296b;
+}
+.editprofile .container .row {
+  background-color: #fff;
+  border-radius: 20px;
+}
+.editprofile input {
+  border-radius: 20px;
+}
+.editprofile select {
+  border-radius: 20px;
+}
+.editprofile textarea {
+  border-radius: 20px;
+}
+.editprofile .formright {
+  border-left: #cdd4e2 1px solid;
+}
+.editprofile .formright label {
+  font-size: 25px;
+}
+.editprofile .btn-editprofile button {
+  background-color: #00296b;
+  color: #fff;
+  font-size: 20px;
+  padding: 5px 5px;
+  border-radius: 10px;
+}
+
+/* end editprofile */
+.working {
+  color: #00296b;
+}
+.working .container .carousel {
+  border-radius: 20px;
+}
+.working .container .carousel img {
+  height: 400px;
+  width: 100%;
+  border-radius: 20px;
+}
+.working .container .img-working-small .col {
+  padding: 0;
+}
+.working .container .working-small img {
+  border-radius: 10px;
+}
+.working .container .img-working-small {
+  padding: 2px !important;
+}
+.working .working-left {
+  background-color: #fff;
+  border-radius: 20px;
+}
+.working h2 {
+  font-size: 45px;
+  font-weight: bold;
+}
+.working h3 {
+  font-size: 35px;
+}
+.working p {
+  font-size: 20px;
+}
+.working .working-left strong {
+  font-size: 20px;
+}
+.working .working-left .comment {
+  background-color: #cdd4e2;
+  border-radius: 20px;
+}
+.working .working-right {
+  background-color: #fff;
+  border-radius: 20px;
+  border: 3px solid #00296b;
+}
+/* end working */
+
+.Footer {
+  background-color: #00296b;
+  color: #fff;
+}
+.Footer h2 {
+  font-size: 25px;
+}
+.Footer h3 {
+  font-size: 20px;
+}
+.btn-Footer .btn-lg {
+  background-color: #fff;
+  color: #00296b;
+  font-weight: bold;
+  font-size: 25px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+.Footer p {
+  color: #fff;
+}
+.Footer a:hover {
+  text-decoration: none;
+}
+/* end Footer */
+
+.allpagesidebar {
+  width: 100%;
+  height: 100%;
+  background-color: #cdd4e2;
+}
+.sidesideside {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  padding: 5px;
+  text-decoration: none;
+  display: block;
+}
+.sidedata {
+  margin-left: 50px;
+}
+.sidesideside h1 {
+  font-size: 38px;
+  font-weight: bold;
+}
+.sidesideside h2 {
+  font-weight: bold;
+}
+.sidesideside h3 {
+  font-weight: bold;
+}
+.sidesideside a {
+  color: #000;
+}
+.sidesideside p {
+  font-size: 18px;
+}
+.sidesidesideside {
+  width: 100%;
+  display: none;
+  background-color: white;
+}
+.sidesidesideside a {
+  color: #000;
+}
+.sidesidesideside .button1 {
+  background-color: #00296b;
+  color: #fff;
+  border: none;
+  text-decoration: none;
+}
+.sidesidesideside .button2 {
+  background-color: #00296b;
+  color: #fff;
+  border: none;
+  position: fixed;
+  text-decoration: none;
+  z-index: 99;
+  font-size: 20px;
+  bottom: 15px;
+  right: 30px;
+  justify-content: end;
+}
+@media only screen and (max-width: 767px) {
+  .sidesideside {
+    display: none;
+  }
+  .sidesidesideside {
+    display: block;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .sidesideside h1 {
+    font-size: 28px;
+  }
+  .sidesideside h2 {
+    font-size: 25px;
+  }
+  .sidesideside h3 {
+    font-size: 18px;
+  }
+  .sidesideside p {
+    font-size: 15px;
+  }
+}
+
+/* end sidebar */
+
+.cardhiring .profile img {
+  border-radius: 50%;
+  height: 75px;
+  width: 75px;
+}
+.cardhiring .workpic {
+  width: 100%;
+  height: 12rem;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.cardhiring strong {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: left;
+}
+.cardhiring p {
+  font-size: 20px;
+}
+.cardhiring .star {
+  padding: 0 !important;
+}
+.cardhiring .card {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/*end of cardhiring*/
+
+.loading {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.377);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+.loadinglayout {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+}
+.navi {
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+}
+/*end of loading*/
+
+.error {
+  margin-bottom: 300px;
+  margin-top: 50px;
+}
+.error h1 {
+  font-size: 50px;
+}
+.error p {
+  font-size: 30px;
+}
+.editwork-bg {
+  background: white;
+  border-radius: 20px;
+}
+
+.editwork-bold {
+  font-weight: bolder;
+  color: #00296b;
+}
+.editwork-color {
+  color: #00296b;
+}
+.vl {
+  border-left: 1px solid #00296b;
+  height: 250px;
+  position: absolute;
+  left: 50%;
+  top: 20px;
+}
+.btn-home {
+  background-color: #00296b;
+  color: #fff;
+  border-radius: 10px;
+  border : none;
+}
+.chat{
+  font-size: 150%;
+}
+.errorchangepass{
+  color: red;
+}
