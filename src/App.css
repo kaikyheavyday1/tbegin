@@ -538,7 +538,12 @@
   height: auto;
   transform: translate(-50%, -50%);
 }
-
+.navi {
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+}
 /*end of loading*/
 
 .error {
@@ -570,7 +575,7 @@
   left: 50%;
   top: 20px;
 }
-.btn-home{
+.btn-home {
   background-color: #00296b;
   color: #fff;
   border-radius: 10px;

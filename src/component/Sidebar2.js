@@ -49,7 +49,7 @@ const Sidebar2 = (props) => {
               <Link to="working-list?type=graphic&subtype=info">
                 <p>อินโฟรกราฟิก</p>
               </Link>
-              <Link to="working-list?type=graphic&subtype=Present">
+              <Link to="working-list?type=graphic&subtype=present">
                 <p>Slide Presentation</p>
               </Link>
               <Link to="working-list?type=graphic&subtype=uxui">

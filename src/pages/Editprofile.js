@@ -80,12 +80,13 @@ export default function Editprofile() {
     console.log(user)
   }
 
-  const handleButtonEditprofileSubmit = async (e) =>{
-    const fetch =  await axios.post(
-      `http://localhost:4000/auth/editprofile`, user,
+  const handleButtonEditprofileSubmit = async (e) => {
+    const fetch = await axios.post(
+      `http://localhost:4000/auth/editprofile`,
+      user,
       {
         headers: {
-          Authorization: "Bearer " + localStorage.getItem("access-token"), //the token is a variable which holds the token
+          Authorization: 'Bearer ' + localStorage.getItem('access-token'), //the token is a variable which holds the token
         },
       }
     )
@@ -267,7 +268,11 @@ export default function Editprofile() {
                 />
               </div>
               <div className="btn-editprofile mt-3 text-right">
-                <button type="button" className="btn" onClick = {handleButtonEditprofileSubmit}>
+                <button
+                  type="button"
+                  className="btn"
+                  onClick={handleButtonEditprofileSubmit}
+                >
                   แก้ไขโปรไฟล์
                 </button>
               </div>
