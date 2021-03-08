@@ -22,15 +22,8 @@ import like from '../images/profile/heart.svg'
 import StarRatings from 'react-star-ratings'
 import Loading from '../component/Loading'
 
-let initState = {
-  name: '',
-  surname: '',
-  tel: '',
-  email: '',
-}
-
 export default function Profile() {
-  const [user, setUser] = useState(initState)
+  const [user, setUser] = useState(null)
   const [userWork, setUserWork] = useState([])
   const [loading, setLoading] = useState(false)
   useEffect(() => {
@@ -62,7 +55,6 @@ export default function Profile() {
     })
     let data = await fetch.data
     data = data[0]
-
     setUser(data)
     setLoading(false)
   }
@@ -80,9 +72,11 @@ export default function Profile() {
                 </Col>
                 <Col lg="8">
                   <div className="pt-3">
-                    <h3 className="editwork-bold">
-                      {user.name} {user.surname}
-                    </h3>
+                    {user !== null && (
+                      <h3 className="editwork-bold">
+                        {user.name} {user.surname}
+                      </h3>
+                    )}
                   </div>
                 </Col>
               </Row>
@@ -102,7 +96,11 @@ export default function Profile() {
                 <p>ป๋าใจดีสปอร์ต กทม</p>
               </div>
               <div className="mt-3">
-                <h5>สมัครสมาชิกเมื่อ {user.create_date.toString().split("T")[0]}</h5>
+                {user !== null && (
+                  <h5>
+                    สมัครสมาชิกเมื่อ {user.create_date.toString().split('T')[0]}
+                  </h5>
+                )}
               </div>
               <div className="star d-flex">
                 <h3 className="mr-2">เรทติ้ง : </h3>
@@ -122,7 +120,7 @@ export default function Profile() {
                     <img src={phone} alt="user" height="20px" />
                   </div>
                   <div className="ml-2">
-                    <h5>{user.tel}</h5>
+                    {user !== null && <h5>{user.phone}</h5>}
                   </div>
                 </div>
                 <div className="d-flex justify-content-start">
@@ -130,7 +128,7 @@ export default function Profile() {
                     <img src={letter} alt="user" height="20px" />
                   </div>
                   <div className="ml-2">
-                    <h5>{user.email}</h5>
+                    {user !== null && <h5>{user.email}</h5>}
                   </div>
                 </div>
               </div>
