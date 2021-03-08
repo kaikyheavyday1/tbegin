@@ -4,8 +4,8 @@ import axios from 'axios'
 import ImageUploader from 'react-images-upload'
 import userpic from '../images/user.svg'
 import StarRatings from 'react-star-ratings'
-import swal from "sweetalert";
-
+import swal from 'sweetalert'
+import firebase from 'firebase'
 let initState = {
   username: '',
   name: '',
@@ -17,6 +17,7 @@ let initState = {
   province: null,
   amphure: null,
   district: null,
+  profile_pic: null,
 }
 
 let initPassword = {
@@ -31,10 +32,10 @@ export default function Editprofile() {
   const [error, setError] = useState()
   const [provinces, setProvinces] = useState([])
   const [amphures, setAmphures] = useState([])
-  const [pictures, setPictures] = useState([])
+  const [pictures, setPictures] = useState(null)
 
   const onDrop = (picture) => {
-    setPictures([...pictures, picture])
+    setPictures(picture)
   }
 
   useEffect(() => {
@@ -43,32 +44,33 @@ export default function Editprofile() {
     fetchProvinces()
   }, [])
 
-  
-
   const Validate = () => {
-    if(password.password === "" || password.password === null){
-      alert("โปรดป้อนรหัสผ่านปัจจุบัน")
-      setError("โปรดป้อนรหัสผ่านปัจจุบัน");
-      return false;
-    } else if (password.newpassword === "" || password.newpassword === null){
-      alert("โปรดป้อนรหัสผ่านใหม่")
-      setError("โปรดป้อนรหัสผ่านใหม่");
-      return false;
-    } else if (password.repeatpassword === "" || password.repeatpassword === null){
-      alert("โปรดยืนยันรหัสผ่าน")
-      setError("โปรดยืนยันรหัสผ่าน");
-      return false;
-    } else if (password.newpassword !== password.repeatpassword){
+    if (password.password === '' || password.password === null) {
+      alert('โปรดป้อนรหัสผ่านปัจจุบัน')
+      setError('โปรดป้อนรหัสผ่านปัจจุบัน')
+      return false
+    } else if (password.newpassword === '' || password.newpassword === null) {
+      alert('โปรดป้อนรหัสผ่านใหม่')
+      setError('โปรดป้อนรหัสผ่านใหม่')
+      return false
+    } else if (
+      password.repeatpassword === '' ||
+      password.repeatpassword === null
+    ) {
+      alert('โปรดยืนยันรหัสผ่าน')
+      setError('โปรดยืนยันรหัสผ่าน')
+      return false
+    } else if (password.newpassword !== password.repeatpassword) {
       swal({
-        title: "Sorry!",
-        text: "รหัสผ่านไม่ตรงกัน",
-        icon: "warning",
-        button: "OK",
-      });
-      setError("รหัสผ่านไม่ตรงกัน")
-      return false;
+        title: 'Sorry!',
+        text: 'รหัสผ่านไม่ตรงกัน',
+        icon: 'warning',
+        button: 'OK',
+      })
+      setError('รหัสผ่านไม่ตรงกัน')
+      return false
     }
-    return true;
+    return true
   }
 
   const inProfile = async (e) => {
@@ -82,7 +84,45 @@ export default function Editprofile() {
     console.log(data)
     setUser(data)
   }
-
+  var firebaseConfig = {
+    apiKey: 'AIzaSyB7Sf2IziovxdmlTMUKpE8RVfkP_RuVxqU',
+    authDomain: 'tbegin-f9c33.firebaseapp.com',
+    projectId: 'tbegin-f9c33',
+    storageBucket: 'tbegin-f9c33.appspot.com',
+    messagingSenderId: '187729112224',
+    appId: '1:187729112224:web:3c3d84074c3624183aadc5',
+  }
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig)
+  } else {
+    firebase.app() // if already initialized, use that one
+  }
+  const uploadImageToFirebase = (file, state) => {
+    return new Promise((resolve, reject) => {
+      const storageRef = firebase
+        .storage()
+        .ref(`${user.email}/freelance/profile/${file[0].name}`)
+      var metadata = { contentType: 'image/jpeg' }
+      const task = storageRef.put(file[0], metadata)
+      let url
+      task.on(
+        `state_changed`,
+        (snapshort) => {
+          let percentage =
+            (snapshort.bytesTransferred / snapshort.totalBytes) * 100
+          console.log(percentage)
+        },
+        (error) => {
+          console.log(error)
+        },
+        () => {
+          task.snapshot.ref.getDownloadURL().then((downloadUrl) => {
+            resolve(downloadUrl)
+          })
+        }
+      )
+    })
+  }
   const fetchProvinces = async () => {
     const fetch = await axios.get(
       'http://localhost:4000/address?type=provinces'
@@ -90,7 +130,6 @@ export default function Editprofile() {
     const data = await fetch.data
     setProvinces(data)
   }
-
 
   const handleInputChange = (e) => {
     const id = e.target.id
@@ -124,36 +163,49 @@ export default function Editprofile() {
     console.log(user)
   }
 
-  const handleButtonEditprofileSubmit = async (e) =>{
-    const fetch =  await axios.post(
-      `http://localhost:4000/auth/editprofile`, user,
+  const handleButtonEditprofileSubmit = async (e) => {
+    const URL = await uploadImageToFirebase(pictures)
+    setUser({ ...user, profile_pic: URL })
+    console.log(user)
+    const fetch = await axios.post(
+      `http://localhost:4000/auth/editprofile`,
+      user,
       {
         headers: {
-          Authorization: "Bearer " + localStorage.getItem("access-token"), //the token is a variable which holds the token
+          Authorization: 'Bearer ' + localStorage.getItem('access-token'), //the token is a variable which holds the token
         },
-        
       }
     )
     const data = await fetch.data
-    swal("Good job!", "บันทึกข้อมูลเรียบร้อย", "success");
+    swal('Good job!', 'บันทึกข้อมูลเรียบร้อย', 'success')
     console.log(data)
   }
 
-  const handleButtonChangePasswordSubmit = async (e) =>{
-    const validate = Validate();
-    const fetch =  await axios.post(
-      `http://localhost:4000/auth/changepassword`, password,
+  const handleButtonChangePasswordSubmit = async (e) => {
+    const validate = Validate()
+    const fetch = await axios.post(
+      `http://localhost:4000/auth/changepassword`,
+      password,
       {
         headers: {
-          Authorization: "Bearer " + localStorage.getItem("access-token"), //the token is a variable which holds the token
+          Authorization: 'Bearer ' + localStorage.getItem('access-token'), //the token is a variable which holds the token
         },
-        
       }
     )
     const data = await fetch.data
-    swal("Good job!", "เปลี่ยนรหัสผ่านเรียบร้อย", "success");
     console.log(data)
-    
+    if (data.status === true) {
+      swal('Good job!', 'เปลี่ยนรหัสผ่านเรียบร้อย', 'success')
+    } else {
+      swal({
+        title: 'Sorry!',
+        text: data.msg,
+        icon: 'warning',
+        button: 'OK',
+      })
+    }
+
+    console.log(data)
   }
 
   return (
@@ -329,7 +381,11 @@ export default function Editprofile() {
                 />
               </div>
               <div className="btn-editprofile mt-3 text-right">
-                <button type="button" className="btn" onClick = {handleButtonEditprofileSubmit}>
+                <button
+                  type="button"
+                  className="btn"
+                  onClick={handleButtonEditprofileSubmit}
+                >
                   แก้ไขโปรไฟล์
                 </button>
               </div>
@@ -372,7 +428,11 @@ export default function Editprofile() {
               </div>
               <h5 className="errorchangepass">{error}</h5>
               <div className="btn-editprofile mt-3 text-right">
-                <button type="button" className="btn" onClick = {handleButtonChangePasswordSubmit}>
+                <button
+                  type="button"
+                  className="btn"
+                  onClick={handleButtonChangePasswordSubmit}
+                >
                   เปลี่ยนรหัสผ่าน
                 </button>
               </div>
