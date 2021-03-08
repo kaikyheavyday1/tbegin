@@ -331,9 +331,9 @@ export default function Home() {
               </button>
             </div>
           </Col>
-          <div className="buttonhome mt-5">
+          <div className="text-center mt-5">
             <Link to="/working-list">
-              <button type="button">ดูผลงานเพิ่มเติม</button>
+              <button type="button" className = "btn-home">ดูผลงานเพิ่มเติม</button>
             </Link>
           </div>
         </Row>
