@@ -570,3 +570,8 @@
   left: 50%;
   top: 20px;
 }
+.btn-home{
+  background-color: #00296b;
+  color: #fff;
+  border-radius: 10px;
+}

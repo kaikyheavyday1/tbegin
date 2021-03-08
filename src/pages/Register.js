@@ -47,6 +47,7 @@ export default function Register() {
     const id = e.target.id;
     const value = e.target.value;
     setUser({ ...user, [id]: value });
+    console.log(user)
   };
 
   const handleProvinceChange = async (e) => {
