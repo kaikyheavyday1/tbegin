@@ -25,7 +25,6 @@ export default function WorkingList() {
   }, [])
 
   const getwork = async () => {
-    console.log('hello')
     const fetch = await axios.get(
       'http://localhost:4000/work/get-work?allwork=true',
       {

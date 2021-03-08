@@ -67,6 +67,7 @@ export default function Profile() {
       email: data.email,
     }
     setUser(insertUser)
+    console.log(data)
     setLoading(false)
   }
 
