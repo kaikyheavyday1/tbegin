@@ -574,4 +574,11 @@
   background-color: #00296b;
   color: #fff;
   border-radius: 10px;
+  border : none;
+}
+.chat{
+  font-size: 150%;
+}
+.errorchangepass{
+  color: red;
 }

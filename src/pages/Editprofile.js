@@ -4,6 +4,7 @@ import axios from 'axios'
 import ImageUploader from 'react-images-upload'
 import userpic from '../images/user.svg'
 import StarRatings from 'react-star-ratings'
+import swal from "sweetalert";
 
 let initState = {
   username: '',
@@ -18,8 +19,15 @@ let initState = {
   district: null,
 }
 
+let initPassword = {
+  password: '',
+  newpassword: '',
+  repeatpassword: '',
+}
+
 export default function Editprofile() {
   const [user, setUser] = useState(initState)
+  const [password, setPassword] = useState(initPassword)
   const [error, setError] = useState()
   const [provinces, setProvinces] = useState([])
   const [amphures, setAmphures] = useState([])
@@ -34,6 +42,34 @@ export default function Editprofile() {
     inProfile()
     fetchProvinces()
   }, [])
+
+  
+
+  const Validate = () => {
+    if(password.password === "" || password.password === null){
+      alert("โปรดป้อนรหัสผ่านปัจจุบัน")
+      setError("โปรดป้อนรหัสผ่านปัจจุบัน");
+      return false;
+    } else if (password.newpassword === "" || password.newpassword === null){
+      alert("โปรดป้อนรหัสผ่านใหม่")
+      setError("โปรดป้อนรหัสผ่านใหม่");
+      return false;
+    } else if (password.repeatpassword === "" || password.repeatpassword === null){
+      alert("โปรดยืนยันรหัสผ่าน")
+      setError("โปรดยืนยันรหัสผ่าน");
+      return false;
+    } else if (password.newpassword !== password.repeatpassword){
+      swal({
+        title: "Sorry!",
+        text: "รหัสผ่านไม่ตรงกัน",
+        icon: "warning",
+        button: "OK",
+      });
+      setError("รหัสผ่านไม่ตรงกัน")
+      return false;
+    }
+    return true;
+  }
 
   const inProfile = async (e) => {
     const fetch = await axios.get('http://localhost:4000/profile', {
@@ -55,10 +91,18 @@ export default function Editprofile() {
     setProvinces(data)
   }
 
+
   const handleInputChange = (e) => {
     const id = e.target.id
     const value = e.target.value
     setUser({ ...user, [id]: value })
+  }
+
+  const handleInputChangePassword = (e) => {
+    const id = e.target.id
+    const value = e.target.value
+    setPassword({ ...password, [id]: value })
+    console.log(password)
   }
 
   const handleProvinceChange = async (e) => {
@@ -87,10 +131,29 @@ export default function Editprofile() {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("access-token"), //the token is a variable which holds the token
         },
+        
       }
     )
     const data = await fetch.data
+    swal("Good job!", "บันทึกข้อมูลเรียบร้อย", "success");
     console.log(data)
+  }
+
+  const handleButtonChangePasswordSubmit = async (e) =>{
+    const validate = Validate();
+    const fetch =  await axios.post(
+      `http://localhost:4000/auth/changepassword`, password,
+      {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("access-token"), //the token is a variable which holds the token
+        },
+        
+      }
+    )
+    const data = await fetch.data
+    swal("Good job!", "เปลี่ยนรหัสผ่านเรียบร้อย", "success");
+    console.log(data)
+    
   }
 
   return (
@@ -154,7 +217,6 @@ export default function Editprofile() {
                   />
                 </div>
               </div>
-              {console.log(user)}
               <div className="form-group">
                 <label class="form-label">อีเมล</label>
                 <input
@@ -282,31 +344,35 @@ export default function Editprofile() {
                     name="password"
                     className="form-control"
                     placeholder="รหัสผ่านปัจจุบัน"
+                    onChange={handleInputChangePassword}
                   />
                 </div>
                 <div className="form-group">
                   <label class="form-label">รหัสผ่านใหม่</label>
                   <input
                     type="password"
-                    id="password"
-                    name="password"
+                    id="newpassword"
+                    name="newpassword"
                     className="form-control"
                     placeholder="รหัสผ่านใหม่"
+                    onChange={handleInputChangePassword}
                   />
                 </div>
                 <div className="form-group">
                   <label class="form-label">ยืนยันรหัสผ่านใหม่</label>
                   <input
                     type="password"
-                    id="confirmPassword"
-                    name="password"
+                    id="repeatpassword"
+                    name="repeatpassword"
                     className="form-control"
                     placeholder="ยืนยันรหัสผ่านใหม่"
+                    onChange={handleInputChangePassword}
                   />
                 </div>
               </div>
+              <h5 className="errorchangepass">{error}</h5>
               <div className="btn-editprofile mt-3 text-right">
-                <button type="button" className="btn">
+                <button type="button" className="btn" onClick = {handleButtonChangePasswordSubmit}>
                   เปลี่ยนรหัสผ่าน
                 </button>
               </div>

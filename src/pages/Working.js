@@ -10,6 +10,7 @@ import {
     CardTitle, CardSubtitle
 } from 'reactstrap';
 import { Link } from 'react-router-dom'
+import StarRatings from 'react-star-ratings'
 
 import userpic from "../images/user.svg"
 import graduate from "../images/profile/graduation-hat.svg"
@@ -180,7 +181,15 @@ export default function Working() {
                                     <h5>สมัครสมาชิกเมื่อ 18/02/2564</h5>
                                 </div>
                                 <div className="mt-3">
-                                    <h5>เรทติ้ง 4.5/5</h5>
+                                    <h5>เรทติ้ง</h5>
+                                    <div className="">
+                  <StarRatings
+                    rating={2.5}
+                    starDimension="25px"
+                    starSpacing="2px"
+                    starRatedColor="#FFBF00"
+                  />
+                </div>
                                 </div>
                                 <div className="mt-3">
                                     <h3>Contact</h3>
@@ -192,21 +201,11 @@ export default function Working() {
                                         <div><img src={letter} alt="user" height="20px" /></div>
                                         <div className="ml-2"><h5>rabite02013@hotmail.com</h5></div>
                                     </div>
-                                    <div className="d-flex justify-content-start">
-                                        <div><img src={graduate} alt="user" height="20px" /></div>
-                                        <div className="ml-2"><h5>โรงเรียนบางปะกอกวิทยาคม</h5></div>
-                                    </div>
+                                    <div className="text-center mb-2 mt-2">
+                                        <button type="button" className="btn-home text-center p-1 pl-4 pr-4 chat" >แชท</button>
+                                        </div>
                                 </div>
-                                <div>
-                                    <h3 className="mt-3">ความถนัด</h3>
-                                    <div>
-                                        <ul>
-                                            <li><p>สอนพิเศษ</p></li>
-                                            <li><p>ออกแบบ</p></li>
-                                            <li><p>กราฟฟิก</p></li>
-                                        </ul>
-                                    </div>
-                                </div>
+                               
                             </div>
                         </div>
                         <div className="other-work mt-5 col-10 mx-auto">
