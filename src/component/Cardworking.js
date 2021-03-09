@@ -22,7 +22,11 @@ export default function Cardworking(props) {
         <Card className="card">
           <Link to="/">
             <div className="d-flex profile">
-              <img className="avatar mt-3 ml-3" src={images9} alt="avatar" />
+              <img
+                className="avatar mt-3 ml-3"
+                src={props.data.profile_pic}
+                alt="avatar"
+              />
               <div className="ml-3 mt-3">
                 <strong>{props.data.username}</strong>
                 <p>{props.data.subwork_name}</p>

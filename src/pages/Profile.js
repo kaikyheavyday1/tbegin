@@ -68,7 +68,14 @@ export default function Profile() {
             <div>
               <Row className="mt-5">
                 <Col lg="4">
-                  <img src={userpic} alt="user" height="70px" width="100%" />
+                  {user !== null && (
+                    <img
+                      src={user.profile_pic}
+                      alt="user"
+                      height="70px"
+                      width="100%"
+                    />
+                  )}
                 </Col>
                 <Col lg="8">
                   <div className="pt-3">

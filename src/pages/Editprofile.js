@@ -34,8 +34,12 @@ export default function Editprofile() {
   const [amphures, setAmphures] = useState([])
   const [pictures, setPictures] = useState(null)
 
-  const onDrop = (picture) => {
-    setPictures(picture)
+  const onDrop = async (pictures) => {
+    // console.log(pictures)
+    const URL = await uploadImageToFirebase(pictures, 'profile')
+    console.log(URL)
+    setUser({ ...user, profile_pic: URL })
+    // setPictures(pictures)
   }
 
   useEffect(() => {
@@ -97,11 +101,11 @@ export default function Editprofile() {
   } else {
     firebase.app() // if already initialized, use that one
   }
-  const uploadImageToFirebase = (file, state) => {
+  const uploadImageToFirebase = (file, state = 'freelance') => {
     return new Promise((resolve, reject) => {
       const storageRef = firebase
         .storage()
-        .ref(`${user.email}/freelance/profile/${file[0].name}`)
+        .ref(`${user.email}/${state}/profile/${file[0].name}`)
       var metadata = { contentType: 'image/jpeg' }
       const task = storageRef.put(file[0], metadata)
       let url
@@ -164,9 +168,6 @@ export default function Editprofile() {
   }
 
   const handleButtonEditprofileSubmit = async (e) => {
-    const URL = await uploadImageToFirebase(pictures)
-    setUser({ ...user, profile_pic: URL })
-    console.log(user)
     const fetch = await axios.post(
       `http://localhost:4000/auth/editprofile`,
       user,
@@ -215,7 +216,14 @@ export default function Editprofile() {
         <Row className="pt-5">
           <Col lg="4" md="4" sm="12" xs="12" className="text-center formleft">
             <h3>Profile</h3>
-            <img src={userpic} alt="user" height="70px" width="100%" />
+            {user !== null && (
+              <img
+                src={user.profile_pic}
+                alt="user"
+                height="80px"
+                width="80px"
+              />
+            )}
             <h4 className="mt-3">{user.username}</h4>
             <h5>Member</h5>
             <hr color="#00296b"></hr>
