@@ -587,3 +587,12 @@
 .errorchangepass{
   color: red;
 }
+.profileavatar{
+  border-radius: 100px;
+  background-color: #00296b;
+}
+.profilecenter{
+  justify-content: center;
+  flex-wrap: wrap;
+  display: flex;
+}

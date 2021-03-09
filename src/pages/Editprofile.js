@@ -212,12 +212,13 @@ export default function Editprofile() {
   return (
     <div className="editprofile mt-5">
       <div className="container">
-        <h1 className="text-center">จัดการโปรไฟล์</h1>
+        <h1 className="text-center editwork-bold">จัดการโปรไฟล์</h1>
         <Row className="pt-5">
           <Col lg="4" md="4" sm="12" xs="12" className="text-center formleft">
             <h3>Profile</h3>
             {user !== null && (
               <img
+                className = "profileavatar"
                 src={user.profile_pic}
                 alt="user"
                 height="80px"

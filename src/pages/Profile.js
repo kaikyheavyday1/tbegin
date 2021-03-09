@@ -65,28 +65,23 @@ export default function Profile() {
       <div className="container">
         <Row className="mt-5">
           <Col lg="4" md="12" sm="12" xs="12" className="profile-info">
-            <div>
-              <Row className="mt-5">
-                <Col lg="4">
-                  {user !== null && (
-                    <img
-                      src={user.profile_pic}
+            <div className="d-flex justify-content-start mt-3">
+              <div>
+              <img className = "profileavatar"
+                      src={user !== null && (user.profile_pic)}
                       alt="user"
-                      height="70px"
-                      width="100%"
+                      height="80px"
+                      width="80px"
                     />
-                  )}
-                </Col>
-                <Col lg="8">
-                  <div className="pt-3">
-                    {user !== null && (
+              </div>
+              <div className ="pt-4 ml-3">
+                {user !== null && (
                       <h3 className="editwork-bold">
                         {user.name} {user.surname}
                       </h3>
-                    )}
-                  </div>
-                </Col>
-              </Row>
+                    )}</div>
+              
+              
             </div>
             <div>
               <div className="d-flex justify-content-around mt-3">

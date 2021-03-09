@@ -298,7 +298,7 @@ export default function Uploadwork() {
               onClick={handleButtonSubmit}
               className="btn-lg"
             >
-              เข้าร่วมกับเรา
+              อัพโหลดผลงาน
             </button>
           </div>
         </div>

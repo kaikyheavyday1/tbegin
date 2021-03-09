@@ -219,30 +219,7 @@ export default function Registerfreelance() {
           <div className="text-center mb-3">
             <h2>สมัครเป็น Freelance</h2>
           </div>
-          {console.log(freelance)}
-          <div className="profile col-8 mx-auto">
-            <h3 className="pt-2">ข้อมูลเบื้องต้นของคุณที่ได้ลงทะเบียนไว้</h3>
-            <div className="d-flex justify-content-around mt-2">
-              <img src={userpic} className="mt-2 mb-3" alt="" width="25%" />
-              <div className="mt-3">
-                <h4>Username : {user.username}</h4>
-                <h5>
-                  ชื่อและนามสกุลของคุณ : {user.name} {user.surname}
-                </h5>
-                <h5>อีเมลของคุณ : {user.email}</h5>
-                <h5>วัน-เดือน-ปีเกิดของคุณ : {user.birthday}</h5>
-                <h5>ที่อยู่ : {user.address}</h5>
-              </div>
-            </div>
-            <div className="text-center mt-3 pb-3">
-              <Link to="/editprofile">
-                <button type="button" className="regisfl2">
-                  แก้ไขข้อมูล
-                </button>
-              </Link>
-            </div>
-          </div>
-          <div className="mt-5 text-center">
+          <div className="mt-2 text-center">
             <h2>ข้อมูลเบื้องต้นสำหรับฟรีแลนซ์</h2>
           </div>
           <div className="col-10 mt-3 mx-auto">
