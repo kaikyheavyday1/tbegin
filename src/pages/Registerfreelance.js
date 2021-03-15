@@ -403,6 +403,7 @@ export default function Registerfreelance() {
                   />
                 </div>
               </div>
+              <span style={{ color: "red" }}>{error ? error : ""}</span>
               <div className="text-center">
                 <button
                   type="button"
@@ -411,7 +412,7 @@ export default function Registerfreelance() {
                 >
                   บันทึก
                 </button>
-                <h1>{error}</h1>
+                
               </div>
             </div>
           </div>

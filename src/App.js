@@ -21,6 +21,7 @@ import Cardworking from './component/Cardworking'
 import Cardhiring from './component/Cardhiring'
 import Error from './component/Error'
 import Chat from './pages/Chat'
+import Question from './pages/Question'
 function App() {
   return (
     <div className="App">
@@ -43,6 +44,7 @@ function App() {
         <Route path="/editwork" component={Editwork} />
         <Route path="/Loading" component={Loading} />
         <Route path="/Chat" component={Chat} />
+        <Route path="/Question" component={Question} />
         <Route component={Error} />
       </Switch>
       <Footer />
