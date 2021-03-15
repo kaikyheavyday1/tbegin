@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from "react";
-import { Row, Col } from "reactstrap";
-import userpic from "../images/user.svg";
-import dc1 from "../images/registerfreelance/dc_1.svg";
-import dc2 from "../images/registerfreelance/dc_2.svg";
-import cp from "../images/registerfreelance/computer-picture.svg";
-import { Link } from "react-router-dom";
-import ImageUploader from "react-images-upload";
-import axios from "axios";
-import firebase from "firebase";
-import swal from "sweetalert";
+import React, { useState, useEffect } from 'react'
+import { Row, Col } from 'reactstrap'
+import userpic from '../images/user.svg'
+import dc1 from '../images/registerfreelance/dc_1.svg'
+import dc2 from '../images/registerfreelance/dc_2.svg'
+import cp from '../images/registerfreelance/computer-picture.svg'
+import { Link } from 'react-router-dom'
+import ImageUploader from 'react-images-upload'
+import axios from 'axios'
+import firebase from 'firebase'
+import swal from 'sweetalert'
 let initState = {
-  username: "",
-  name: "",
-  surname: "",
-  tel: "",
-  email: "",
-  birthday: "",
-  address: "",
-};
+  username: '',
+  name: '',
+  surname: '',
+  tel: '',
+  email: '',
+  birthday: '',
+  address: '',
+}
 let freelanceState = {
   status: null,
   edu_id: null,
@@ -32,66 +32,66 @@ let freelanceState = {
   bank_name: null,
   bank_number: null,
   bank_pic: null,
-};
+}
 export default function Registerfreelance() {
-  const [user, setUser] = useState(initState);
-  const [freelance, setFreelance] = useState(freelanceState);
-  const [education, setEducation] = useState([]);
-  const [error, setError] = useState("");
+  const [user, setUser] = useState(initState)
+  const [freelance, setFreelance] = useState(freelanceState)
+  const [education, setEducation] = useState([])
+  const [error, setError] = useState('')
   useEffect(() => {
     //componentwillmount
-    inProfile();
-  }, []);
+    inProfile()
+  }, [])
   var firebaseConfig = {
-    apiKey: "AIzaSyB7Sf2IziovxdmlTMUKpE8RVfkP_RuVxqU",
-    authDomain: "tbegin-f9c33.firebaseapp.com",
-    projectId: "tbegin-f9c33",
-    storageBucket: "tbegin-f9c33.appspot.com",
-    messagingSenderId: "187729112224",
-    appId: "1:187729112224:web:3c3d84074c3624183aadc5",
-  };
+    apiKey: 'AIzaSyB7Sf2IziovxdmlTMUKpE8RVfkP_RuVxqU',
+    authDomain: 'tbegin-f9c33.firebaseapp.com',
+    projectId: 'tbegin-f9c33',
+    storageBucket: 'tbegin-f9c33.appspot.com',
+    messagingSenderId: '187729112224',
+    appId: '1:187729112224:web:3c3d84074c3624183aadc5',
+  }
   // Initialize Firebase
   if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
+    firebase.initializeApp(firebaseConfig)
   } else {
-    firebase.app(); // if already initialized, use that one
+    firebase.app() // if already initialized, use that one
   }
 
   const uploadImageToFirebase = (file, state) => {
     return new Promise((resolve, reject) => {
       const storageRef = firebase
         .storage()
-        .ref(`${user.email}/freelance/profile/${file[0].name}`);
-      var metadata = { contentType: "image/jpeg" };
-      const task = storageRef.put(file[0], metadata);
-      let url;
+        .ref(`${user.email}/freelance/profile/${file[0].name}`)
+      var metadata = { contentType: 'image/jpeg' }
+      const task = storageRef.put(file[0], metadata)
+      let url
       task.on(
         `state_changed`,
         (snapshort) => {
           let percentage =
-            (snapshort.bytesTransferred / snapshort.totalBytes) * 100;
-          console.log(percentage);
+            (snapshort.bytesTransferred / snapshort.totalBytes) * 100
+          console.log(percentage)
         },
         (error) => {
-          console.log(error);
+          console.log(error)
         },
         () => {
           task.snapshot.ref.getDownloadURL().then((downloadUrl) => {
-            resolve(downloadUrl);
-          });
+            resolve(downloadUrl)
+          })
         }
-      );
-    });
-  };
+      )
+    })
+  }
   const inProfile = async (e) => {
-    const fetch = await axios.get("http://localhost:4000/profile", {
+    const fetch = await axios.get('http://localhost:4000/profile', {
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("access-token"), //the token is a variable which holds the token
+        Authorization: 'Bearer ' + localStorage.getItem('access-token'), //the token is a variable which holds the token
       },
-    });
-    let data = await fetch.data;
-    data = data[0];
-    console.log(data);
+    })
+    let data = await fetch.data
+    data = data[0]
+    console.log(data)
     const insertUser = {
       username: data.username,
       name: data.name,
@@ -100,117 +100,117 @@ export default function Registerfreelance() {
       email: data.email,
       birthday: data.birthday,
       address: data.address,
-    };
-    setUser(insertUser);
-  };
+    }
+    setUser(insertUser)
+  }
   const Validate = () => {
-    if (freelance.status === "" || freelance.status === null) {
-      setError("คุณยังไม่ได้กรอกบอกความเป็นตัวคุณ");
-      return false;
-    } else if (freelance.edu_id === "" || freelance.edu_id === null) {
-      setError("คุณยังไม่ได้เลือกสถานศึกษาชองคุณ");
-      return false;
-    } else if (freelance.card_id === "" || freelance.card_id === null) {
-      setError("คุณยังไม่ได้รหัสบัตรประชาชนชองคุณ");
-      return false;
+    if (freelance.status === '' || freelance.status === null) {
+      setError('คุณยังไม่ได้กรอกบอกความเป็นตัวคุณ')
+      return false
+    } else if (freelance.edu_id === '' || freelance.edu_id === null) {
+      setError('คุณยังไม่ได้เลือกสถานศึกษาชองคุณ')
+      return false
+    } else if (freelance.card_id === '' || freelance.card_id === null) {
+      setError('คุณยังไม่ได้รหัสบัตรประชาชนชองคุณ')
+      return false
     } else if (
-      freelance.card_nametitle === "" ||
+      freelance.card_nametitle === '' ||
       freelance.card_nametitle === null
     ) {
-      setError("คุณยังไม่ได้คำนำหน้าบัตรประชาชนชองคุณ");
-      return false;
-    } else if (freelance.card_name === "" || freelance.card_name === null) {
-      setError("คุณยังไม่ได้กรอกชื่อบัตรประชาชนชองคุณ");
-      return false;
+      setError('คุณยังไม่ได้คำนำหน้าบัตรประชาชนชองคุณ')
+      return false
+    } else if (freelance.card_name === '' || freelance.card_name === null) {
+      setError('คุณยังไม่ได้กรอกชื่อบัตรประชาชนชองคุณ')
+      return false
     } else if (
-      freelance.card_surname === "" ||
+      freelance.card_surname === '' ||
       freelance.card_surname === null
     ) {
-      setError("คุณยังไม่ได้กรอกนามสกุลบัตรประชาชนชองคุณ");
-      return false;
-    } else if (freelance.card_gender === "" || freelance.card_gender === null) {
-      setError("คุณยังไม่ได้กรอกเพศในส่วนบัตรประชาชนชองคุณ");
-      return false;
+      setError('คุณยังไม่ได้กรอกนามสกุลบัตรประชาชนชองคุณ')
+      return false
+    } else if (freelance.card_gender === '' || freelance.card_gender === null) {
+      setError('คุณยังไม่ได้กรอกเพศในส่วนบัตรประชาชนชองคุณ')
+      return false
     } else if (
-      freelance.card_address === "" ||
+      freelance.card_address === '' ||
       freelance.card_address === null
     ) {
-      setError("คุณยังไม่ได้กรอกที่อยู่บัตรประชาชนชองคุณ");
-      return false;
-    } else if (freelance.bank_type === "" || freelance.bank_type === null) {
-      setError("คุณยังไม่ได้เลือกบัญชีธนาคารของคุณ");
-      return false;
-    } else if (freelance.bank_id === "" || freelance.bank_id === null) {
-      setError("คุณยังไม่ได้กรอกเลขบัญชีธนาคารของคุณ");
-      return false;
+      setError('คุณยังไม่ได้กรอกที่อยู่บัตรประชาชนชองคุณ')
+      return false
+    } else if (freelance.bank_type === '' || freelance.bank_type === null) {
+      setError('คุณยังไม่ได้เลือกบัญชีธนาคารของคุณ')
+      return false
+    } else if (freelance.bank_id === '' || freelance.bank_id === null) {
+      setError('คุณยังไม่ได้กรอกเลขบัญชีธนาคารของคุณ')
+      return false
     }
-    return true;
-  };
+    return true
+  }
   const handleInputChange = (e) => {
-    const id = e.target.id;
-    const value = e.target.value;
-    setFreelance({ ...freelance, [id]: value });
-  };
+    const id = e.target.id
+    const value = e.target.value
+    setFreelance({ ...freelance, [id]: value })
+  }
 
   const handleEducationTypeChange = async (e) => {
-    const value = e.target.value;
+    const value = e.target.value
 
     const fetch = await axios.get(
-      "http://localhost:4000/education/type?type=" + value
-    );
-    const data = await fetch.data;
-    setEducation(data);
-  };
+      'http://localhost:4000/education/type?type=' + value
+    )
+    const data = await fetch.data
+    setEducation(data)
+  }
 
   const handleEducationChange = async (e) => {
-    const id = e.target.id;
-    const value = e.target.value;
-    setFreelance({ ...freelance, [id]: value });
-    console.log(value);
-  };
+    const id = e.target.id
+    const value = e.target.value
+    setFreelance({ ...freelance, [id]: value })
+    console.log(value)
+  }
 
-  const [pictures, setPictures] = useState(null);
-  const [pictures2, setPictures2] = useState(null);
-  const [pictures3, setPictures3] = useState(null);
+  const [pictures, setPictures] = useState(null)
+  const [pictures2, setPictures2] = useState(null)
+  const [pictures3, setPictures3] = useState(null)
   const onDrop1 = (picture) => {
-    setPictures(picture);
-  };
+    setPictures(picture)
+  }
   const onDrop2 = (picture) => {
-    setPictures2(picture);
-  };
+    setPictures2(picture)
+  }
   const onDrop3 = (picture) => {
-    setPictures3(picture);
-  };
+    setPictures3(picture)
+  }
 
   const handleButtonSubmit = async (e) => {
-    const validate = Validate();
-    if (!validate) return 0;
-    const URL1 = await uploadImageToFirebase(pictures, 1);
-    const URL2 = await uploadImageToFirebase(pictures2, 2);
-    const URL3 = await uploadImageToFirebase(pictures3, 3);
-    console.log(URL1, URL2, URL3);
+    const validate = Validate()
+    if (!validate) return 0
+    const URL1 = await uploadImageToFirebase(pictures, 1)
+    const URL2 = await uploadImageToFirebase(pictures2, 2)
+    const URL3 = await uploadImageToFirebase(pictures3, 3)
+    console.log(URL1, URL2, URL3)
     setFreelance({
       ...freelance,
       card_img1: URL1,
       card_img2: URL2,
       bank_pic: URL3,
-    });
+    })
     const fetch = await axios.post(
-      "http://localhost:4000/freelance/regisfreelance",
+      'http://localhost:4000/freelance/regisfreelance',
       freelance,
       {
         headers: {
-          Authorization: "Bearer " + localStorage.getItem("access-token"), //the token is a variable which holds the token
+          Authorization: 'Bearer ' + localStorage.getItem('access-token'), //the token is a variable which holds the token
         },
       }
-    );
-    const data = await fetch.data;
-    console.log(data);
+    )
+    const data = await fetch.data
+    console.log(data)
     if (data.status) {
-      swal("Good job!", "You clicked the button!", "success");
+      swal('Good job!', 'You clicked the button!', 'success')
     } else {
     }
-  };
+  }
 
   return (
     <div className="registerfreelance mt-4 mb-4">
@@ -259,7 +259,7 @@ export default function Registerfreelance() {
                         <option key={index} value={`${education.id}`}>
                           {education.name}
                         </option>
-                      );
+                      )
                     })
                   : null}
               </select>
@@ -418,5 +418,5 @@ export default function Registerfreelance() {
         </div>
       </div>
     </div>
-  );
+  )
 }

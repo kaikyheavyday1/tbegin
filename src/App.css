@@ -91,6 +91,12 @@
 .home .section3 .workpic {
   width: 18rem;
 }
+.home .btn-home {
+  background-color: #00296b;
+  color: #fff;
+  border-radius: 10px;
+  border : none;
+}
 .carousel-control-prev-icon {
   color: #000;
 }
@@ -288,6 +294,15 @@
 .profile .allwork .like-price {
   padding: 0;
 }
+.profileavatar{
+  border-radius: 100px;
+  background-color: #00296b;
+}
+.profilecenter{
+  justify-content: center;
+  flex-wrap: wrap;
+  display: flex;
+}
 
 /* end profile */
 
@@ -380,6 +395,9 @@
   background-color: #fff;
   border-radius: 20px;
   border: 3px solid #00296b;
+}
+.working .chat{
+  font-size: 150%;
 }
 /* end working */
 
@@ -575,24 +593,42 @@
   left: 50%;
   top: 20px;
 }
-.btn-home {
-  background-color: #00296b;
-  color: #fff;
-  border-radius: 10px;
-  border : none;
+
+/* end editwork */
+
+.left-chat{
+  margin : 0 !important;
+  padding: 0 !important;
 }
-.chat{
-  font-size: 150%;
+.middle-chat{
+  margin : 0 !important;
+  padding: 0 !important;
 }
-.errorchangepass{
-  color: red;
+.right-chat{
+  margin : 0 !important;
+  padding: 0 !important;
 }
-.profileavatar{
-  border-radius: 100px;
-  background-color: #00296b;
+.chat-contact{
+  color : #00296b;
+  border: 1px solid black;
+  width: 100%;
 }
-.profilecenter{
-  justify-content: center;
-  flex-wrap: wrap;
-  display: flex;
+.chat-contact .contact-list .contact{
+  border-top : 1px solid #00296b
+}
+.chat-contact .contact-list h3{
+  margin : 0 !important
+}
+.chat-contact .contact-list img{
+  border-radius: 30px;
+}
+.chat-message{
+  color : #00296b;
+  border: 1px solid black;
+  width: 100%;
+}
+.chat-transaction{
+  color : #00296b;
+  border: 1px solid black;
+  width: 100%;
 }

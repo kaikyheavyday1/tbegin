@@ -218,7 +218,7 @@ export default function Editprofile() {
             <h3>Profile</h3>
             {user !== null && (
               <img
-                className = "profileavatar"
+                className="profileavatar"
                 src={user.profile_pic}
                 alt="user"
                 height="80px"
@@ -435,7 +435,7 @@ export default function Editprofile() {
                   />
                 </div>
               </div>
-              <h5 className="errorchangepass">{error}</h5>
+              <h5 style={{ color: 'red' }}>{error}</h5>
               <div className="btn-editprofile mt-3 text-right">
                 <button
                   type="button"
