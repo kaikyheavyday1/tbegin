@@ -86,7 +86,6 @@ export default function WorkingList() {
                   works.map((work, index) => {
                     return (
                       <Col md={6} lg={4} xs={12}>
-                        <h1>{work.subwork_name}</h1>
                         <Cardworking data={work} />
                       </Col>
                     )
