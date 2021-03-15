@@ -12,29 +12,62 @@ export default function ChatTransaction() {
       <div className="chat-header">
         <h2 className="ml-2">สถานะดำเนินงาน</h2>
       </div>
-      <div>
-        <Timeline>
+      <div className="">
+        <Timeline className="ml-n5 mb-n2">
           <TimelineItem>
             <TimelineSeparator>
               <TimelineDot />
               <TimelineConnector />
             </TimelineSeparator>
-            <TimelineContent>Eat</TimelineContent>
+            <TimelineContent>ส่งรายละเอียดงาน</TimelineContent>
           </TimelineItem>
           <TimelineItem>
             <TimelineSeparator>
               <TimelineDot />
               <TimelineConnector />
             </TimelineSeparator>
-            <TimelineContent>Code</TimelineContent>
+            <TimelineContent>ยืนยันการจ้างงาน</TimelineContent>
+          </TimelineItem>
+          <TimelineItem>
+            <TimelineSeparator>
+              <TimelineDot />
+              <TimelineConnector />
+            </TimelineSeparator>
+            <TimelineContent>ชำระค่าบริการ</TimelineContent>
+          </TimelineItem>
+          <TimelineItem>
+            <TimelineSeparator>
+              <TimelineDot />
+              <TimelineConnector />
+            </TimelineSeparator>
+            <TimelineContent>กำลังดำเนินการทำงาน</TimelineContent>
+          </TimelineItem>
+          <TimelineItem>
+            <TimelineSeparator>
+              <TimelineDot />
+              <TimelineConnector />
+            </TimelineSeparator>
+            <TimelineContent>รีวิวงานที่ได้รับ</TimelineContent>
           </TimelineItem>
           <TimelineItem>
             <TimelineSeparator>
               <TimelineDot />
             </TimelineSeparator>
-            <TimelineContent>Sleep</TimelineContent>
+            <TimelineContent>เสร็จสิ้นการจ้างงาน</TimelineContent>
           </TimelineItem>
         </Timeline>
+      </div>
+      <div className="col-11">
+        <h4 className="font-weight-bold">สอบถามรายละเอียดงาน</h4>
+        <p>
+          สอบถามรายละเอียดของงานกับทางฟรีแลนซ์
+          สามารถแจ้งความต้องการของงานที่คุณต้องการและคุยรายละเอียดทั้งราคาและเวลาการดำเนินงานให้ครบถ้วนเพื่อที่จะดำเนินการจ้างงาน
+        </p>
+        <div className="text-center">
+          <button type="button" className="text-center">
+            จ้างงาน
+          </button>
+        </div>
       </div>
     </div>
   )
