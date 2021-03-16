@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import logo from '../images/logo.png'
 import Loading from '../component/Loading'
 import images1 from '../images/home/1.svg'
@@ -11,6 +12,7 @@ import images7 from '../images/home/7.jpg'
 import images8 from '../images/home/8.png'
 import images9 from '../images/home/9.jpg'
 import images10 from '../images/home/10.png'
+import Cardworking from '../component/Cardworking'
 
 import {
   Carousel,
@@ -34,6 +36,23 @@ import {
 import { Link } from 'react-router-dom'
 
 export default function Home() {
+  const [works, setWorks] = useState([])
+  useEffect(() => {
+    getallwork()
+  })
+  const getallwork = async () => {
+    const fetch = await axios.get(
+      'http://localhost:4000/work/get-work?allwork=true',
+      {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('access-token'), //the token is a variable which holds the token
+        },
+      }
+    )
+    const data = await fetch.data
+    console.log(data)
+    setWorks(data)
+  }
   return (
     <div className="home container mt-3">
       <div className="text-center">
@@ -135,173 +154,20 @@ export default function Home() {
             >
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <div className="d-flex mt-3" md="9">
-                    <div className="card1" md="3">
-                      <Card>
-                        <div className="d-flex">
-                          <CardImg
-                            className="avatar mt-3 ml-3"
-                            src={images9}
-                            alt="avatar"
-                          ></CardImg>
-                          <h1 className="ml-3 mt-5">
-                            kaiky1 <p>Web Developer</p>
-                          </h1>
-                        </div>
-                        <CardBody>
-                          <CardImg
-                            className="workpic"
-                            src={images10}
-                            alt="img10"
-                          ></CardImg>
-                          <CardText className="text-left mt-3">
-                            สุดยอดนักออกแบบเว็บไซต์
-                          </CardText>
-                          <CardText className="text-left mt-5">
-                            เริ่มต้น ฿1,500
-                          </CardText>
-                        </CardBody>
-                      </Card>
-                    </div>
-                    <div className="card2 ml-2" md="3">
-                      <Card>
-                        <div className="d-flex">
-                          <CardImg
-                            className="avatar mt-3 ml-3"
-                            src={images7}
-                            alt="avatar"
-                          ></CardImg>
-                          <h1 className="ml-3 mt-5">
-                            kaiky <p>Web Design</p>
-                          </h1>
-                        </div>
-                        <CardBody>
-                          <CardImg
-                            className="workpic"
-                            src={images8}
-                            alt="img8"
-                          ></CardImg>
-                          <CardText className="text-left mt-3">
-                            สุดยอดนักออกแบบเว็บไซต์
-                          </CardText>
-                          <CardText className="text-left mt-5">
-                            เริ่มต้น ฿1,500
-                          </CardText>
-                        </CardBody>
-                      </Card>
-                    </div>
-                    <div className="card3 ml-2" md="3">
-                      <Card>
-                        <div className="d-flex">
-                          <CardImg
-                            className="avatar mt-3 ml-3"
-                            src={images7}
-                            alt="avatar"
-                          ></CardImg>
-                          <h1 className="ml-3 mt-5">
-                            kaiky <p>Web Design</p>
-                          </h1>
-                        </div>
-                        <CardBody>
-                          <CardImg
-                            className="workpic"
-                            src={images8}
-                            alt="img8"
-                          ></CardImg>
-                          <CardText className="text-left mt-3">
-                            สุดยอดนักออกแบบเว็บไซต์
-                          </CardText>
-                          <CardText className="text-left mt-5">
-                            เริ่มต้น ฿1,500
-                          </CardText>
-                        </CardBody>
-                      </Card>
-                    </div>
+                  <div className="d-flex mt-3">
+                    {works.length > 0 &&
+                      works.map((work, index) => {
+                        return (
+                          <Col md={6} lg={4} xs={12}>
+                            <Cardworking data={work} />
+                          </Col>
+                        )
+                      })}
                   </div>
                 </div>
                 <div class="carousel-item">
                   <div className="d-flex mt-3" md="9">
-                    <div className="card1" md="3">
-                      <Card>
-                        <div className="d-flex">
-                          <CardImg
-                            className="avatar mt-3 ml-3"
-                            src={images7}
-                            alt="avatar"
-                          ></CardImg>
-                          <h1 className="ml-3 mt-5">
-                            kaiky <p>Web Design</p>
-                          </h1>
-                        </div>
-                        <CardBody>
-                          <CardImg
-                            className="workpic"
-                            src={images8}
-                            alt="img8"
-                          ></CardImg>
-                          <CardText className="text-left mt-3">
-                            สุดยอดนักออกแบบเว็บไซต์
-                          </CardText>
-                          <CardText className="text-left mt-5">
-                            เริ่มต้น ฿1,500
-                          </CardText>
-                        </CardBody>
-                      </Card>
-                    </div>
-                    <div className="card2 ml-2" md="3">
-                      <Card>
-                        <div className="d-flex">
-                          <CardImg
-                            className="avatar mt-3 ml-3"
-                            src={images7}
-                            alt="avatar"
-                          ></CardImg>
-                          <h1 className="ml-3 mt-5">
-                            kaiky <p>Web Design</p>
-                          </h1>
-                        </div>
-                        <CardBody>
-                          <CardImg
-                            className="workpic"
-                            src={images8}
-                            alt="img8"
-                          ></CardImg>
-                          <CardText className="text-left mt-3">
-                            สุดยอดนักออกแบบเว็บไซต์
-                          </CardText>
-                          <CardText className="text-left mt-5">
-                            เริ่มต้น ฿1,500
-                          </CardText>
-                        </CardBody>
-                      </Card>
-                    </div>
-                    <div className="card3 ml-2" md="3">
-                      <Card>
-                        <div className="d-flex">
-                          <CardImg
-                            className="avatar mt-3 ml-3"
-                            src={images7}
-                            alt="avatar"
-                          ></CardImg>
-                          <h1 className="ml-3 mt-5">
-                            kaiky <p>Web Design</p>
-                          </h1>
-                        </div>
-                        <CardBody>
-                          <CardImg
-                            className="workpic"
-                            src={images8}
-                            alt="img8"
-                          ></CardImg>
-                          <CardText className="text-left mt-3">
-                            สุดยอดนักออกแบบเว็บไซต์
-                          </CardText>
-                          <CardText className="text-left mt-5">
-                            เริ่มต้น ฿1,500
-                          </CardText>
-                        </CardBody>
-                      </Card>
-                    </div>
+                    <div class="carousel-item active"></div>
                   </div>
                 </div>
               </div>
@@ -333,7 +199,9 @@ export default function Home() {
           </Col>
           <div className="text-center mt-5">
             <Link to="/working-list">
-              <button type="button" className = "btn-home">ดูผลงานเพิ่มเติม</button>
+              <button type="button" className="btn-home">
+                ดูผลงานเพิ่มเติม
+              </button>
             </Link>
           </div>
         </Row>

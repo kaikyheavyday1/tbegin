@@ -16,13 +16,13 @@ export default class Footer extends Component {
                                 หมวดหมู่งาน
                             </h2>
                             <h3>
-                                <Link to="/"><p>ออกแบบกราฟฟิค</p></Link>
-                                <Link to="/"><p>ผลิตสื่อมัลติมีเดีย</p></Link>
-                                <Link to="/"><p>ถ่ายภาพ</p></Link>
-                                <Link to="/"><p>เขียนแปลภาษา</p></Link>
-                                <Link to="/"><p>เว็บไซต์และโปรแกรม</p></Link>
-                                <Link to="/"><p>สอนพิเศษ</p></Link>
-                                <Link to="/"><p>จัดการร้านค้าออนไลน์</p></Link>
+                                <Link to="/working-list?maintype=1"><p>ออกแบบกราฟฟิค</p></Link>
+                                <Link to="/working-list?maintype=2"><p>ผลิตสื่อมัลติมีเดีย</p></Link>
+                                <Link to="/working-list?maintype=3"><p>ถ่ายภาพ</p></Link>
+                                <Link to="/working-list?maintype=4"><p>เขียนแปลภาษา</p></Link>
+                                <Link to="/working-list?maintype=5"><p>เว็บไซต์และโปรแกรม</p></Link>
+                                <Link to="/working-list?maintype=6"><p>สอนพิเศษ</p></Link>
+                                <Link to="/working-list?maintype=7"><p>จัดการร้านค้าออนไลน์</p></Link>
                             </h3>
                         </Col>
                         <Col lg="3 mt-4">
@@ -30,7 +30,7 @@ export default class Footer extends Component {
                             <h3>
                                 <Link to="/Hiring"><p>จ้างงาน</p></Link>
                                 <Link to="/uploadwork"><p>ลงผลงาน</p></Link>
-                                <Link to="/"><p>ยืนยันตัวตนเป็น Freelance</p></Link>
+                                <Link to="/registerfreelance"><p>ยืนยันตัวตนเป็น Freelance</p></Link>
                             </h3>
                         </Col>
                         <Col lg="3 mt-4">
@@ -38,7 +38,7 @@ export default class Footer extends Component {
                             <h3>
                                 <Link to="/Aboutus"><p>เกี่ยวกับเรา</p></Link>
                                 <Link to="/"><p>ติดต่อเรา</p></Link>
-                                <Link to="/"><p>คำถามที่พบบ่อย</p></Link>
+                                <Link to="/Question"><p>คำถามที่พบบ่อย</p></Link>
                             </h3>
                         </Col>
                         <Col lg="3 mt-4">
