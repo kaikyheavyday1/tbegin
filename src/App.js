@@ -22,6 +22,7 @@ import Cardhiring from './component/Cardhiring'
 import Error from './component/Error'
 import Chat from './pages/Chat'
 import Question from './pages/Question'
+import Anotherprofile from './pages/Anotherprofile'
 function App() {
   return (
     <div className="App">
@@ -45,6 +46,7 @@ function App() {
         <Route path="/Loading" component={Loading} />
         <Route path="/Chat" component={Chat} />
         <Route path="/Question" component={Question} />
+        <Route path="/Anotherprofile/:userid" component={Anotherprofile} />
         <Route component={Error} />
       </Switch>
       <Footer />

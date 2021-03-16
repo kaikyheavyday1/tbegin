@@ -92,13 +92,11 @@
 .home .section2-right .correct h3 {
   font-size: 20px;
 }
-.home .section3 .avatar {
-  width: 8rem;
-  height: 8rem;
-  border-radius: 50%;
-}
 .home .section3 .workpic {
-  width: 18rem;
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+  border-radius: 10px;
 }
 .home .btn-home {
   background-color: #00296b;
@@ -607,7 +605,7 @@
   background-color: #00296b;
   color: #fff;
   border-radius: 10px;
-  border : none;
+  border: none;
 }
 /* end editwork */
 

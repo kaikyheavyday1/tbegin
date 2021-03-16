@@ -22,46 +22,30 @@ import like from '../images/profile/heart.svg'
 import StarRatings from 'react-star-ratings'
 import Loading from '../component/Loading'
 
-export default function Profile() {
+export default function Anotherprofile(props) {
   const [user, setUser] = useState(null)
-  const [userWork, setUserWork] = useState([])
-  const [loading, setLoading] = useState(false)
-  useEffect(() => {
-    inProfile()
-    getWorks()
-  }, [])
-  const getWorks = async () => {
-    setLoading(true)
+  const [userwork, setUserwork] = useState([])
+  const userid = props.match.params.userid
+  const getUser = async () => {
     const fetch = await axios.get(
-      'http://localhost:4000/work/get-work?userid=true',
-      {
-        headers: {
-          Authorization: 'Bearer ' + localStorage.getItem('access-token'), //the token is a variable which holds the token
-        },
-      }
+      `http://localhost:4000/profile/get?userid=${userid}`
     )
-    const data = await fetch.data
-    console.log(data)
-    setUserWork(data)
-    setLoading(false)
-  }
-
-  const inProfile = async (e) => {
-    setLoading(true)
-    const fetch = await axios.get('http://localhost:4000/profile', {
-      headers: {
-        Authorization: 'Bearer ' + localStorage.getItem('access-token'), //the token is a variable which holds the token
-      },
-    })
-    let data = await fetch.data
-    data = data[0]
+    let data = await fetch.data[0]
     setUser(data)
-    setLoading(false)
   }
-
+  const getWorkbyuser = async () => {
+    const fetch = await axios.get(
+      `http://localhost:4000/work/get-work?otheruserid=${userid}`
+    )
+    let data = await fetch.data
+    setUserwork(data)
+  }
+  useEffect(() => {
+    getUser()
+    getWorkbyuser()
+  }, [])
   return (
     <div className="profile mb-5">
-      {loading ? <Loading /> : null}
       <div className="container">
         <Row className="mt-5">
           <Col lg="4" md="12" sm="12" xs="12" className="profile-info">
@@ -85,11 +69,6 @@ export default function Profile() {
             </div>
             <div>
               <div className="d-flex justify-content-around mt-3">
-                <Link to="/editprofile">
-                  <button type="button" className="btn">
-                    ตั้งค่าโปรไฟล์
-                  </button>
-                </Link>
                 <button type="button" className="btn">
                   ส่งข่้อความ
                 </button>
@@ -119,7 +98,7 @@ export default function Profile() {
                     <img src={phone} alt="user" height="20px" />
                   </div>
                   <div className="ml-2">
-                    {user !== null && <h5>{user.phone}</h5>}
+                    <h5>{user !== null && user.phone}</h5>
                   </div>
                 </div>
                 <div className="d-flex justify-content-start">
@@ -127,7 +106,7 @@ export default function Profile() {
                     <img src={letter} alt="user" height="20px" />
                   </div>
                   <div className="ml-2">
-                    {user !== null && <h5>{user.email}</h5>}
+                    <h5>{user !== null && user.email}</h5>
                   </div>
                 </div>
               </div>
@@ -135,12 +114,11 @@ export default function Profile() {
           </Col>
           <Col lg="8" md="12" sm="12" xs="12" className="mt-5">
             <div className="col-10 mx-auto">
-              <h1 className="text-center">โปรไฟล์ของคุณ</h1>
-              <h4 className="text-center mt-3">ผลงาน</h4>
+              <h1 className="text-center">ผลงาน</h1>
               <div className="allwork">
                 <Row className="testing">
-                  {userWork.length > 0 &&
-                    userWork.map((work, index) => {
+                  {userwork.length > 0 &&
+                    userwork.map((work, index) => {
                       console.log(work)
                       return (
                         <Col
