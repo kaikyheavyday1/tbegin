@@ -17,6 +17,7 @@ import {
   DropdownMenu,
   NavLink,
 } from 'reactstrap'
+import SearchField from 'react-search-field'
 
 class Header extends Component {
   constructor(props) {
@@ -65,6 +66,7 @@ class Header extends Component {
     if (localStorage.getItem('access-token')) {
       return (
         <Nav className="allnav-item ml-auto" navbar>
+          <SearchField placeholder="Search..." classNames="test-class" />
           <NavLink>
             <Link to="/working-list">จ้างงาน</Link>
           </NavLink>

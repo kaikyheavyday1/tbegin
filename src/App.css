@@ -11,6 +11,15 @@
   color: #fff;
   font-size: 20px;
 }
+.allnav-item .react-search-field {
+  border: none !important;
+}
+.allnav-item .react-search-field button{
+  background-color: none !important;
+}
+.allnav-item .test-class input{
+  border-radius: 20px;
+}
 .nav-link-img {
   padding-left: 0.8rem !important;
   padding-right: 0.8rem !important;
