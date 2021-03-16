@@ -13,14 +13,17 @@ import images9 from '../images/home/9.jpg'
 import images10 from '../images/home/10.png'
 import { Link } from 'react-router-dom'
 import StarRatings from 'react-star-ratings'
-
+let initState = {
+  userid: '',
+}
 export default function Cardworking(props) {
   console.log(props)
+  const [userid] = useState(initState)
   return (
     <div className="cardhiring mt-3 mb-3 justify-content-center">
       <div className="d-flex mb-2">
         <Card className="card">
-          <Link to="/">
+          <Link to={`/anotherprofile/${props.data.userid}`}>
             <div className="d-flex profile">
               <img className="avatar mt-3 ml-3" src={images9} alt="avatar" />
               <div className="ml-3 mt-3">

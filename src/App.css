@@ -83,13 +83,11 @@
 .home .section2-right .correct h3 {
   font-size: 20px;
 }
-.home .section3 .avatar {
-  width: 8rem;
-  height: 8rem;
-  border-radius: 50%;
-}
 .home .section3 .workpic {
-  width: 18rem;
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+  border-radius: 10px;
 }
 .carousel-control-prev-icon {
   color: #000;
@@ -579,11 +577,11 @@
   background-color: #00296b;
   color: #fff;
   border-radius: 10px;
-  border : none;
+  border: none;
 }
-.chat{
+.chat {
   font-size: 150%;
 }
-.errorchangepass{
+.errorchangepass {
   color: red;
 }

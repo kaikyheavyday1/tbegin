@@ -22,7 +22,28 @@ import like from '../images/profile/heart.svg'
 import StarRatings from 'react-star-ratings'
 import Loading from '../component/Loading'
 
-export default function Profile() {
+export default function Anotherprofile(props) {
+  const [user, setUser] = useState(null)
+  const [userwork, setUserwork] = useState([])
+  const userid = props.match.params.userid
+  const getUser = async () => {
+    const fetch = await axios.get(
+      `http://localhost:4000/profile/get?userid=${userid}`
+    )
+    let data = await fetch.data[0]
+    setUser(data)
+  }
+  const getWorkbyuser = async () => {
+    const fetch = await axios.get(
+      `http://localhost:4000/work/get-work?otheruserid=${userid}`
+    )
+    let data = await fetch.data
+    setUserwork(data)
+  }
+  useEffect(() => {
+    getUser()
+    getWorkbyuser()
+  }, [])
   return (
     <div className="profile mb-5">
       <div className="container">
@@ -35,7 +56,11 @@ export default function Profile() {
                 </Col>
                 <Col lg="8">
                   <div className="pt-3">
-                    <h3 className="editwork-bold">asdsadsd</h3>
+                    <h3 className="editwork-bold">
+                      {user !== null && user.name}{' '}
+                      {user !== null && user.surname}
+                    </h3>
+                    {console.log(user)}
                   </div>
                 </Col>
               </Row>
@@ -47,7 +72,11 @@ export default function Profile() {
                 </button>
               </div>
               <div className="mt-3">
-                <h5>สมัครสมาชิกเมื่อ</h5>
+                {user !== null && (
+                  <h5>
+                    สมัครสมาชิกเมื่อ {user.create_date.toString().split('T')[0]}
+                  </h5>
+                )}
               </div>
               <div className="star d-flex">
                 <h3 className="mr-2">เรทติ้ง : </h3>
@@ -67,7 +96,7 @@ export default function Profile() {
                     <img src={phone} alt="user" height="20px" />
                   </div>
                   <div className="ml-2">
-                    <h5>sdsad</h5>
+                    <h5>{user !== null && user.phone}</h5>
                   </div>
                 </div>
                 <div className="d-flex justify-content-start">
@@ -75,7 +104,7 @@ export default function Profile() {
                     <img src={letter} alt="user" height="20px" />
                   </div>
                   <div className="ml-2">
-                    <h5>sdasd</h5>
+                    <h5>{user !== null && user.email}</h5>
                   </div>
                 </div>
               </div>
@@ -86,31 +115,47 @@ export default function Profile() {
               <h1 className="text-center">ผลงาน</h1>
               <div className="allwork">
                 <Row className="testing">
-                  <Col lg="6" md="6" sm="12" xs="12" className="mt-3">
-                    <Card className="cardprofilework">
-                      <h1 className="ml-3 mt-3">sad</h1>
+                  {userwork.length > 0 &&
+                    userwork.map((work, index) => {
+                      console.log(work)
+                      return (
+                        <Col
+                          lg="6"
+                          md="6"
+                          sm="12"
+                          xs="12"
+                          className="mt-3"
+                          key={index}
+                        >
+                          <Card className="cardprofilework">
+                            <h1 className="ml-3 mt-3">{work.name}</h1>
 
-                      <CardBody>
-                        <CardImg className="imgwork"></CardImg>
-                        <CardSubtitle className="carddescription mt-3">
-                          sdasds
-                        </CardSubtitle>
-                        <div className="d-flex mt-5">
-                          <h3>Freelance:</h3>
-                        </div>
-                        <div className="d-flex">
-                          <h3>ราคา ฿</h3>
-                        </div>
-                        <StarRatings
-                          className="star"
-                          rating={2.5}
-                          starDimension="25px"
-                          starSpacing="2px"
-                          starRatedColor="#FFBF00"
-                        />
-                      </CardBody>
-                    </Card>
-                  </Col>
+                            <CardBody>
+                              <CardImg
+                                className="imgwork"
+                                src={work.pic1}
+                              ></CardImg>
+                              <CardSubtitle className="carddescription mt-3">
+                                {work.main_description}
+                              </CardSubtitle>
+                              <div className="d-flex mt-5">
+                                <h3>Freelance: {work.username}</h3>
+                              </div>
+                              <div className="d-flex">
+                                <h3>ราคา {work.price} ฿</h3>
+                              </div>
+                              <StarRatings
+                                className="star"
+                                rating={2.5}
+                                starDimension="25px"
+                                starSpacing="2px"
+                                starRatedColor="#FFBF00"
+                              />
+                            </CardBody>
+                          </Card>
+                        </Col>
+                      )
+                    })}
                 </Row>
               </div>
             </div>
