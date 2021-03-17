@@ -299,7 +299,13 @@ export default function Working(props) {
             <div className="working-right col-10 mx-auto">
               <div>
                 <div className="d-flex pt-3">
-                  <img src={userpic} alt="userpic"></img>
+                  <img
+                    className="profileavatar"
+                    src={work !== null && work.profile_pic}
+                    alt="user"
+                    height="60px"
+                    width="60px"
+                  />
                   <h4 className="pt-3 ml-2">
                     {work.profile_name} {work.profile_surname}
                   </h4>

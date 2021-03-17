@@ -21,10 +21,15 @@ import web2 from '../images/profile/web2.png'
 import like from '../images/profile/heart.svg'
 import StarRatings from 'react-star-ratings'
 import Loading from '../component/Loading'
+let initState = {
+  workid: '',
+}
 
-export default function Profile() {
+export default function Profile(props) {
+  console.log(props)
   const [user, setUser] = useState(null)
   const [userWork, setUserWork] = useState([])
+  const [workid] = useState(initState)
   const [loading, setLoading] = useState(false)
   useEffect(() => {
     inProfile()
@@ -152,30 +157,31 @@ export default function Profile() {
                           key={index}
                         >
                           <Card className="cardprofilework">
-                            <h1 className="ml-3 mt-3">{work.name}</h1>
-
-                            <CardBody>
-                              <CardImg
-                                className="imgwork"
-                                src={work.pic1}
-                              ></CardImg>
-                              <CardSubtitle className="carddescription mt-3">
-                                {work.main_description}
-                              </CardSubtitle>
-                              <div className="d-flex mt-5">
-                                <h3>Freelance: {work.username}</h3>
-                              </div>
-                              <div className="d-flex">
-                                <h3>ราคา {work.price} ฿</h3>
-                              </div>
-                              <StarRatings
-                                className="star"
-                                rating={2.5}
-                                starDimension="25px"
-                                starSpacing="2px"
-                                starRatedColor="#FFBF00"
-                              />
-                            </CardBody>
+                            <Link to={`/working/${work.workid}`}>
+                              <h1 className="ml-3 mt-3">{work.name}</h1>
+                              <CardBody>
+                                <CardImg
+                                  className="imgwork"
+                                  src={work.pic1}
+                                ></CardImg>
+                                <CardSubtitle className="carddescription mt-3">
+                                  {work.main_description}
+                                </CardSubtitle>
+                                <div className="d-flex mt-5">
+                                  <h3>Freelance: {work.username}</h3>
+                                </div>
+                                <div className="d-flex">
+                                  <h3>ราคา {work.price} ฿</h3>
+                                </div>
+                                <StarRatings
+                                  className="star"
+                                  rating={2.5}
+                                  starDimension="25px"
+                                  starSpacing="2px"
+                                  starRatedColor="#FFBF00"
+                                />
+                              </CardBody>
+                            </Link>
                           </Card>
                         </Col>
                       )

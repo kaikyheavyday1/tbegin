@@ -284,6 +284,10 @@
   width: 100%;
   height: 100%;
   border-radius: 10px;
+  object-fit: cover;
+}
+.profile .cardprofilework a:hover{
+  text-decoration: none;
 }
 .profile .cardprofilework .imgwork {
   width: 100%;
@@ -293,9 +297,14 @@
 }
 .profile .cardprofilework h3 {
   font-size: 18px;
+  color: #00296b;
+}
+.profile .cardprofilework h1{
+  color: #00296b;
 }
 .profile .cardprofilework .carddescription {
   font-size: 23px;
+  color: #00296b;
 }
 
 .profile .allwork .like-price {
@@ -312,7 +321,10 @@
 }
 
 /* end profile */
-
+.Anotherprofile .cardprofilework a:hover{
+  text-decoration: none;
+}
+/*end anotherprofile */
 .uploadwork {
   color: #00296b;
 }
@@ -535,6 +547,7 @@
 }
 .cardhiring p {
   font-size: 20px;
+  color: #00296b;
 }
 .cardhiring .star {
   padding: 0 !important;
