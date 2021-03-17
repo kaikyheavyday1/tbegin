@@ -15,6 +15,7 @@ import { Link } from 'react-router-dom'
 import StarRatings from 'react-star-ratings'
 let initState = {
   userid: '',
+  workid: '',
 }
 export default function Cardworking(props) {
   console.log(props)
@@ -37,7 +38,7 @@ export default function Cardworking(props) {
             </div>
           </Link>
           <CardBody>
-            <Link to="/">
+            <Link to={`/working/${props.data.workid}`}>
               <CardImg className="workpic" src={props.data.pic1}></CardImg>
             </Link>
             <CardText className="text-left mt-3">

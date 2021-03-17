@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   Carousel,
   CarouselItem,
@@ -31,17 +31,42 @@ import web3 from '../images/working/web3.png'
 import web4 from '../images/working/web4.jpg'
 import web5 from '../images/working/web5.jpg'
 import web6 from '../images/working/web6.jpg'
-
+import axios from 'axios'
 const items = [
-  { src: web },
-  { src: web2 },
-  { src: web3 },
-  { src: web4 },
-  { src: web5 },
-  { src: web6 },
+  { src: '' },
+  { src: '' },
+  { src: '' },
+  { src: '' },
+  { src: '' },
+  { src: '' },
 ]
 
-export default function Working() {
+export default function Working(props) {
+  const [work, setWork] = useState([])
+  const [item, setItem] = useState(items)
+  const workid = props.match.params.workid
+
+  const getWork = async () => {
+    const fetch = await axios.get(
+      `http://localhost:4000/work/get-work?workid=${workid}`
+    )
+    let data = await fetch.data[0]
+    setWork(data)
+    const allpic = [
+      { src: data.pic1 },
+      { src: data.pic2 },
+      { src: data.pic3 },
+      { src: data.pic4 },
+      { src: data.pic5 },
+      { src: data.pic6 },
+    ]
+    const inuser = [{ user_id: data.user_id }]
+    setItem(allpic)
+    console.log(data)
+  }
+  useEffect(() => {
+    getWork()
+  }, [])
   const [activeIndex, setActiveIndex] = useState(0)
   const [animating, setAnimating] = useState(false)
   const [modal, setModal] = useState(false)
@@ -60,13 +85,13 @@ export default function Working() {
 
   const next = () => {
     if (animating) return
-    const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1
+    const nextIndex = activeIndex === item.length - 1 ? 0 : activeIndex + 1
     setActiveIndex(nextIndex)
   }
 
   const previous = () => {
     if (animating) return
-    const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1
+    const nextIndex = activeIndex === 0 ? item.length - 1 : activeIndex - 1
     setActiveIndex(nextIndex)
   }
 
@@ -75,7 +100,7 @@ export default function Working() {
     setActiveIndex(newIndex)
   }
 
-  const slides = items.map((item) => {
+  const slides = item.map((item) => {
     return (
       <CarouselItem
         onExiting={() => setAnimating(true)}
@@ -94,9 +119,10 @@ export default function Working() {
   return (
     <div className="working mt-3 mb-3">
       <div className="container">
+        {console.log(item)}
         <Row>
           <Col lg="8" className="working-left pt-3">
-            <h2>รับออกแบบเว็บไซต์ Adobe XD</h2>
+            <h2>{work !== null && work.name}</h2>
             <Carousel activeIndex={activeIndex} next={next} previous={previous}>
               <CarouselIndicators
                 items={items}
@@ -118,7 +144,7 @@ export default function Working() {
             <Row className="working-small mt-2">
               <Col lg="2" md="2" sm="4" xs="4" className="img-working-small">
                 <img
-                  src={web}
+                  src={item[0].src}
                   alt="web"
                   className="w-100"
                   height="100%"
@@ -126,7 +152,7 @@ export default function Working() {
                 ></img>
                 <Modal isOpen={modal} toggle={toggle}>
                   <img
-                    src={web}
+                    src={item[0].src}
                     alt="web"
                     className="w-100"
                     height="100%"
@@ -135,7 +161,7 @@ export default function Working() {
               </Col>
               <Col lg="2" md="2" sm="4" xs="4" className="img-working-small">
                 <img
-                  src={web2}
+                  src={item[1].src}
                   alt="web"
                   className="w-100"
                   height="75px"
@@ -143,7 +169,7 @@ export default function Working() {
                 ></img>
                 <Modal isOpen={modal2} toggle={toggle2}>
                   <img
-                    src={web2}
+                    src={item[1].src}
                     alt="web"
                     className="w-100"
                     height="100%"
@@ -152,7 +178,7 @@ export default function Working() {
               </Col>
               <Col lg="2" md="2" sm="4" xs="4" className="img-working-small">
                 <img
-                  src={web3}
+                  src={item[2].src}
                   alt="web"
                   className="w-100"
                   height="75px"
@@ -160,7 +186,7 @@ export default function Working() {
                 ></img>
                 <Modal isOpen={modal3} toggle={toggle3}>
                   <img
-                    src={web3}
+                    src={item[2].src}
                     alt="web"
                     className="w-100"
                     height="100%"
@@ -169,7 +195,7 @@ export default function Working() {
               </Col>
               <Col lg="2" md="2" sm="4" xs="4" className="img-working-small">
                 <img
-                  src={web4}
+                  src={item[3].src}
                   alt="web"
                   className="w-100"
                   height="75px"
@@ -177,7 +203,7 @@ export default function Working() {
                 ></img>
                 <Modal isOpen={modal4} toggle={toggle4}>
                   <img
-                    src={web4}
+                    src={item[3].src}
                     alt="web"
                     className="w-100"
                     height="100%"
@@ -186,7 +212,7 @@ export default function Working() {
               </Col>
               <Col lg="2" md="2" sm="4" xs="4" className="img-working-small">
                 <img
-                  src={web5}
+                  src={item[4].src}
                   alt="web"
                   className="w-100"
                   height="75px"
@@ -194,7 +220,7 @@ export default function Working() {
                 ></img>
                 <Modal isOpen={modal5} toggle={toggle5}>
                   <img
-                    src={web5}
+                    src={item[4].src}
                     alt="web"
                     className="w-100"
                     height="100%"
@@ -203,7 +229,7 @@ export default function Working() {
               </Col>
               <Col lg="2" md="2" sm="4" xs="4" className="img-working-small">
                 <img
-                  src={web6}
+                  src={item[5].src}
                   alt="web"
                   className="w-100"
                   height="75px"
@@ -211,7 +237,7 @@ export default function Working() {
                 ></img>
                 <Modal isOpen={modal6} toggle={toggle6}>
                   <img
-                    src={web6}
+                    src={item[5].src}
                     alt="web"
                     className="w-100"
                     height="100%"
@@ -221,24 +247,17 @@ export default function Working() {
             </Row>
             <div className="mt-5">
               <h3>รายละเอียดของงาน</h3>
-              <p>
-                ออกแบบโลโก้ให้ 2 แบบ เลือกได้ 1 แบบ แก้ไขได้ 2 ครั้ง ส่งเป็นไฟล์
-                AI หรือไฟล์อื่นๆที่ลูกค้าต้องการ
-              </p>
+              <p>-{work !== null && work.description}</p>
               <h3>สิ่งที่ลูกค้าจะได้รับ</h3>
-              <p>
-                -ได้รับงานตัวอย่างเป็นไฟล์ PDF สามารถแก้ไขได้ 2 ครั้ง
-                และหลังจากลูกค้าตกลงจะรับงานแล้วทางเราจะส่งให้เป็น ไฟล์ .XD
-                และไฟล์ PDF ให้ทางอีเมล์
-              </p>
+              <p>-{work !== null && work.main_description}</p>
               <Row>
                 <Col lg="6">
                   <h3>ระยะเวลาในการทำงาน</h3>
-                  <p>- 2 วัน</p>
+                  <p>- {work !== null && work.work_time}</p>
                 </Col>
                 <Col lg="6">
                   <h3>ราคางาน</h3>
-                  <p>2000 ฿</p>
+                  <p>{work !== null && work.price} ฿</p>
                 </Col>
               </Row>
             </div>
@@ -281,15 +300,19 @@ export default function Working() {
               <div>
                 <div className="d-flex pt-3">
                   <img src={userpic} alt="userpic"></img>
-                  <h4 className="pt-3 ml-2">พงศ์พิพัฒน์ ธวัชชัยดำรงค์</h4>
+                  <h4 className="pt-3 ml-2">
+                    {work.profile_name} {work.profile_surname}
+                  </h4>
                 </div>
               </div>
               <div>
                 <div className="mt-3">
-                  <p>ป๋าใจดีสปอร์ต กทม</p>
-                </div>
-                <div className="mt-3">
-                  <h5>สมัครสมาชิกเมื่อ 18/02/2564</h5>
+                  {work.length !== 0 && (
+                    <h5>
+                      สมัครสมาชิกเมื่อ{' '}
+                      {work.profile_createdate.toString().split('T')[0]}
+                    </h5>
+                  )}
                 </div>
                 <div className="mt-3">
                   <h5>เรทติ้ง</h5>
@@ -309,7 +332,7 @@ export default function Working() {
                       <img src={phone} alt="user" height="20px" />
                     </div>
                     <div className="ml-2">
-                      <h5>0807854451</h5>
+                      <h5>{work.profile_phone}</h5>
                     </div>
                   </div>
                   <div className="d-flex justify-content-start">
@@ -317,7 +340,7 @@ export default function Working() {
                       <img src={letter} alt="user" height="20px" />
                     </div>
                     <div className="ml-2">
-                      <h5>rabite02013@hotmail.com</h5>
+                      <h5>{work.profile_email}</h5>
                     </div>
                   </div>
                   <div className="text-center mb-2 mt-2">
@@ -330,29 +353,6 @@ export default function Working() {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="other-work mt-5 col-10 mx-auto">
-              <h3>งานอื่นๆที่รับทำ</h3>
-              <Card>
-                <CardImg top src={web2} alt="Card image cap" />
-                <CardBody>
-                  <CardTitle tag="h3">ออกแบบเว็บไซต์ tbegin</CardTitle>
-                  <CardSubtitle tag="h5" className="text-right mb-2 text-muted">
-                    Freelance : kaikyheavyday
-                  </CardSubtitle>
-                  <CardText className="text-left ">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </CardText>
-                  <div className="like-price text-right">
-                    <div>
-                      <CardText>
-                        <h5>1000 ฿</h5>
-                      </CardText>
-                    </div>
-                  </div>
-                </CardBody>
-              </Card>
             </div>
           </Col>
         </Row>
