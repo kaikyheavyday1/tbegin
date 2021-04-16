@@ -133,8 +133,8 @@ export default function Anotherprofile(props) {
                           className="mt-3"
                           key={index}
                         >
-                          <Link to={`/working/${work.workid}`}>
-                            <Card className="cardprofilework">
+                          <Card className="cardprofilework text-decoration-none">
+                            <Link to={`/working/${work.workid}`}>
                               <h1 className="ml-3 mt-3">{work.name}</h1>
                               <CardBody>
                                 <CardImg
@@ -158,8 +158,8 @@ export default function Anotherprofile(props) {
                                   starRatedColor="#FFBF00"
                                 />
                               </CardBody>
-                            </Card>
-                          </Link>
+                            </Link>
+                          </Card>
                         </Col>
                       )
                     })}
