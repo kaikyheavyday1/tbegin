@@ -37,7 +37,7 @@ function App() {
         <Route path="/profile" component={Profile} />
         <Route path="/Registerfreelance" component={Registerfreelance} />
         <Route path="/editprofile" component={Editprofile} />
-        <Route path="/working" component={Working} />
+        <Route path="/working/:workid" component={Working} />
         <Route path="/working-list" component={WorkingList} />
         <Route path="/test" component={Test} />
         <Route path="/Cardworking" component={Cardworking} />
