@@ -3,6 +3,7 @@ import logo from '../images/logo in navbar.png'
 import user from '../images/nav/user.png'
 import noti from '../images/nav/bell.png'
 import chat from '../images/nav/chat.png'
+import search from '../images/nav/loupe.svg'
 import { withRouter, Link } from 'react-router-dom'
 import {
   Collapse,
@@ -52,6 +53,16 @@ class Header extends Component {
             <NavbarBrand href="/" className="logo-brand">
               <img src={logo} alt="logo-first" />
             </NavbarBrand>
+            <div className="input-search mt-1 ml-5">
+              <input
+                type="text"
+                placeholder="search"
+                className="form-search pl-3 p-1"
+              />
+              <button type="button">
+                <img src={search} width="20px" />
+              </button>
+            </div>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               {this.renderNavlink()}
@@ -66,7 +77,6 @@ class Header extends Component {
     if (localStorage.getItem('access-token')) {
       return (
         <Nav className="allnav-item ml-auto" navbar>
-          <SearchField placeholder="Search..." classNames="test-class" />
           <NavLink>
             <Link to="/working-list">จ้างงาน</Link>
           </NavLink>
@@ -117,9 +127,6 @@ class Header extends Component {
         <Nav className="allnav-item ml-auto" navbar>
           <NavLink>
             <Link to="/working-list">จ้างงาน</Link>
-          </NavLink>
-          <NavLink>
-            <Link to="/uploadwork">ลงผลงาน</Link>
           </NavLink>
           <NavLink>
             <Link to="/aboutus">เกี่ยวกับเรา</Link>

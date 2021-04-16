@@ -11,14 +11,27 @@
   color: #fff;
   font-size: 20px;
 }
-.allnav-item .react-search-field {
-  border: none !important;
+ .input-search {
+  position: relative;
+  width: 40%;
 }
-.allnav-item .react-search-field button{
-  background-color: none !important;
+.input-search button{
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #fff;
+  color: #00296b;
+  outline: none;
+  border: none
 }
-.allnav-item .test-class input{
+.input-search input{
   border-radius: 20px;
+  outline: none;
+  width: 100%;
+}
+.input-search input:active{
+  border : none
 }
 .nav-link-img {
   padding-left: 0.8rem !important;
