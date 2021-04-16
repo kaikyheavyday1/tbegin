@@ -307,7 +307,9 @@ export default function Working(props) {
                     width="60px"
                   />
                   <h4 className="pt-3 ml-2">
-                    {work.profile_name} {work.profile_surname}
+                    <Link to={`/anotherprofile/${work.id}`}>
+                      {work.profile_name} {work.profile_surname}
+                    </Link>
                   </h4>
                 </div>
               </div>
