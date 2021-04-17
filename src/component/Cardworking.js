@@ -18,7 +18,6 @@ let initState = {
   workid: '',
 }
 export default function Cardworking(props) {
-  console.log(props)
   const [userid] = useState(initState)
   return (
     <div className="cardhiring mt-3 mb-3 justify-content-center">

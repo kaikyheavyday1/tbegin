@@ -23,6 +23,7 @@ export default function WorkingList() {
   let query = useQuery()
   const [works, setWorks] = useState([])
   const [loading, setLoading] = useState(false)
+  const [workname, setWorkname] = useState([])
 
   useEffect(() => {
     const maintype = query.get('maintype')
@@ -53,7 +54,9 @@ export default function WorkingList() {
       `http://localhost:4000/work/get-work?maintype=${maintype}`
     )
     const data = await fetch.data
-    setWorks(data)
+    console.log(data)
+    setWorks(data.getworkmaintype)
+    setWorkname(data.getnamemaintype[0].name)
   }
   const getallwork = async () => {
     setLoading(true)
@@ -82,6 +85,7 @@ export default function WorkingList() {
           <Col lg={10} md={9} xs={12}>
             <Container>
               <Row>
+                <h1>{workname}</h1>
                 {works.length > 0 &&
                   works.map((work, index) => {
                     return (

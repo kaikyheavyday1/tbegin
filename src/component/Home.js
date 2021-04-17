@@ -50,7 +50,6 @@ export default function Home() {
       }
     )
     const data = await fetch.data
-    console.log(data)
     setWorks(data)
   }
   return (
