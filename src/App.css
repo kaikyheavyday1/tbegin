@@ -11,11 +11,11 @@
   color: #fff;
   font-size: 20px;
 }
- .input-search {
+.input-search {
   position: relative;
   width: 40%;
 }
-.input-search button{
+.input-search button {
   position: absolute;
   right: 12px;
   top: 50%;
@@ -23,15 +23,15 @@
   background-color: #fff;
   color: #00296b;
   outline: none;
-  border: none
+  border: none;
 }
-.input-search input{
+.input-search input {
   border-radius: 20px;
   outline: none;
   width: 100%;
 }
-.input-search input:active{
-  border : none
+.input-search input:active {
+  border: none;
 }
 .nav-link-img {
   padding-left: 0.8rem !important;
@@ -115,7 +115,7 @@
   background-color: #00296b;
   color: #fff;
   border-radius: 10px;
-  border : none;
+  border: none;
 }
 .carousel-control-prev-icon {
   color: #000;
@@ -299,7 +299,7 @@
   border-radius: 10px;
   object-fit: cover;
 }
-.profile .cardprofilework a:hover{
+.profile .cardprofilework a:hover {
   text-decoration: none;
 }
 .profile .cardprofilework .imgwork {
@@ -312,7 +312,7 @@
   font-size: 18px;
   color: #00296b;
 }
-.profile .cardprofilework h1{
+.profile .cardprofilework h1 {
   color: #00296b;
 }
 .profile .cardprofilework .carddescription {
@@ -323,18 +323,18 @@
 .profile .allwork .like-price {
   padding: 0;
 }
-.profileavatar{
+.profileavatar {
   border-radius: 100px;
   background-color: #00296b;
 }
-.profilecenter{
+.profilecenter {
   justify-content: center;
   flex-wrap: wrap;
   display: flex;
 }
 
 /* end profile */
-.Anotherprofile .cardprofilework a:hover{
+.Anotherprofile .cardprofilework a:hover {
   text-decoration: none;
 }
 /*end anotherprofile */
@@ -428,8 +428,17 @@
   border-radius: 20px;
   border: 3px solid #00296b;
 }
-.working .chat{
+.link,
+.link:hover {
+  color: #00296b;
+}
+.working .chat {
   font-size: 150%;
+}
+.working .cardworking {
+  text-decoration: none;
+  color: #00296b;
+  background-color: #000;
 }
 /* end working */
 
@@ -627,7 +636,7 @@
   top: 20px;
 }
 /* question */
-.btn-home{
+.btn-home {
   background-color: #00296b;
   color: #fff;
   border-radius: 10px;
@@ -635,124 +644,124 @@
 }
 /* end editwork */
 
-.left-chat{
-  margin : 0 !important;
+.left-chat {
+  margin: 0 !important;
   padding: 0 !important;
   border-right: 1px solid #00296b;
 }
-.middle-chat{
-  margin : 0 !important;
+.middle-chat {
+  margin: 0 !important;
   padding: 0 !important;
 }
-.right-chat{
-  margin : 0 !important;
+.right-chat {
+  margin: 0 !important;
   padding: 0 !important;
   border-left: 1px solid #00296b;
 }
-.chat-contact{
-  color : #00296b;
+.chat-contact {
+  color: #00296b;
   border-bottom: 1px solid #00296b;
   border-top: 1px solid #00296b;
   width: 100%;
 }
 
-.chat-contact .contact-list .contact{
-  border-top : 1px solid #00296b
+.chat-contact .contact-list .contact {
+  border-top: 1px solid #00296b;
 }
-.chat-contact .contact-list h3{
-  margin : 0 !important
+.chat-contact .contact-list h3 {
+  margin: 0 !important;
 }
-.chat-contact .contact-list img{
+.chat-contact .contact-list img {
   border-radius: 30px;
 }
-.chat-message{
-  color : #00296b;
+.chat-message {
+  color: #00296b;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   width: 100%;
 }
-.chat-message .chat-header{
+.chat-message .chat-header {
   border-bottom: 1px solid black;
 }
-.chat-message .msg{
-  height : 400px;
-  overflow-y : auto
+.chat-message .msg {
+  height: 400px;
+  overflow-y: auto;
 }
-.chat-message .msg .msg-from{
+.chat-message .msg .msg-from {
   display: grid;
   justify-items: end;
   justify-self: end;
   grid-template-columns: 1fr max-content;
   grid-template-rows: max-content max-content;
 }
-.chat-message .msg .msg-to{
+.chat-message .msg .msg-to {
   display: grid;
   justify-items: start;
   justify-self: start;
   grid-template-columns: 1fr max-content;
   grid-template-rows: max-content max-content;
 }
-.chat-message .msg .to img{
+.chat-message .msg .to img {
   border-radius: 20px;
 }
-.chat-message .msg .msg-from .msg-wrap{
+.chat-message .msg .msg-from .msg-wrap {
   background-color: #00296b;
   color: #fff;
   border-radius: 10px;
 }
-.chat-message .msg .msg-to .msg-wrap{
+.chat-message .msg .msg-to .msg-wrap {
   background-color: #fff;
   color: #00296b;
   border-radius: 10px;
 }
-.chat-message .msg .msg-from .msg-wrap p{
+.chat-message .msg .msg-from .msg-wrap p {
   padding: 5px !important;
   margin-bottom: 0 !important;
 }
-.chat-message .msg .msg-to .msg-wrap p{
+.chat-message .msg .msg-to .msg-wrap p {
   padding: 5px !important;
   margin-bottom: 0 !important;
 }
-.chat-message .chat-input  {
+.chat-message .chat-input {
   background-color: #00296b;
-  padding: 0 
+  padding: 0;
 }
 .chat-message .chat-input {
   padding: 0 !important;
 }
-.chat-message .chat-input .col-10{
+.chat-message .chat-input .col-10 {
   padding-right: 0 !important;
 }
-.chat-message .chat-input .col-2{
+.chat-message .chat-input .col-2 {
   padding: 0 !important;
 }
-.chat-message .chat-input button{
+.chat-message .chat-input button {
   border-radius: 10px;
-  border : none;
-  padding : 3px 20px;
+  border: none;
+  padding: 3px 20px;
   font-size: 20px;
 }
-.chat-transaction{
-  color : #00296b;
+.chat-transaction {
+  color: #00296b;
   width: 100%;
 }
-.chat-transaction .chat-header{
+.chat-transaction .chat-header {
   border-bottom: 1px solid black;
 }
-.chat-transaction button{
+.chat-transaction button {
   background-color: #00296b;
   color: #fff;
   padding: 5px 15px;
   border-radius: 10px;
-  border : none;
+  border: none;
   font-size: 25px;
 }
-.chat-transaction .MuiTimelineItem-root{
+.chat-transaction .MuiTimelineItem-root {
   min-height: 40px;
 }
-.chat-transaction .MuiTimelineDot-root{
+.chat-transaction .MuiTimelineDot-root {
   background-color: transparent !important;
 }
-.chat-transaction .MuiTimelineConnector-root{
+.chat-transaction .MuiTimelineConnector-root {
   background-color: #00296b !important;
 }

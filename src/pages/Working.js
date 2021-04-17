@@ -298,20 +298,20 @@ export default function Working(props) {
           <Col lg="4" className="mt-2">
             <div className="working-right col-10 mx-auto">
               <div>
-                <div className="d-flex pt-3">
-                  <img
-                    className="profileavatar"
-                    src={work !== null && work.profile_pic}
-                    alt="user"
-                    height="60px"
-                    width="60px"
-                  />
-                  <h4 className="pt-3 ml-2">
-                    <Link to={`/anotherprofile/${work.id}`}>
+                <Link to={`/anotherprofile/${work.id}`} className="link">
+                  <div className="d-flex pt-3">
+                    <img
+                      className="profileavatar"
+                      src={work !== null && work.profile_pic}
+                      alt="user"
+                      height="60px"
+                      width="60px"
+                    />
+                    <h4 className="pt-3 ml-2">
                       {work.profile_name} {work.profile_surname}
-                    </Link>
-                  </h4>
-                </div>
+                    </h4>
+                  </div>
+                </Link>
               </div>
               <div>
                 <div className="mt-3">
