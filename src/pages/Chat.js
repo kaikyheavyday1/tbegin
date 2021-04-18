@@ -8,29 +8,34 @@ import ChatTransaction from '../component/ChatTransaction'
 
 let socket
 let ENDPOINT = 'localhost:4000'
-export default function Chat() {
+export default function Chat(props) {
+  // const [room, setRoom] = useState('')
+  // useEffect(() => {
+  //   console.log('chat')
+  //   socket = io(ENDPOINT)
+  //   socket.emit('test')
+  // }, [ENDPOINT])
+
+  const [message, setMessage] = useState('ilove')
   const [room, setRoom] = useState('')
   useEffect(() => {
-    console.log('chat')
-    socket = io(ENDPOINT)
-    socket.emit('test')
-  }, [ENDPOINT])
-  useEffect(() => {
-    profile()
-    socket.on('receive', (messeage) => {
-      console.log(messeage)
-    })
-  }, [])
-  const profile = async (e) => {
-    const fetch = await axios.get('http://localhost:4000/profile', {
-      headers: {
-        Authorization: 'Bearer ' + localStorage.getItem('access-token'), //the token is a variable which holds the token
+    socket = io(ENDPOINT, {
+      extraHeaders: {
+        Authorization: 'Bearer ' + localStorage.getItem('access-token'),
       },
     })
-    let data = await fetch.data
-    data = data[0]
-    console.log(data.id)
+  }, [])
+  const sendmessage = (e) => {
+    const id = e.target.id
+    console.log(id)
+    socket.emit('send-message', { message: message, toID: id })
   }
+  useEffect(() => {
+    socket.on('receive', (message) => {
+      console.log(message)
+    })
+  })
+
   return (
     <div>
       <Row>
@@ -38,7 +43,7 @@ export default function Chat() {
           <Chatcontact />
         </Col>
         <Col lg={6} md={6} sm={12} xs={12} className="middle-chat">
-          <ChatMessage />
+          <ChatMessage sendfn={sendmessage} />
         </Col>
         <Col lg={3} md={3} sm={12} xs={12} className="right-chat">
           <ChatTransaction />

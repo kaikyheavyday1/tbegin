@@ -35,13 +35,22 @@ function App() {
   useEffect(() => {
     profile()
     console.log(userid)
-    socket = io(ENDPOINT)
+    socket = io(ENDPOINT, {
+      extraHeaders: {
+        Authorization: 'Bearer ' + localStorage.getItem('access-token'),
+      },
+    })
     socket.emit('create-waiting-room', { userid })
-  }, [userid])
+  }, [])
+  useEffect(() => {
+    socket.on('receive', (testmsg) => {
+      console.log(testmsg)
+    })
+  })
   const profile = async (e) => {
     const fetch = await axios.get('http://localhost:4000/profile', {
       headers: {
-        Authorization: 'Bearer ' + localStorage.getItem('access-token'), //the token is a variable which holds the token
+        Authorization: 'Bearer ' + localStorage.getItem('access-token'),
       },
     })
     let data = await fetch.data

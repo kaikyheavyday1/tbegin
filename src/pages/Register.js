@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import logo from "../images/logo.png";
-import { Link } from "react-router-dom";
-import { Service } from "../service/service";
-import axios from "axios";
-import swal from "sweetalert";
+import React, { useState, useEffect } from 'react'
+import logo from '../images/logo.png'
+import { Link } from 'react-router-dom'
+import { Service } from '../service/service'
+import axios from 'axios'
+import swal from 'sweetalert'
 
 let initState = {
   username: null,
@@ -20,99 +20,99 @@ let initState = {
   district: null,
   addresscode: null,
   gender: null,
-};
+}
 
 export default function Register() {
-  const [user, setUser] = useState(initState);
-  const [error, setError] = useState();
-  const [provinces, setProvinces] = useState([]);
-  const [amphures, setAmphures] = useState([]);
-  const [district, setDistrict] = useState([]);
-  const service = new Service();
+  const [user, setUser] = useState(initState)
+  const [error, setError] = useState()
+  const [provinces, setProvinces] = useState([])
+  const [amphures, setAmphures] = useState([])
+  const [district, setDistrict] = useState([])
+  const service = new Service()
 
   const fetchProvinces = async () => {
     const fetch = await axios.get(
-      "http://localhost:4000/address?type=provinces"
-    );
-    const data = await fetch.data;
-    setProvinces(data);
-    console.log(data);
-  };
+      'http://localhost:4000/address?type=provinces'
+    )
+    const data = await fetch.data
+    setProvinces(data)
+    console.log(data)
+  }
 
   useEffect(() => {
-    fetchProvinces();
-  }, []);
+    fetchProvinces()
+  }, [])
 
   const handleInputChange = (e) => {
-    const id = e.target.id;
-    const value = e.target.value;
-    setUser({ ...user, [id]: value });
+    const id = e.target.id
+    const value = e.target.value
+    setUser({ ...user, [id]: value })
     console.log(user)
-  };
+  }
 
   const handleProvinceChange = async (e) => {
-    const id = e.target.id;
-    const value = e.target.value;
-    setUser({ ...user, [id]: value });
-    let codeProvince = value.split("&")[0];
+    const id = e.target.id
+    const value = e.target.value
+    setUser({ ...user, [id]: value })
+    let codeProvince = value.split('&')[0]
     const fetchAmphure = await axios.get(
       `http://localhost:4000/address?type=amphures&code=${codeProvince}`
-    );
-    const data = await fetchAmphure.data;
-    setAmphures(data);
-  };
+    )
+    const data = await fetchAmphure.data
+    setAmphures(data)
+  }
 
   const handleAmpuresChange = async (e) => {
-    const id = e.target.id;
-    const value = e.target.value;
-    setUser({ ...user, [id]: value });
-    setDistrict();
-  };
+    const id = e.target.id
+    const value = e.target.value
+    setUser({ ...user, [id]: value })
+    setDistrict()
+  }
 
   const handleDistrictChange = async (e) => {
-    const id = e.target.id;
-    const value = e.target.value;
-    setUser({ ...user, [id]: value });
-  };
+    const id = e.target.id
+    const value = e.target.value
+    setUser({ ...user, [id]: value })
+  }
 
   const handleButtonSubmit = async () => {
     if (!user) {
-      console.log("เกิดข้อผิดพลาด ไม่มีข้อมูล");
-      return;
+      console.log('เกิดข้อผิดพลาด ไม่มีข้อมูล')
+      return
     }
 
-    const validate = service.validateInput(user);
+    const validate = service.validateInput(user)
     if (validate) {
-      console.log(`กรุณาใส่ค่า ${validate}`);
-      setError(`กรุณาใส่ค่า ${validate}`);
-      return;
+      console.log(`กรุณาใส่ค่า ${validate}`)
+      setError(`กรุณาใส่ค่า ${validate}`)
+      return
     }
     if (service.checkPassword(user)) {
-      console.log(user);
+      console.log(user)
       //send user in state to /auth/register with post method
       const fetch = await axios.post(
-        "http://localhost:4000/auth/register",
+        'http://localhost:4000/auth/register',
         user
-      );
-      const data = await fetch.data;
-      console.log(data);
+      )
+      const data = await fetch.data
+      console.log(data)
       if (data.status) {
-        swal("Good job!", "You clicked the button!", "success");
-        window.location.href = "http://localhost:3000/login";
+        swal('Good job!', 'You clicked the button!', 'success')
+        window.location.href = 'http://localhost:3000/login'
       } else {
       }
-      setError("");
-      return;
+      setError('')
+      return
     }
     swal({
-      title: "Sorry!",
-      text: "รหัสผ่านไม่ตรงกัน",
-      icon: "warning",
-      button: "OK",
-    });
-    setError("รหัสผ่านไม่ตรงกัน");
-    return;
-  };
+      title: 'Sorry!',
+      text: 'รหัสผ่านไม่ตรงกัน',
+      icon: 'warning',
+      button: 'OK',
+    })
+    setError('รหัสผ่านไม่ตรงกัน')
+    return
+  }
 
   return (
     <div className="register container mt-5 mb-5">
@@ -238,13 +238,10 @@ export default function Register() {
             {provinces.length > 0
               ? provinces.map((province, index) => {
                   return (
-                    <option
-                      key={index}
-                      value={`${province.id}&${province.name_th}`}
-                    >
+                    <option key={index} value={`${province.id}`}>
                       {province.name_th}
                     </option>
-                  );
+                  )
                 })
               : null}
           </select>
@@ -259,13 +256,10 @@ export default function Register() {
             {amphures.length > 0
               ? amphures.map((amphure, index) => {
                   return (
-                    <option
-                      key={index}
-                      value={`${amphure.id}&${amphure.name_th}`}
-                    >
+                    <option key={index} value={`${amphure.id}`}>
                       {amphure.name_th}
                     </option>
-                  );
+                  )
                 })
               : null}
           </select>
@@ -295,11 +289,11 @@ export default function Register() {
             สร้างบัญชี
           </button>
         </div>
-        <span style={{ color: "red" }}>{error ? error : ""}</span>
+        <span style={{ color: 'red' }}>{error ? error : ''}</span>
         <h3 className="text-center mt-3">
           มีบัญชีอยู่แล้ว <Link to="./Login">เข้าสู่ระบบ</Link>
         </h3>
       </div>
     </div>
-  );
+  )
 }

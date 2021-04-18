@@ -1,7 +1,9 @@
 import React from 'react'
 import { Row, Col } from 'reactstrap'
 import pic from '../images/home/7.jpg'
-export default function ChatMessage() {
+import chat from '../pages/Chat'
+
+export default function ChatMessage(props) {
   return (
     <div className="chat-message">
       <div className="chat-header">
@@ -44,7 +46,9 @@ export default function ChatMessage() {
             <textarea class="form-control" rows="1"></textarea>
           </Col>
           <Col lg={2} md={2} sm={2} xs={2} className="mt-2 mb-1 text-center">
-            <button type="button">ส่ง</button>
+            <button type="button" onClick={props.sendfn} id="32">
+              ส่ง
+            </button>
           </Col>
         </Row>
       </div>
