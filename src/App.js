@@ -33,30 +33,23 @@ let ENDPOINT = 'localhost:4000'
 function App() {
   const [userid, setUserid] = useState()
   useEffect(() => {
-    profile()
-    console.log(userid)
-    socket = io(ENDPOINT, {
-      extraHeaders: {
-        Authorization: 'Bearer ' + localStorage.getItem('access-token'),
-      },
-    })
-    socket.emit('create-waiting-room', { userid })
+    if (localStorage.getItem('access-token') !== null) {
+      socket = io(ENDPOINT, {
+        extraHeaders: {
+          Authorization: 'Bearer ' + localStorage.getItem('access-token'),
+        },
+      })
+      socket.emit('create-waiting-room', { userid })
+    }
   }, [])
   useEffect(() => {
-    socket.on('receive', (testmsg) => {
-      console.log(testmsg)
-    })
+    if (localStorage.getItem('access-token') !== null) {
+      socket.on('receive', (testmsg) => {
+        console.log(testmsg)
+      })
+    }
   })
-  const profile = async (e) => {
-    const fetch = await axios.get('http://localhost:4000/profile', {
-      headers: {
-        Authorization: 'Bearer ' + localStorage.getItem('access-token'),
-      },
-    })
-    let data = await fetch.data
-    data = data[0]
-    setUserid(data.id)
-  }
+
   return (
     <div className="App">
       <Header />
@@ -77,7 +70,7 @@ function App() {
         <Route path="/Cardhiring" component={Cardhiring} />
         <Route path="/editwork" component={Editwork} />
         <Route path="/Loading" component={Loading} />
-        <Route path="/Chat" component={Chat} />
+        <Route path="/Chat/:userID" component={Chat} />
         <Route path="/Question" component={Question} />
         <Route path="/Anotherprofile/:userid" component={Anotherprofile} />
         <Route component={Error} />

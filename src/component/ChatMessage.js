@@ -43,10 +43,15 @@ export default function ChatMessage(props) {
       <div className="chat-input">
         <Row className="">
           <Col lg={10} md={10} sm={10} xs={10} className="mt-2 mb-1">
-            <textarea class="form-control" rows="1"></textarea>
+            <textarea
+              class="form-control"
+              rows="1"
+              onChange={props.sendinputfn}
+              id="message"
+            ></textarea>
           </Col>
           <Col lg={2} md={2} sm={2} xs={2} className="mt-2 mb-1 text-center">
-            <button type="button" onClick={props.sendfn} id="32">
+            <button type="button" onClick={props.sendfn} id={props.userID}>
               ส่ง
             </button>
           </Col>

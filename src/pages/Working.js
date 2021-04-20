@@ -352,12 +352,14 @@ export default function Working(props) {
                     </div>
                   </div>
                   <div className="text-center mb-2 mt-2">
-                    <button
-                      type="button"
-                      className="btn-home text-center p-1 pl-4 pr-4 chat"
-                    >
-                      แชท
-                    </button>
+                    <Link to={`/Chat/${work.id}`}>
+                      <button
+                        type="button"
+                        className="btn-home text-center p-1 pl-4 pr-4 chat"
+                      >
+                        แชท
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>
