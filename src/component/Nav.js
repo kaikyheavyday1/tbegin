@@ -87,7 +87,7 @@ class Header extends Component {
             <Link to="/howto">วิธีการใช้งาน</Link>
           </NavLink>
           <NavLink className="nav-link-img">
-            <Link to="/chat">
+            <Link to={`/Chat/$`}>
               <img src={chat} alt="noti" height="25px" />
             </Link>
           </NavLink>

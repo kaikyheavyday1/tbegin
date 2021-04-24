@@ -765,3 +765,15 @@
 .chat-transaction .MuiTimelineConnector-root {
   background-color: #00296b !important;
 }
+.messages {
+  padding: 5% 0;
+  overflow: auto;
+  flex: auto;
+}
+.message-area {
+  width: 100%;
+  height: 85vh;
+  display: flex;
+  display: flex;
+  flex-direction: column;
+}

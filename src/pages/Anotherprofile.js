@@ -43,6 +43,7 @@ export default function Anotherprofile(props) {
     )
     let data = await fetch.data
     setUserwork(data)
+    console.log(userid)
   }
   useEffect(() => {
     getUser()
@@ -73,9 +74,11 @@ export default function Anotherprofile(props) {
             </div>
             <div>
               <div className="d-flex justify-content-around mt-3">
-                <button type="button" className="btn">
-                  ส่งข่้อความ
-                </button>
+                <Link to={`/Chat/${userid}`}>
+                  <button type="button" className="btn">
+                    ส่งข่้อความ
+                  </button>
+                </Link>
               </div>
               <div className="mt-3">
                 {user !== null && (

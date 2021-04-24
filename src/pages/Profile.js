@@ -46,7 +46,6 @@ export default function Profile(props) {
       }
     )
     const data = await fetch.data
-    console.log(data)
     setUserWork(data)
     setLoading(false)
   }
@@ -95,9 +94,6 @@ export default function Profile(props) {
                     ตั้งค่าโปรไฟล์
                   </button>
                 </Link>
-                <button type="button" className="btn">
-                  ส่งข่้อความ
-                </button>
               </div>
               <div className="mt-3">
                 {user !== null && (

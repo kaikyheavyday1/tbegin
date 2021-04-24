@@ -9,48 +9,31 @@ import ChatTransaction from '../component/ChatTransaction'
 let socket
 let ENDPOINT = 'localhost:4000'
 export default function Chat(props) {
-  // const [room, setRoom] = useState('')
-  // useEffect(() => {
-  //   console.log('chat')
-  //   socket = io(ENDPOINT)
-  //   socket.emit('test')
-  // }, [ENDPOINT])
-
-  const [message, setMessage] = useState('')
+  const [message, setMessage] = useState([])
   const [room, setRoom] = useState('')
   const [userID, setUserID] = useState()
+  const [myID, setMyID] = useState()
+  const [firstname, setFirstname] = useState('')
   useEffect(() => {
     socket = io(ENDPOINT, {
       extraHeaders: {
         Authorization: 'Bearer ' + localStorage.getItem('access-token'),
       },
     })
+    socket.emit('create-waiting-room')
   }, [])
+
   useEffect(() => {
     const { userID } = props.match.params
     userID !== undefined && setUserID(userID)
-  }, [userID])
-  const handleMessageChange = (e) => {
-    const id = e.target.id
-    const value = e.target.value
-    setMessage({ ...message, [id]: value })
-  }
+  }, [props.match.params])
+
   useEffect(() => {
-    getsendMsg()
+    userID !== undefined && getsendMsg()
   }, [userID])
-  const sendmessage = (e) => {
-    const id = e.target.id
-    console.log(id)
-    message !== '' &&
-      socket.emit(
-        'send-message',
-        { message: message, toID: id },
-        ({ message }) => {
-          console.log(message)
-        }
-      )
-    getsendMsg()
-  }
+  useEffect(() => {
+    myProfile()
+  }, [])
   const getsendMsg = async () => {
     if (userID !== undefined) {
       const fetch = await axios.get(
@@ -62,31 +45,45 @@ export default function Chat(props) {
         }
       )
       let data = await fetch.data
-      console.log(data)
+      setMessage(data)
     }
   }
-  useEffect(() => {
-    socket.on('receive', ({ event }) => {
-      if (event.event === 'receive') {
-      }
+  const myProfile = async (e) => {
+    const fetch = await axios.get('http://localhost:4000/profile', {
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem('access-token'), //the token is a variable which holds the token
+      },
     })
-  })
-
+    let data = await fetch.data
+    data = data[0]
+    setMyID(data.id)
+    setFirstname(data.name)
+  }
+  useEffect(() => {
+    if (localStorage.getItem('access-token') !== null) {
+      socket.on('receive', (msg) => {
+        console.log(msg)
+        setMessage((oldmsg) => [...oldmsg, msg])
+      })
+    }
+  }, [])
   return (
     <div>
       <Row>
         <Col lg={3} md={3} sm={12} xs={12} className="left-chat">
-          <Chatcontact />
+          <Chatcontact myID={myID} />
         </Col>
         <Col lg={6} md={6} sm={12} xs={12} className="middle-chat">
           <ChatMessage
-            sendfn={sendmessage}
-            sendinputfn={handleMessageChange}
             userID={userID}
+            myID={myID}
+            firstname={firstname}
+            message={message}
+            setMessage={setMessage}
           />
         </Col>
         <Col lg={3} md={3} sm={12} xs={12} className="right-chat">
-          <ChatTransaction />
+          <ChatTransaction toID={userID} myID={myID} />
         </Col>
       </Row>
     </div>

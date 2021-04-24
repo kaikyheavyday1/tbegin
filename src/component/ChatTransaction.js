@@ -1,12 +1,44 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Timeline from '@material-ui/lab/Timeline'
 import TimelineItem from '@material-ui/lab/TimelineItem'
 import TimelineSeparator from '@material-ui/lab/TimelineSeparator'
 import TimelineConnector from '@material-ui/lab/TimelineConnector'
 import TimelineContent from '@material-ui/lab/TimelineContent'
 import TimelineDot from '@material-ui/lab/TimelineDot'
+import axios from 'axios'
+import swal from 'sweetalert'
 
-export default function ChatTransaction() {
+export default function ChatTransaction(props) {
+  const toID = props.toID
+  const myID = props.myID
+  const [workname, setWorkname] = useState([])
+  const [workingname, setWorkingname] = useState([])
+  useEffect(() => {
+    getworkname()
+  }, [toID])
+  const getworkname = async () => {
+    const fetch = await axios.get(
+      `http://localhost:4000/work/get-work?otheruserid=${toID}`
+    )
+    let data = await fetch.data
+    setWorkname(data)
+  }
+  const handleWorknameChange = async (e) => {
+    const id = e.target.id
+    const value = e.target.value
+    setWorkingname({ ...workingname, [id]: value })
+    console.log(workingname)
+  }
+  const handleButtonSubmit = async () => {
+    const fetch = await axios.post(
+      'http://localhost:4000/chatmsg/transaction',
+      { toID: toID, myID: myID, workingname: workingname }
+    )
+    const data = await fetch.data
+    if (data.status === true) {
+      swal('Good job!', 'You clicked the button!', 'success')
+    }
+  }
   return (
     <div className="chat-transaction">
       <div className="chat-header">
@@ -64,7 +96,29 @@ export default function ChatTransaction() {
           สามารถแจ้งความต้องการของงานที่คุณต้องการและคุยรายละเอียดทั้งราคาและเวลาการดำเนินงานให้ครบถ้วนเพื่อที่จะดำเนินการจ้างงาน
         </p>
         <div className="text-center">
-          <button type="button" className="text-center">
+          <div className="form-group">
+            <select
+              className="form-control"
+              id="workname"
+              onChange={handleWorknameChange}
+            >
+              <option value="">เลือกงานที่คุณจ้าง</option>
+              {workname.length > 0
+                ? workname.map((workname, index) => {
+                    return (
+                      <option key={index} value={`${workname.workid}`}>
+                        {workname.name}
+                      </option>
+                    )
+                  })
+                : null}
+            </select>
+          </div>
+          <button
+            type="button"
+            onClick={handleButtonSubmit}
+            className="text-center"
+          >
             จ้างงาน
           </button>
         </div>

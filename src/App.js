@@ -39,14 +39,12 @@ function App() {
           Authorization: 'Bearer ' + localStorage.getItem('access-token'),
         },
       })
-      socket.emit('create-waiting-room', { userid })
+      socket.emit('create-waiting-room')
     }
   }, [])
   useEffect(() => {
     if (localStorage.getItem('access-token') !== null) {
-      socket.on('receive', (testmsg) => {
-        console.log(testmsg)
-      })
+      socket.on('receive', (testmsg) => {})
     }
   })
 
