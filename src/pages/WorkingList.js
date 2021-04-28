@@ -24,6 +24,7 @@ export default function WorkingList() {
   const [works, setWorks] = useState([])
   const [loading, setLoading] = useState(false)
   const [workname, setWorkname] = useState([])
+  const [subworkname, setSubworkname] = useState([])
 
   useEffect(() => {
     const maintype = query.get('maintype')
@@ -47,16 +48,19 @@ export default function WorkingList() {
       `http://localhost:4000/work/get-work?subtype=${subtype}`
     )
     const data = await fetch.data
-    setWorks(data)
+    console.log(data)
+    setWorks(data.getworksubtype)
+    setWorkname(data.getnamesubtype[0].mainwork_name)
+    setSubworkname(data.getnamesubtype[0].subwork_name)
   }
   const getworkByMainType = async (maintype) => {
     const fetch = await axios.get(
       `http://localhost:4000/work/get-work?maintype=${maintype}`
     )
     const data = await fetch.data
-    console.log(data)
     setWorks(data.getworkmaintype)
     setWorkname(data.getnamemaintype[0].name)
+    setSubworkname('')
   }
   const getallwork = async () => {
     setLoading(true)
@@ -85,7 +89,9 @@ export default function WorkingList() {
           <Col lg={10} md={9} xs={12}>
             <Container>
               <Row>
-                <h1>{workname}</h1>
+                <h1>
+                  {workname} {subworkname}
+                </h1>
                 {works.length > 0 &&
                   works.map((work, index) => {
                     return (

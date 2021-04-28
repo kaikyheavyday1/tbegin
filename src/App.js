@@ -40,8 +40,10 @@ function App() {
         },
       })
       socket.emit('create-waiting-room')
+      socket.emit('create-noti-room')
     }
   }, [])
+
   useEffect(() => {
     if (localStorage.getItem('access-token') !== null) {
       socket.on('receive', (testmsg) => {})

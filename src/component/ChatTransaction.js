@@ -7,15 +7,29 @@ import TimelineContent from '@material-ui/lab/TimelineContent'
 import TimelineDot from '@material-ui/lab/TimelineDot'
 import axios from 'axios'
 import swal from 'sweetalert'
+import io from 'socket.io-client'
+
+let socket
+let ENDPOINT = 'localhost:4000'
 
 export default function ChatTransaction(props) {
   const toID = props.toID
   const myID = props.myID
   const [workname, setWorkname] = useState([])
   const [workingname, setWorkingname] = useState([])
+
+  useEffect(() => {
+    socket = io(ENDPOINT, {
+      extraHeaders: {
+        Authorization: 'Bearer ' + localStorage.getItem('access-token'),
+      },
+    })
+  }, [])
+
   useEffect(() => {
     getworkname()
   }, [toID])
+
   const getworkname = async () => {
     const fetch = await axios.get(
       `http://localhost:4000/work/get-work?otheruserid=${toID}`
@@ -29,12 +43,13 @@ export default function ChatTransaction(props) {
     setWorkingname({ ...workingname, [id]: value })
     console.log(workingname)
   }
-  const handleButtonSubmit = async () => {
+  const handleButtonSubmit = async (e) => {
     const fetch = await axios.post(
       'http://localhost:4000/chatmsg/transaction',
       { toID: toID, myID: myID, workingname: workingname }
     )
     const data = await fetch.data
+    socket.emit('send-noti', { toID: toID, workname: workingname })
     if (data.status === true) {
       swal('Good job!', 'You clicked the button!', 'success')
     }
