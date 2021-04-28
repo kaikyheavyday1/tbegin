@@ -11,6 +11,33 @@
   color: #fff;
   font-size: 20px;
 }
+.badge2 {
+  position: absolute;
+  top: -6px;
+  right: -5px;
+  padding: 3px 8px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+  font-size: 16px;
+}
+.badge1 {
+  position: absolute;
+  top: -6px;
+  right: -5px;
+  padding: 3px 8px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+  font-size: 16px;
+}
+.nav-link-img2 {
+  position: relative;
+}
+.nav-link-img1 {
+  position: relative;
+}
+
 .input-search {
   position: relative;
   width: 40%;
@@ -71,11 +98,24 @@
 .user-dropdown img {
   padding: 3px !important;
 }
-
+.noti-dropdown {
+  background-color: transparent !important;
+  padding: 0px !important;
+  border: 0px !important;
+  border-radius: 20px !important;
+}
+.notimenu {
+  width: 250px;
+  height: 300px;
+  overflow-y: auto;
+}
 /* end nav  */
 
 .home {
   color: #00296b;
+}
+.home .prevv {
+  color: #000;
 }
 .home .row img {
   width: 60%;
@@ -441,6 +481,11 @@
   background-color: #000;
 }
 /* end working */
+
+.maintype {
+  color: #00296b;
+  font-weight: bold;
+}
 
 .Footer {
   background-color: #00296b;

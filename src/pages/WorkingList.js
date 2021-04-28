@@ -85,7 +85,7 @@ export default function WorkingList() {
           <Col lg={10} md={9} xs={12}>
             <Container>
               <Row>
-                <h1>{workname}</h1>
+                <h1 className="maintype mt-5">{workname}</h1>
                 {works.length > 0 &&
                   works.map((work, index) => {
                     return (
