@@ -38,10 +38,9 @@ export default function ChatTransaction(props) {
     setWorkname(data)
   }
   const handleWorknameChange = async (e) => {
-    const id = e.target.id
     const value = e.target.value
-    setWorkingname({ ...workingname, [id]: value })
-    console.log(workingname)
+    console.log(value)
+    setWorkingname(value)
   }
   const handleButtonSubmit = async (e) => {
     const fetch = await axios.post(
@@ -52,6 +51,7 @@ export default function ChatTransaction(props) {
     socket.emit('send-noti', { toID: toID, workname: workingname })
     if (data.status === true) {
       swal('Good job!', 'You clicked the button!', 'success')
+      console.log(workingname)
     }
   }
   return (

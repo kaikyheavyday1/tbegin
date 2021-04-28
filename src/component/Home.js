@@ -39,7 +39,7 @@ export default function Home() {
   const [works, setWorks] = useState([])
   useEffect(() => {
     getallwork()
-  })
+  }, [])
   const getallwork = async () => {
     const fetch = await axios.get(
       'http://localhost:4000/work/get-work?allwork=true',
@@ -156,22 +156,44 @@ export default function Home() {
                   <div className="d-flex mt-3">
                     {works.length > 0 &&
                       works.map((work, index) => {
-                        return (
-                          <Col md={6} lg={4} xs={12}>
-                            <Cardworking data={work} />
-                          </Col>
-                        )
+                        if (index >= 0 && index < 3) {
+                          return (
+                            <Col md={6} lg={4} xs={12}>
+                              <Cardworking data={work} />
+                            </Col>
+                          )
+                        }
                       })}
                   </div>
                 </div>
-                <div class="carousel-item">
-                  <div className="d-flex mt-3" md="9">
-                    <div class="carousel-item active"></div>
-                  </div>
-                </div>
+                {works.length > 0 &&
+                  works.map((work, index) => {
+                    if (index >= 3) {
+                      if (index % 3 === 0) {
+                        return (
+                          <div class="carousel-item">
+                            <div className="d-flex mt-3" md="6">
+                              {works.map((worka, indexa) => {
+                                if (
+                                  indexa >= index &&
+                                  index < parseInt(indexa) + 3
+                                ) {
+                                  return (
+                                    <Col md={6} lg={4} xs={12}>
+                                      <Cardworking data={worka} />
+                                    </Col>
+                                  )
+                                }
+                              })}
+                            </div>
+                          </div>
+                        )
+                      }
+                    }
+                  })}
               </div>
               <button
-                class="carousel-control-prev"
+                class="carousel-control-prev justify-content-between"
                 type="button"
                 data-bs-target="#carouselExampleControls"
                 data-bs-slide="prev"
@@ -183,7 +205,7 @@ export default function Home() {
                 <span class="visually-hidden">Previous</span>
               </button>
               <button
-                class="carousel-control-next"
+                class="carousel-control-next justify-content-end"
                 type="button"
                 data-bs-target="#carouselExampleControls"
                 data-bs-slide="next"

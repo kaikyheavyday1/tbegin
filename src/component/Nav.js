@@ -19,11 +19,13 @@ import {
   NavLink,
 } from 'reactstrap'
 import SearchField from 'react-search-field'
+import axios from 'axios'
+import Notification from '../component/Notification'
+import Chatnav from './Chatnav'
 
 class Header extends Component {
   constructor(props) {
     super(props)
-
     this.state = {
       isOpen: false,
       dropdownOpen: false,
@@ -32,7 +34,6 @@ class Header extends Component {
     this.toggle = this.toggle.bind(this)
     this.dropdowntoggle = this.dropdowntoggle.bind(this)
   }
-
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen,
@@ -86,21 +87,15 @@ class Header extends Component {
           <NavLink>
             <Link to="/howto">วิธีการใช้งาน</Link>
           </NavLink>
-          <NavLink className="nav-link-img">
-            <Link to={`/Chat/$`}>
-              <img src={chat} alt="noti" height="25px" />
-            </Link>
-          </NavLink>
-          <NavLink className="nav-link-img">
-            <img src={noti} alt="noti" height="25px" className="mt-1" />
-          </NavLink>
+          <Chatnav></Chatnav>
+          <Notification></Notification>
           <Dropdown
             className="ml-2"
             isOpen={this.state.dropdownOpen}
             toggle={this.dropdowntoggle}
           >
             <DropdownToggle className="user-dropdown">
-              <img src={user} alt="user" height="30px" />
+              <img src={user} alt="user" alt="user" height="30px" />
             </DropdownToggle>
             <DropdownMenu>
               <DropdownItem>

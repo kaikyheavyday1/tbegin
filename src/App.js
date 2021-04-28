@@ -46,7 +46,9 @@ function App() {
 
   useEffect(() => {
     if (localStorage.getItem('access-token') !== null) {
-      socket.on('receive', (testmsg) => {})
+      socket.on('receive', (testmsg) => {
+        console.log(testmsg)
+      })
     }
   })
 
