@@ -22,6 +22,7 @@ import SearchField from 'react-search-field'
 import axios from 'axios'
 import Notification from '../component/Notification'
 import Chatnav from './Chatnav'
+import Search from './Search'
 
 class Header extends Component {
   constructor(props) {
@@ -54,16 +55,7 @@ class Header extends Component {
             <NavbarBrand href="/" className="logo-brand">
               <img src={logo} alt="logo-first" />
             </NavbarBrand>
-            <div className="input-search mt-1 ml-5">
-              <input
-                type="text"
-                placeholder="search"
-                className="form-search pl-3 p-1"
-              />
-              <button type="button">
-                <img src={search} width="20px" />
-              </button>
-            </div>
+            <Search></Search>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               {this.renderNavlink()}
@@ -88,7 +80,10 @@ class Header extends Component {
             <Link to="/howto">วิธีการใช้งาน</Link>
           </NavLink>
           <Chatnav></Chatnav>
-          <Notification></Notification>
+          <Notification
+            data={this.props.data}
+            status_data={this.props.status_data}
+          ></Notification>
           <Dropdown
             className="ml-2"
             isOpen={this.state.dropdownOpen}

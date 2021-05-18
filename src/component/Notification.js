@@ -16,7 +16,14 @@ import {
   NavLink,
 } from 'reactstrap'
 export default function Notification(props) {
+  console.log(props)
   const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [text, setText] = useState([])
+  const [status, setStatus] = useState()
+  useEffect(() => {
+    setText(props.data)
+    setStatus(props.status_data, 'hello')
+  }, [props])
   const toggle = () => setDropdownOpen((prevState) => !prevState)
   return (
     <Dropdown className="notification" isOpen={dropdownOpen} toggle={toggle}>
@@ -27,14 +34,7 @@ export default function Notification(props) {
         </NavLink>
       </DropdownToggle>
       <DropdownMenu className="notimenu">
-        <DropdownItem>ขั้นตอนการทำงานของคุณ</DropdownItem>
-        <DropdownItem divider />
-        <DropdownItem>ถึงขั้นตอนการจ่ายเงิน</DropdownItem>
-        <DropdownItem divider />
-        <DropdownItem>ลูกค้าจ่ายเงืนแล้ว</DropdownItem>
-        <DropdownItem divider />
-        <DropdownItem>ลูกค้าให้ดาวแล้วเสร็จสิ้นขั้นตอนการทำงาน</DropdownItem>
-        <DropdownItem divider />
+        <DropdownItem>{text}</DropdownItem>
       </DropdownMenu>
     </Dropdown>
   )

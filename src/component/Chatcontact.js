@@ -23,7 +23,6 @@ export default function Chatcontact(props) {
         <h2 className="pl-3">กล่องข้อความ</h2>
       </div>
       <div className="contact-list">
-        {console.log(history)}
         {history.length > 0 &&
           history.map((history, index) => {
             return (

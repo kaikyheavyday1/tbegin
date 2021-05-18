@@ -32,6 +32,8 @@ let ENDPOINT = 'localhost:4000'
 
 function App() {
   const [userid, setUserid] = useState()
+  const [notitext, setNotitext] = useState('')
+  const [transaction, setTransaction] = useState()
   useEffect(() => {
     if (localStorage.getItem('access-token') !== null) {
       socket = io(ENDPOINT, {
@@ -48,13 +50,18 @@ function App() {
     if (localStorage.getItem('access-token') !== null) {
       socket.on('receive', (testmsg) => {
         console.log(testmsg)
+        setNotitext(testmsg.text)
+        setTransaction(testmsg.status)
       })
     }
   })
+  useEffect(() => {
+    console.log(notitext)
+  }, [notitext])
 
   return (
     <div className="App">
-      <Header />
+      <Header data={notitext} status_data={transaction} />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/uploadwork" component={Uploadwork} />
