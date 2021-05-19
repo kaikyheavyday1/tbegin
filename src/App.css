@@ -106,9 +106,11 @@
   border-radius: 20px !important;
 }
 .notimenu {
-  width: 280px;
-  height: 300px;
-  overflow-x: auto;
+  width: 260px;
+  min-width: 260px;
+  max-width: 260px;
+  min-height: 360px;
+  max-height: 360px;
   overflow-y: auto;
 }
 /* end nav  */
