@@ -26,7 +26,7 @@ import Error from './component/Error'
 import Chat from './pages/Chat'
 import Question from './pages/Question'
 import Anotherprofile from './pages/Anotherprofile'
-
+import Payment from './pages/Payment'
 let socket
 let ENDPOINT = 'localhost:4000'
 
@@ -82,6 +82,7 @@ function App() {
         <Route path="/Chat/:userID" component={Chat} />
         <Route path="/Question" component={Question} />
         <Route path="/Anotherprofile/:userid" component={Anotherprofile} />
+        <Route path="/Payment" component={Payment} />
         <Route component={Error} />
       </Switch>
       <Footer />

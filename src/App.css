@@ -14,7 +14,7 @@
 .badge2 {
   position: absolute;
   top: -6px;
-  right: -5px;
+  right: -6px;
   padding: 3px 8px;
   border-radius: 50%;
   background: red;
@@ -24,7 +24,8 @@
 .badge1 {
   position: absolute;
   top: -6px;
-  right: -5px;
+  left: 23px;
+  right: auto;
   padding: 3px 8px;
   border-radius: 50%;
   background: red;
@@ -105,8 +106,9 @@
   border-radius: 20px !important;
 }
 .notimenu {
-  width: 250px;
+  width: 280px;
   height: 300px;
+  overflow-x: auto;
   overflow-y: auto;
 }
 /* end nav  */
@@ -578,6 +580,9 @@
   .sidesidesideside {
     display: block;
   }
+  .logopayment {
+    width: 100%;
+  }
 }
 @media only screen and (max-width: 768px) {
   .sidesideside h1 {
@@ -591,6 +596,9 @@
   }
   .sidesideside p {
     font-size: 15px;
+  }
+  .logopayment {
+    width: 100%;
   }
 }
 
@@ -821,4 +829,36 @@
   display: flex;
   display: flex;
   flex-direction: column;
+}
+.logopayment {
+  text-align: center;
+}
+.uplodepayment {
+  text-align: center;
+  color: #fff;
+}
+.textuplodepayment {
+  background-color: #00296b;
+  border-radius: 10px;
+}
+.paymentpage {
+  background-color: #fff;
+  border-radius: 10px;
+}
+.promptpay {
+  background-color: #00296b;
+  padding: 0px;
+  text-align: center;
+  color: #fff;
+}
+.paymenttext {
+  color: #00296b;
+}
+.paymenttext2 {
+  font-weight: bold;
+  color: #00296b;
+  font-size: 36px;
+}
+.textpayment {
+  color: red;
 }
