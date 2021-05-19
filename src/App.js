@@ -32,7 +32,8 @@ let ENDPOINT = 'localhost:4000'
 
 function App() {
   const [userid, setUserid] = useState()
-  const [notitext, setNotitext] = useState('')
+  const [toID, setToID] = useState()
+  const [notitext, setNotitext] = useState([])
   const [transaction, setTransaction] = useState()
   useEffect(() => {
     if (localStorage.getItem('access-token') !== null) {
@@ -52,16 +53,15 @@ function App() {
         console.log(testmsg)
         setNotitext(testmsg.text)
         setTransaction(testmsg.status)
+        setToID(testmsg.user)
       })
     }
-  })
-  useEffect(() => {
-    console.log(notitext)
-  }, [notitext])
+  }, [toID])
 
   return (
     <div className="App">
-      <Header data={notitext} status_data={transaction} />
+      {toID !== undefined && console.log('love')}
+      <Header data={notitext} status_data={transaction} toID={toID} />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/uploadwork" component={Uploadwork} />

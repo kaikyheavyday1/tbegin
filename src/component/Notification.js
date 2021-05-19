@@ -15,14 +15,34 @@ import {
   DropdownMenu,
   NavLink,
 } from 'reactstrap'
+import axios from 'axios'
+import { Link } from 'react-router-dom'
+
 export default function Notification(props) {
-  console.log(props)
   const [dropdownOpen, setDropdownOpen] = useState(false)
-  const [text, setText] = useState([])
+  const [a, setA] = useState([])
   const [status, setStatus] = useState()
+  const [toID, setToID] = useState()
+
   useEffect(() => {
-    setText(props.data)
-    setStatus(props.status_data, 'hello')
+    getallNoti()
+  }, [])
+
+  const getallNoti = async () => {
+    const fetch = await axios.get('http://localhost:4000/notification/getall', {
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem('access-token'), //the token is a variable which holds the token
+      },
+    })
+    let data = await fetch.data
+    setA(data)
+  }
+
+  useEffect(() => {
+    if (props.data) {
+      getallNoti()
+      setStatus(props.status_data)
+    }
   }, [props])
   const toggle = () => setDropdownOpen((prevState) => !prevState)
   return (
@@ -34,7 +54,14 @@ export default function Notification(props) {
         </NavLink>
       </DropdownToggle>
       <DropdownMenu className="notimenu">
-        <DropdownItem>{text}</DropdownItem>
+        {a.length > 0 &&
+          a.map((data, index) => {
+            return (
+              <DropdownItem>
+                <Link to={`/Chat/${data.from_id}`}>{data.message}</Link>
+              </DropdownItem>
+            )
+          })}
       </DropdownMenu>
     </Dropdown>
   )

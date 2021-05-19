@@ -5,6 +5,7 @@ import axios from 'axios'
 import Chatcontact from '../component/Chatcontact'
 import ChatMessage from '../component/ChatMessage'
 import ChatTransaction from '../component/ChatTransaction'
+import swal from 'sweetalert'
 
 let socket
 let ENDPOINT = 'localhost:4000'
@@ -22,7 +23,35 @@ export default function Chat(props) {
     })
     socket.emit('create-waiting-room')
   }, [])
-
+  useEffect(() => {
+    checkstatus()
+  }, [userID])
+  const checkstatus = async () => {
+    if (userID !== undefined) {
+      try {
+        const fetch = await axios.get(
+          `http://localhost:4000/work_transaction/checkhiring?from_id=${userID}`,
+          {
+            headers: {
+              Authorization: 'Bearer ' + localStorage.getItem('access-token'), //the token is a variable which holds the token
+            },
+          }
+        )
+        let data = await fetch.data
+        if (data.status === true) {
+          console.log(data.status)
+          swal(
+            `${data.checking[0].user_name}  ${data.checking[0].user_surname} ได้จ้างงาน ${data.checking[0].work_name} ของคุณ`,
+            {
+              buttons: true,
+            }
+          )
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  }
   useEffect(() => {
     const { userID } = props.match.params
     userID !== undefined && setUserID(userID)

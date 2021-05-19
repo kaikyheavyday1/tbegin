@@ -35,6 +35,9 @@ class Header extends Component {
     this.toggle = this.toggle.bind(this)
     this.dropdowntoggle = this.dropdowntoggle.bind(this)
   }
+  componentDidMount() {
+    console.log(this.props)
+  }
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen,
@@ -80,9 +83,11 @@ class Header extends Component {
             <Link to="/howto">วิธีการใช้งาน</Link>
           </NavLink>
           <Chatnav></Chatnav>
+
           <Notification
             data={this.props.data}
             status_data={this.props.status_data}
+            toID={this.props.toID}
           ></Notification>
           <Dropdown
             className="ml-2"
