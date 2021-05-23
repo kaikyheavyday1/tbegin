@@ -27,6 +27,8 @@ import Chat from './pages/Chat'
 import Question from './pages/Question'
 import Anotherprofile from './pages/Anotherprofile'
 import Payment from './pages/Payment'
+import Sendwork from './pages/Sendwork'
+import Sendreview from './pages/Sendreview'
 let socket
 let ENDPOINT = 'localhost:4000'
 
@@ -83,6 +85,8 @@ function App() {
         <Route path="/Question" component={Question} />
         <Route path="/Anotherprofile/:userid" component={Anotherprofile} />
         <Route path="/Payment" component={Payment} />
+        <Route path="/Sendwork" component={Sendwork} />
+        <Route path="/Sendreview" component={Sendreview} />
         <Route component={Error} />
       </Switch>
       <Footer />

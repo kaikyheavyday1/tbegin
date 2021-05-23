@@ -5,7 +5,7 @@ import axios from 'axios'
 import Chatcontact from '../component/Chatcontact'
 import ChatMessage from '../component/ChatMessage'
 import ChatTransaction from '../component/ChatTransaction'
-import swal from 'sweetalert'
+import Swal from 'sweetalert2'
 
 let socket
 let ENDPOINT = 'localhost:4000'
@@ -27,6 +27,7 @@ export default function Chat(props) {
     checkstatus()
   }, [userID])
   const checkstatus = async () => {
+    console.log(userID)
     if (userID !== undefined) {
       try {
         const fetch = await axios.get(
@@ -38,14 +39,73 @@ export default function Chat(props) {
           }
         )
         let data = await fetch.data
-        if (data.status === true) {
-          console.log(data.status)
-          swal(
-            `${data.checking[0].user_name}  ${data.checking[0].user_surname} ได้จ้างงาน ${data.checking[0].work_name} ของคุณ`,
+        console.log(data)
+        console.log(data[0].status)
+        if (data[0].status === 1) {
+          console.log('hello status 1 na')
+          const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+              confirmButton: 'btn btn-success',
+              cancelButton: 'btn btn-danger',
+            },
+            buttonsStyling: false,
+          })
+
+          swalWithBootstrapButtons
+            .fire({
+              title: `${data[0].user_name}  ${data[0].user_surname} ได้จ้างงาน ${data[0].work_name} ของคุณ`,
+              showCancelButton: true,
+              confirmButtonText: 'Yes',
+              cancelButtonText: 'No',
+            })
+            .then(async (result) => {
+              if (result.isConfirmed) {
+                const fetch = await axios.get(
+                  `http://localhost:4000/work_transaction/changetopayment?from_id=${userID}&&workid=${data[0].work_id}`,
+                  {
+                    headers: {
+                      Authorization:
+                        'Bearer ' + localStorage.getItem('access-token'), //the token is a variable which holds the token
+                    },
+                  }
+                )
+                swalWithBootstrapButtons.fire(
+                  'Deleted!',
+                  'Your file has been deleted.',
+                  'success'
+                )
+              } else if (result.dismiss === Swal.DismissReason.cancel) {
+                const fetch = await axios.get(
+                  `http://localhost:4000/work_transaction/cancelwork?from_id=${userID}&&workid=${data[0].work_id}`,
+                  {
+                    headers: {
+                      Authorization:
+                        'Bearer ' + localStorage.getItem('access-token'),
+                    },
+                  }
+                )
+                const data2 = await fetch.data
+                swalWithBootstrapButtons.fire(
+                  'Cancelled',
+                  'Your imaginary file is safe :)',
+                  'error'
+                )
+              }
+            })
+        } else if (data[0].status === 2) {
+          console.log('i love to be')
+          const fetch = await axios.get(
+            `http://localhost:4000/work_transaction/verifypayment?from_id=${userID}&&workid=${data[0].work_id}`,
             {
-              buttons: true,
+              headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('access-token'),
+              },
             }
           )
+          const datastatus2 = await fetch.data
+          console.log(datastatus2)
+        } else if (data[0].status === 3) {
+          console.log('333333333')
         }
       } catch (error) {
         console.log(error)
