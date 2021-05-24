@@ -21,28 +21,46 @@ function useQuery() {
 
 export default function WorkingList() {
   let query = useQuery()
+  const messges = query.get('msg')
   const [works, setWorks] = useState([])
   const [loading, setLoading] = useState(false)
   const [workname, setWorkname] = useState([])
   const [subworkname, setSubworkname] = useState([])
+  const [msg, setMsg] = useState('')
 
   useEffect(() => {
     const maintype = query.get('maintype')
     if (maintype === null) {
       getallwork()
     }
+    console.log(messges)
   }, [])
+
   useEffect(() => {
     const maintype = query.get('maintype')
     const subtype = query.get('subtype')
+    const search = query.get('search')
+
     if (maintype !== null) {
       getworkByMainType(maintype)
     } else if (subtype !== null) {
       const work = getworkBySubType(subtype)
+    } else if (parseInt(search) === 1) {
+      getworkbysearch(messges)
+      console.log('hello')
     } else {
       getallwork()
     }
-  }, [query.get('maintype'), query.get('subtype')])
+  }, [query.get('maintype'), query.get('subtype'), messges])
+
+  const getworkbysearch = async (msg) => {
+    const fetch = await axios.get(
+      `http://localhost:4000/work/get-work?search=${msg}`
+    )
+    const data = await fetch.data
+    setWorks(data)
+  }
+
   const getworkBySubType = async (subtype) => {
     const fetch = await axios.get(
       `http://localhost:4000/work/get-work?subtype=${subtype}`
