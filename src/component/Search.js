@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import searchimg from '../images/nav/loupe.svg'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 export default function Search() {
-  const [search, setSearch] = useState()
+  const [search, setSearch] = useState('')
   const handleSearchChange = (e) => {
     const id = e.target.id
     const value = e.target.value
@@ -26,7 +27,9 @@ export default function Search() {
         onChange={handleSearchChange}
       />
       <button type="button bg-primary">
-        <img src={searchimg} width="20px" onClick={handleButtonSubmit} />
+        <Link to={`/working-list?search=1&msg=${search.search}`}>
+          <img src={searchimg} width="20px" onClick={handleButtonSubmit} />
+        </Link>
       </button>
     </div>
   )
