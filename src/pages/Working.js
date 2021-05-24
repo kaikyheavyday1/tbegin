@@ -44,25 +44,26 @@ const items = [
 export default function Working(props) {
   const [work, setWork] = useState([])
   const [item, setItem] = useState(items)
+  const [comment, setComment] = useState([])
   const workid = props.match.params.workid
 
   const getWork = async () => {
     const fetch = await axios.get(
       `http://localhost:4000/work/get-work?workid=${workid}`
     )
-    let data = await fetch.data[0]
-    setWork(data)
+    let data = await fetch.data
+    setWork(data.getidwork[0])
+    setComment(data.getcomment)
     const allpic = [
-      { src: data.pic1 },
-      { src: data.pic2 },
-      { src: data.pic3 },
-      { src: data.pic4 },
-      { src: data.pic5 },
-      { src: data.pic6 },
+      { src: data.getidwork[0].pic1 },
+      { src: data.getidwork[0].pic2 },
+      { src: data.getidwork[0].pic3 },
+      { src: data.getidwork[0].pic4 },
+      { src: data.getidwork[0].pic5 },
+      { src: data.getidwork[0].pic6 },
     ]
-    const inuser = [{ user_id: data.user_id }]
+    const inuser = [{ user_id: data.getidwork[0].user_id }]
     setItem(allpic)
-    console.log(data)
   }
   useEffect(() => {
     getWork()
@@ -119,7 +120,7 @@ export default function Working(props) {
   return (
     <div className="working mt-3 mb-3">
       <div className="container">
-        {console.log(item)}
+        {console.log(comment)}
         <Row>
           <Col lg="8" className="working-left pt-3">
             <h2>{work !== null && work.name}</h2>
@@ -263,36 +264,29 @@ export default function Working(props) {
             </div>
             <div className="mt-5">
               <h3>รีวิวจากผู้ว่าจ้าง</h3>
-              <div className="comment">
-                <div className="d-flex pl-2 pt-2">
-                  <img src={userpic} alt="userpic"></img>
-                  <div className="mt-2 ml-3">
-                    <strong>Paphawinya oconer</strong>
-                    <div>12/02/21</div>
-                  </div>
-                </div>
-                <p className="mt-2 col-11">
-                  ทำงานดี ออกแบบสวย โดนใจมากค่ะ บรีฟงานให้และออกแบบงานได้ถูกใจ
-                  งานดี งานสวย ทำงานมืออาชีพมากค่ะ พูดจาดี บริการรวดเร็ว ตอบไว
-                  และให้คำปรึกษาดีค่ะ เต็ม 100 ให้ 100 เต็ม 1,000 ให้ 1,000 ค่า
-                  แนะนำ มืออาชีพที่แท้ทรู
-                </p>
-              </div>
-              <div className="comment">
-                <div className="d-flex">
-                  <img src={userpic} alt="userpic"></img>
-                  <div className="mt-2 ml-3">
-                    <strong>Paphawinya oconer</strong>
-                    <div>12/02/21</div>
-                  </div>
-                </div>
-                <p className="mt-2 col-11">
-                  ทำงานดี ออกแบบสวย โดนใจมากค่ะ บรีฟงานให้และออกแบบงานได้ถูกใจ
-                  งานดี งานสวย ทำงานมืออาชีพมากค่ะ พูดจาดี บริการรวดเร็ว ตอบไว
-                  และให้คำปรึกษาดีค่ะ เต็ม 100 ให้ 100 เต็ม 1,000 ให้ 1,000 ค่า
-                  แนะนำ มืออาชีพที่แท้ทรู
-                </p>
-              </div>
+              {comment.length > 0
+                ? comment.map((comment, index) => {
+                    return (
+                      <div className="comment">
+                        <div className="d-flex pl-2 pt-2">
+                          <img
+                            src={comment.profile_pic}
+                            alt="userpic"
+                            width="50px"
+                            height="50px"
+                          ></img>
+                          <div className="mt-2 ml-3">
+                            <strong>
+                              {comment.name} {comment.surname}
+                            </strong>
+                            <div>{comment.create_date}</div>
+                          </div>
+                        </div>
+                        <p className="mt-2 col-11">{comment.comment}</p>
+                      </div>
+                    )
+                  })
+                : null}
             </div>
           </Col>
           <Col lg="4" className="mt-2">
