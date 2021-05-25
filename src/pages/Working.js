@@ -43,6 +43,7 @@ const items = [
 
 export default function Working(props) {
   const [work, setWork] = useState([])
+  const [star, setStar] = useState()
   const [item, setItem] = useState(items)
   const [comment, setComment] = useState([])
   const workid = props.match.params.workid
@@ -54,6 +55,8 @@ export default function Working(props) {
     let data = await fetch.data
     setWork(data.getidwork[0])
     setComment(data.getcomment)
+    setStar(data.getrating[0].rating)
+    console.log(data)
     const allpic = [
       { src: data.getidwork[0].pic1 },
       { src: data.getidwork[0].pic2 },
@@ -120,7 +123,6 @@ export default function Working(props) {
   return (
     <div className="working mt-3 mb-3">
       <div className="container">
-        {console.log(comment)}
         <Row>
           <Col lg="8" className="working-left pt-3">
             <h2>{work !== null && work.name}</h2>
@@ -316,11 +318,12 @@ export default function Working(props) {
                     </h5>
                   )}
                 </div>
+                {console.log(star)}
                 <div className="mt-3">
                   <h5>เรทติ้ง</h5>
                   <div className="">
                     <StarRatings
-                      rating={2.5}
+                      rating={star !== null ? star : 0}
                       starDimension="25px"
                       starSpacing="2px"
                       starRatedColor="#FFBF00"
