@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import ReactStars from 'react-rating-stars-component'
 import { useLocation } from 'react-router-dom'
+import { Row, Col } from 'reactstrap'
+import { Link } from 'react-router-dom'
+import swal from 'sweetalert'
 
 function useQuery() {
   return new URLSearchParams(useLocation().search)
@@ -43,6 +46,11 @@ export default function Sendreview() {
     setsendRating({ ...sendrating, [id]: value })
   }
   const handleButtonSubmit = async () => {
+    swal(
+      'ส่งความคิดเห็นและเรทติ้งเรียบร้อยสิ้นสุดการดำเนินงาน!',
+      'You clicked the button!',
+      'success'
+    )
     const fetch = await axios.post(
       'http://localhost:4000/work_transaction/changetosuccess',
       sendrating
@@ -51,33 +59,41 @@ export default function Sendreview() {
   }
   return (
     <div className="container">
-      <input
-        className="form-control"
-        type="text"
-        placeholder="แสดงความคิดเห็นเกี่ยวกับงาน"
-        onChange={handleInputChange}
-        id="comment"
-      ></input>
-      <span>
-        กรุณาให้เรทติ้ง :{' '}
-        <ReactStars
-          count={5}
-          onChange={ratingChanged}
-          size={24}
-          isHalf={true}
-          emptyIcon={<i className="far fa-star"></i>}
-          halfIcon={<i className="fa fa-star-half-alt"></i>}
-          fullIcon={<i className="fa fa-star"></i>}
-          activeColor="#ffd700"
-        />
-      </span>
-      <button
-        type="button"
-        className="col-3 regisfl2 mt-3"
-        onClick={handleButtonSubmit}
-      >
-        ส่งงานของคุณ
-      </button>
+      <Row className="sendreview">
+        <Col lg="12" className="mt-5">
+          <h1>กรุณาแสดงความคิดเห็น</h1>
+          <input
+            className="form-control mt-3"
+            type="text"
+            placeholder="คำแนะนำแสดงความคิดเห็นเกี่ยวกับการทำงานและผลงาน"
+            onChange={handleInputChange}
+            id="comment"
+          ></input>
+          <div className="d-flex">
+            <h2 className="mt-3">กรุณาให้เรทติ้งงาน : </h2>
+            <ReactStars
+              classNames="mt-3 ml-2"
+              count={5}
+              onChange={ratingChanged}
+              size={30}
+              isHalf={true}
+              emptyIcon={<i className="far fa-star"></i>}
+              halfIcon={<i className="fa fa-star-half-alt"></i>}
+              fullIcon={<i className="fa fa-star"></i>}
+              activeColor="#ffd700"
+            />
+          </div>
+          <Link to="/">
+            <button
+              type="button"
+              className="col-3 regisfl2 mt-5"
+              onClick={handleButtonSubmit}
+            >
+              ส่งงานของคุณ
+            </button>
+          </Link>
+        </Col>
+      </Row>
     </div>
   )
 }

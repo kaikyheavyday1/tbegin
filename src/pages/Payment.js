@@ -7,6 +7,8 @@ import logo from '../images/logo.png'
 import bank from '../images/payment/bank.png'
 import promptpaybank from '../images/payment/promptpaybank.png'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+import swal from 'sweetalert'
 
 function useQuery() {
   return new URLSearchParams(useLocation().search)
@@ -90,6 +92,11 @@ export default function Payment() {
     setUser(dataUser)
   }
   const handleButtonSubmit = async (e) => {
+    swal(
+      'ชำระเงินและอัพโหลดหลักฐานการโอนเงินเรียบร้อย!',
+      'You clicked the button!',
+      'success'
+    )
     const URL = await uploadImageToFirebase(pictures)
     const temp = {
       from_id: payment.from_id,
@@ -134,13 +141,15 @@ export default function Payment() {
               onChange={onDrop}
               withPreview={true}
             />
-            <button
-              type="button"
-              onClick={handleButtonSubmit}
-              className="textuplodepayment"
-            >
-              อัพโหลดใบเสร็จ
-            </button>
+            <Link to={`/Chat/${from_id}`}>
+              <button
+                type="button"
+                onClick={handleButtonSubmit}
+                className="textuplodepayment"
+              >
+                อัพโหลดใบเสร็จ
+              </button>
+            </Link>
           </div>
         </Col>
       </Row>

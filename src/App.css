@@ -305,7 +305,6 @@
 .regisfl2 {
   background-color: #00296b;
   color: #fff;
-  font-weight: bold;
   font-size: 25px;
   padding: 5px 10px;
   border-radius: 10px;
@@ -842,6 +841,7 @@
 .textuplodepayment {
   background-color: #00296b;
   border-radius: 10px;
+  color: #fff;
 }
 .paymentpage {
   background-color: #fff;
@@ -863,4 +863,39 @@
 }
 .textpayment {
   color: red;
+}
+
+/*end payment*/
+
+.sendwork {
+  background-color: #fff;
+  width: auto;
+  height: 500px;
+  text-align: center;
+}
+.sendwork .form-control {
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+}
+.sendwork h1 {
+  color: #00296b;
+}
+
+/*end sendwork*/
+
+.sendreview {
+  background-color: #fff;
+  width: auto;
+  height: 500px;
+  text-align: center;
+}
+.sendreview .form-control {
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+}
+.sendreview h1,
+h2 {
+  color: #00296b;
 }

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useLocation } from 'react-router-dom'
+import { Row, Col } from 'reactstrap'
+import { Link } from 'react-router-dom'
+import swal from 'sweetalert'
 
 function useQuery() {
   return new URLSearchParams(useLocation().search)
@@ -35,24 +38,34 @@ export default function Sendwork() {
   }
   const handleButtonSubmit = async (e) => {
     console.log(working)
+    swal('ส่งงานเสร็จสิ้น!', 'You clicked the button!', 'success')
     const fetch = await axios.post(
       'http://localhost:4000/work_transaction/changetoreview',
       working
     )
     const data = await fetch.data
   }
-
   return (
     <div className="container">
-      <input className="form-control" type="text" placeholder=""></input>
-
-      <button
-        type="button"
-        className="col-3 regisfl2 mt-3"
-        onClick={handleButtonSubmit}
-      >
-        ส่งงานของคุณ
-      </button>
+      <Row className="sendwork">
+        <Col lg="12" className="mt-5">
+          <h1 className="mt-5">กรุณาใส่ลิงค์ส่งงานของคุณ</h1>
+          <input
+            className="form-control mt-3"
+            type="text"
+            placeholder="คำแนะนำควรใส่เป็นลิงค์ GoogleDrive"
+          ></input>
+          <Link to={`/Chat/${from_id}`}>
+            <button
+              type="button"
+              className="col-3 regisfl2 mt-3"
+              onClick={handleButtonSubmit}
+            >
+              ส่งงานของคุณ
+            </button>
+          </Link>
+        </Col>
+      </Row>
     </div>
   )
 }
