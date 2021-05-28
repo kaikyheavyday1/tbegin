@@ -29,6 +29,7 @@ import Anotherprofile from './pages/Anotherprofile'
 import Payment from './pages/Payment'
 import Sendwork from './pages/Sendwork'
 import Sendreview from './pages/Sendreview'
+import Admin from './pages/Admin'
 let socket
 let ENDPOINT = 'localhost:4000'
 
@@ -87,6 +88,7 @@ function App() {
         <Route path="/Payment" component={Payment} />
         <Route path="/Sendwork" component={Sendwork} />
         <Route path="/Sendreview" component={Sendreview} />
+        <Route path="/Admin" component={Admin} />
         <Route component={Error} />
       </Switch>
       <Footer />

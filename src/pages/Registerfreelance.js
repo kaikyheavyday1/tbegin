@@ -403,16 +403,17 @@ export default function Registerfreelance() {
                   />
                 </div>
               </div>
-              <span style={{ color: "red" }}>{error ? error : ""}</span>
+              <span style={{ color: 'red' }}>{error ? error : ''}</span>
               <div className="text-center">
-                <button
-                  type="button"
-                  onClick={handleButtonSubmit}
-                  className="col-3 regisfl2 mt-3 "
-                >
-                  บันทึก
-                </button>
-                
+                <Link to="/">
+                  <button
+                    type="button"
+                    onClick={handleButtonSubmit}
+                    className="col-3 regisfl2 mt-3 "
+                  >
+                    บันทึก
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
