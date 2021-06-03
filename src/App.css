@@ -104,6 +104,7 @@
   padding: 0px !important;
   border: 0px !important;
   border-radius: 20px !important;
+  position: relative;
 }
 .notimenu {
   width: 260px;
@@ -112,6 +113,8 @@
   min-height: 360px;
   max-height: 360px;
   overflow-y: auto;
+  position: absolute !important;
+  left: -100px !important;
 }
 /* end nav  */
 

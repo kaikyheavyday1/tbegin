@@ -69,7 +69,11 @@ export default function Chat(props) {
                     },
                   }
                 )
-                swalWithBootstrapButtons.fire('คุณได้ตอบรับงานแล้ว', 'success')
+                swalWithBootstrapButtons.fire(
+                  'คุณได้ตอบรับงานแล้ว',
+                  'เริ่มทำงานได้',
+                  'success'
+                )
               } else if (result.dismiss === Swal.DismissReason.cancel) {
                 const fetch = await axios.get(
                   `http://localhost:4000/work_transaction/cancelwork?from_id=${userID}&&workid=${data[0].work_id}`,

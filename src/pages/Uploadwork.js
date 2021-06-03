@@ -3,6 +3,7 @@ import { Row, Col } from 'reactstrap'
 import ImageUploader from 'react-images-upload'
 import axios from 'axios'
 import firebase from 'firebase'
+import swal from 'sweetalert'
 
 let workstate = {
   work_type: null,
@@ -156,6 +157,10 @@ export default function Uploadwork() {
     )
     const data = await upload.data
     console.log(data)
+    if (data.status) {
+      swal('อัพโหลดผลงานสำเร็จ', 'You clicked the button!', 'success')
+      window.location.href = 'http://localhost:3000/'
+    }
   }
   const onDrop = (picture) => {
     setPictures([...pictures, picture])
