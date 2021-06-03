@@ -29,6 +29,7 @@ import Anotherprofile from './pages/Anotherprofile'
 import Payment from './pages/Payment'
 import Sendwork from './pages/Sendwork'
 import Sendreview from './pages/Sendreview'
+import Admin from './pages/Admin'
 import Getuser from './pages/Getuser'
 import Getfreelance from './pages/Getfreelance'
 import Getwork from './pages/Getwork'
@@ -91,6 +92,7 @@ function App() {
         <Route path="/Payment" component={Payment} />
         <Route path="/Sendwork" component={Sendwork} />
         <Route path="/Sendreview" component={Sendreview} />
+        <Route path="/Admin" component={Admin} />
         <Route path="/Getuser" component={Getuser} />
         <Route path="/Getfreelance" component={Getfreelance} />
         <Route path="/Getwork" component={Getwork} />

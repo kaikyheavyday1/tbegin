@@ -159,6 +159,7 @@
   background-color: #00296b;
   color: #fff;
   border-radius: 10px;
+  padding: 5px;
   border: none;
 }
 .carousel-control-prev-icon {
@@ -898,4 +899,7 @@
 .sendreview h1,
 h2 {
   color: #00296b;
+}
+.adminpage {
+  padding-bottom: 250px;
 }

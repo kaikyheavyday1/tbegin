@@ -9,10 +9,6 @@ import {
   DropdownMenu,
   Table,
 } from 'reactstrap'
-import Getuser from '../component/Getuser'
-import Getfreelance from '../component/Getfreelance'
-import Getwork from '../component/Getwork'
-import Getworkstatus from '../component/Getworkstatus'
 
 export default function Admin() {
   const [dropdownOpen, setDropdownOpen] = useState(false)
@@ -20,18 +16,24 @@ export default function Admin() {
   return (
     <div className="container">
       <h1>Admin</h1>
-      <h3>Getuser</h3>
       <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-        <DropdownToggle caret>Get User</DropdownToggle>
+        <DropdownToggle caret>เลือก</DropdownToggle>
         <DropdownMenu>
-          <DropdownItem>Get Freelance</DropdownItem>
-          <DropdownItem>Get Work</DropdownItem>
-          <DropdownItem>Get Work Status</DropdownItem>
+          <DropdownItem>
+            <Link to="Getuser">Get User</Link>
+          </DropdownItem>
+          <DropdownItem>
+            <Link to="Getfreelance">Get Freelance</Link>
+          </DropdownItem>
+          <DropdownItem>
+            <Link to="Getwork">Get Work</Link>
+          </DropdownItem>
+          <DropdownItem>
+            <Link to="Getworkstatus">Get Work Status</Link>
+          </DropdownItem>
         </DropdownMenu>
       </Dropdown>
-      <div>
-        <Getuser></Getuser>
-      </div>
+      <div className="adminpage"></div>
     </div>
   )
 }
