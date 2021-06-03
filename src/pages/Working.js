@@ -53,6 +53,7 @@ export default function Working(props) {
       `http://localhost:4000/work/get-work?workid=${workid}`
     )
     let data = await fetch.data
+    console.log(data)
     setWork(data.getidwork[0])
     setComment(data.getcomment)
     setStar(data.getrating[0].rating)
@@ -318,7 +319,6 @@ export default function Working(props) {
                     </h5>
                   )}
                 </div>
-                {console.log(star)}
                 <div className="mt-3">
                   <h5>เรทติ้ง</h5>
                   <div className="">
