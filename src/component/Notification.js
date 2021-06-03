@@ -50,7 +50,6 @@ export default function Notification(props) {
       <DropdownToggle className="noti-dropdown">
         <NavLink className="nav-link-img2">
           <img src={noti} alt="noti" height="25px" className="mt-1" />
-          <span className="badge2">3</span>
         </NavLink>
       </DropdownToggle>
       <DropdownMenu className="notimenu">

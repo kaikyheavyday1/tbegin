@@ -107,7 +107,6 @@ class Header extends Component {
               <DropdownItem>
                 <Link to="/uploadwork">ลงผลงาน</Link>
               </DropdownItem>
-              <DropdownItem>ข้อความ</DropdownItem>
               <DropdownItem>
                 <a href="" onClick={this.Logout}>
                   ออกจากระบบ

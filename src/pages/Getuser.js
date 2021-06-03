@@ -9,6 +9,8 @@ import {
 import { useLocation } from 'react-router-dom'
 import axios from 'axios'
 export default function Getuser() {
+  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const toggle = () => setDropdownOpen((prevState) => !prevState)
   const [user, setUser] = useState([])
   const getAlluser = async () => {
     const fetch = await axios.get(`http://localhost:4000/admin/get-user`)

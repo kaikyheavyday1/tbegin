@@ -20,6 +20,7 @@ export default function Admin() {
   return (
     <div className="container">
       <h1>Admin</h1>
+      <h3>Getuser</h3>
       <Dropdown isOpen={dropdownOpen} toggle={toggle}>
         <DropdownToggle caret>Get User</DropdownToggle>
         <DropdownMenu>
@@ -29,7 +30,7 @@ export default function Admin() {
         </DropdownMenu>
       </Dropdown>
       <div>
-        <Getworkstatus></Getworkstatus>
+        <Getuser></Getuser>
       </div>
     </div>
   )

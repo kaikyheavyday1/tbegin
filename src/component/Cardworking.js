@@ -47,14 +47,6 @@ export default function Cardworking(props) {
             <CardText className="text-left mt-5">
               ราคา {props.data.price} ฿
             </CardText>
-            <div className="col-8 star">
-              <StarRatings
-                rating={2.5}
-                starDimension="25px"
-                starSpacing="2px"
-                starRatedColor="#FFBF00"
-              />
-            </div>
           </CardBody>
         </Card>
       </div>

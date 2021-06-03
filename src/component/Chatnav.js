@@ -19,7 +19,6 @@ export default function Chatnav() {
     <NavLink className="nav-link-img1">
       <Link to="/chat/$">
         <img src={chat} alt="noti" height="25px" className="" />
-        <span className="badge1">1</span>
       </Link>
     </NavLink>
   )
