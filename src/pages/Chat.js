@@ -69,11 +69,7 @@ export default function Chat(props) {
                     },
                   }
                 )
-                swalWithBootstrapButtons.fire(
-                  'Deleted!',
-                  'Your file has been deleted.',
-                  'success'
-                )
+                swalWithBootstrapButtons.fire('คุณได้ตอบรับงานแล้ว', 'success')
               } else if (result.dismiss === Swal.DismissReason.cancel) {
                 const fetch = await axios.get(
                   `http://localhost:4000/work_transaction/cancelwork?from_id=${userID}&&workid=${data[0].work_id}`,

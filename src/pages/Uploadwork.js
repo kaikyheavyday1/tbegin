@@ -26,7 +26,7 @@ export default function Uploadwork() {
   const [subwork, setSubwork] = useState([])
   const [pictures, setPictures] = useState([])
   const [user, setUser] = useState({})
-  const [error, setError] = useState("")
+  const [error, setError] = useState('')
 
   var firebaseConfig = {
     apiKey: 'AIzaSyB7Sf2IziovxdmlTMUKpE8RVfkP_RuVxqU',
@@ -46,8 +46,6 @@ export default function Uploadwork() {
     setMainwork(data)
     getUserProfile()
   }, [])
-
- 
 
   const getUserProfile = async () => {
     const fetch = await axios.get('http://localhost:4000/profile', {
@@ -71,31 +69,30 @@ export default function Uploadwork() {
   }
 
   const Validate = () => {
-    if (work.work_type === "" || work.work_type === null) {
-      setError("คุณยังไม่ได้เลือกประเภทงาน");
-      return false;
-    } else if (work.name === "" || work.name === null) {
-      setError("คุณยังไม่ได้ตั้งชื่อผลงาน");
-      return false;
-    } else if (work.description === "" || work.description === null) {
-      setError("คุณยังไม่ได้กรอกรายละเอียดผลงาน");
-      return false;
-    } else if (
-      work.main_description === "" || work.main_description === null) {
-      setError("คุณยังไม่ได้กรอกสิ่งที่ลูกค้าจะได้รับ");
-      return false;
-    } else if (work.price === "" || work.price === null) {
-      setError("คุณยังไม่ได้กำหนดราคางานของคุณ");
-      return false;
-    } else if (work.work_time === "" || work.work_time === null) {
-      setError("คุณยังไม่ได้กำหนดเวลาทำงานของคุณ");
-      return false;
-    } else if (work.mainwork_type === "" || work.mainwork_type === null) {
-      setError("คุณยังไม่ได้เลือกหมวดหมู่งานของคุณ");
-      return false;
+    if (work.work_type === '' || work.work_type === null) {
+      setError('คุณยังไม่ได้เลือกประเภทงาน')
+      return false
+    } else if (work.name === '' || work.name === null) {
+      setError('คุณยังไม่ได้ตั้งชื่อผลงาน')
+      return false
+    } else if (work.description === '' || work.description === null) {
+      setError('คุณยังไม่ได้กรอกรายละเอียดผลงาน')
+      return false
+    } else if (work.main_description === '' || work.main_description === null) {
+      setError('คุณยังไม่ได้กรอกสิ่งที่ลูกค้าจะได้รับ')
+      return false
+    } else if (work.price === '' || work.price === null) {
+      setError('คุณยังไม่ได้กำหนดราคางานของคุณ')
+      return false
+    } else if (work.work_time === '' || work.work_time === null) {
+      setError('คุณยังไม่ได้กำหนดเวลาทำงานของคุณ')
+      return false
+    } else if (work.mainwork_type === '' || work.mainwork_type === null) {
+      setError('คุณยังไม่ได้เลือกหมวดหมู่งานของคุณ')
+      return false
     }
-    return true;
-  };
+    return true
+  }
 
   const getMainwork = async () => {
     const fetch = await axios.get(
@@ -127,8 +124,8 @@ export default function Uploadwork() {
   }
 
   const handleButtonSubmit = async (e) => {
-    const validate = Validate();
-    if (!validate) return 0;
+    const validate = Validate()
+    if (!validate) return 0
     const lastPicArray = pictures[pictures.length - 1]
     if (lastPicArray.length !== 6) {
       alert('รูปต้องมี 6 รูปครับ')
@@ -195,8 +192,8 @@ export default function Uploadwork() {
         <div className="in-uploadwork col-10 pb-3 mx-auto">
           <h1 className="text-center mt-5 editwork-bold">ลงผลงาน</h1>
           <div>
-            <h2 className = "editwork-bold">เลือกหมวดหมู่งาน</h2>
-            <hr color = "#00296b"></hr>
+            <h2 className="editwork-bold">เลือกหมวดหมู่งาน</h2>
+            <hr color="#00296b"></hr>
             <Row>
               <Col lg="6">
                 <div className="form-group">
@@ -243,8 +240,8 @@ export default function Uploadwork() {
                 </div>
               </Col>
             </Row>
-            <h2 className = "editwork-bold">รายละเอียดของงาน</h2>
-            <hr color = "#00296b"></hr>
+            <h2 className="editwork-bold">รายละเอียดของงาน</h2>
+            <hr color="#00296b"></hr>
             <div className="form-group">
               <label for="inputwork" class="form-label">
                 ชื่องาน
@@ -270,8 +267,8 @@ export default function Uploadwork() {
                 onChange={handleInputChange}
               />
             </div>
-            <h2 className = "editwork-bold">รูปผลงานของคุณ</h2>
-            <hr color = "#00296b"></hr>
+            <h2 className="editwork-bold">รูปผลงานของคุณ</h2>
+            <hr color="#00296b"></hr>
             <div className="form-group">
               <p>อัพโหลดรูปภาพของคุณ (จำกัดสูงสุดไม่เกิน 6 รูป)</p>
               <ImageUploader
@@ -281,7 +278,7 @@ export default function Uploadwork() {
               />
             </div>
             <h2 className="mt-5 editwork-bold">กำหนดราคาและเวลาส่งงาน</h2>
-            <hr color = "#00296b"></hr>
+            <hr color="#00296b"></hr>
             <div className="form-group">
               <label for="inputmain-des" class="form-label">
                 สิ่งที่ลูกค้าจะได้รับจากงานของคุณ
@@ -324,7 +321,7 @@ export default function Uploadwork() {
               </Col>
             </Row>
           </div>
-          <span style={{ color: "red" }}>{error ? error : ""}</span>
+          <span style={{ color: 'red' }}>{error ? error : ''}</span>
           <div className="btn-aboutus mt-3 text-center">
             <button
               type="button"
@@ -333,7 +330,6 @@ export default function Uploadwork() {
             >
               อัพโหลดผลงาน
             </button>
-            
           </div>
         </div>
       </div>

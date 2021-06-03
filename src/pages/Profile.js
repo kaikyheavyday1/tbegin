@@ -52,11 +52,14 @@ export default function Profile(props) {
 
   const inProfile = async (e) => {
     setLoading(true)
-    const fetch = await axios.get('http://localhost:4000/profile', {
-      headers: {
-        Authorization: 'Bearer ' + localStorage.getItem('access-token'), //the token is a variable which holds the token
-      },
-    })
+    const fetch = await axios.get(
+      'http://localhost:4000/profile/getprofileandstar',
+      {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('access-token'), //the token is a variable which holds the token
+        },
+      }
+    )
     let data = await fetch.data
     console.log(data)
     setUser(data.getUserbyID[0])
