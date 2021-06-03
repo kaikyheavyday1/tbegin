@@ -26,9 +26,9 @@ let initState = {
 }
 
 export default function Profile(props) {
-  console.log(props)
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState([])
   const [userWork, setUserWork] = useState([])
+  const [star, setStar] = useState()
   const [workid] = useState(initState)
   const [loading, setLoading] = useState(false)
   useEffect(() => {
@@ -58,14 +58,16 @@ export default function Profile(props) {
       },
     })
     let data = await fetch.data
-    data = data[0]
-    setUser(data)
+    console.log(data)
+    setUser(data.getUserbyID[0])
+    setStar(data.getRating[0].rating)
     setLoading(false)
   }
 
   return (
     <div className="profile mb-5">
       {loading ? <Loading /> : null}
+      {console.log(star)}
       <div className="container">
         <Row className="mt-5">
           <Col lg="4" md="12" sm="12" xs="12" className="profile-info">
@@ -95,18 +97,12 @@ export default function Profile(props) {
                   </button>
                 </Link>
               </div>
-              <div className="mt-3">
-                {user !== null && (
-                  <h5>
-                    สมัครสมาชิกเมื่อ {user.create_date.toString().split('T')[0]}
-                  </h5>
-                )}
-              </div>
+              <div className="mt-3">{user !== null && <h5></h5>}</div>
               <div className="star d-flex">
                 <h3 className="mr-2">เรทติ้ง : </h3>
                 <div className="mt-1">
                   <StarRatings
-                    rating={2.5}
+                    rating={star !== null ? star : 0}
                     starDimension="25px"
                     starSpacing="2px"
                     starRatedColor="#FFBF00"
@@ -142,7 +138,6 @@ export default function Profile(props) {
                 <Row className="testing">
                   {userWork.length > 0 &&
                     userWork.map((work, index) => {
-                      console.log(work)
                       return (
                         <Col
                           lg="6"
